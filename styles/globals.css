@@ -1,26 +1,111 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .buttom-xs {
+    @apply px-2 h-7 text-xs text-white rounded-l-md flex items-center justify-center gap-2 select-none font-semibold;
   }
-  body {
-    color: white;
-    background: black;
+  .buttom-sm {
+    @apply px-3 h-8 text-sm text-white justify-center rounded-l-md flex items-center gap-2 select-none font-semibold;
+  }
+  .buttom-md {
+    @apply px-4 h-10 text-white rounded-l-md flex justify-center items-center gap-2 select-none font-semibold;
+  }
+  .buttom-lg {
+    @apply px-5 h-12 text-lg text-white rounded-l-md flex justify-center items-center gap-2 select-none font-semibold;
+  }
+  .buttom-disabled {
+    @apply opacity-40 pointer-events-none select-none;
+  }
+  .buttom-full {
+    @apply w-full;
+  }
+  .buttom-fit {
+    @apply w-fit;
+  }
+  .icon-buttom-xs {
+    @apply w-7 h-7 rounded-full flex items-center justify-center;
+  }
+
+  .icon-buttom-sm {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-lg;
+  }
+
+  .icon-buttom-md {
+    @apply w-10 h-10 rounded-full flex items-center justify-center text-2xl;
+  }
+
+  .icon-buttom-lg {
+    @apply w-12 h-12 rounded-full flex items-center justify-center text-3xl;
+  }
+
+  .buttom-blue {
+    @apply bg-marinho-500 text-white hover:bg-marinho-600 active:bg-marinho-500 focus:outline-none focus:ring-1 focus:ring-marinho-300;
+  }
+
+  .buttom-green {
+    @apply bg-green-700 text-white hover:bg-green-800 active:bg-green-700 focus:outline-none focus:ring-1 focus:ring-green-500;
+  }
+
+  .buttom-red {
+    @apply bg-red-700 text-white hover:bg-red-800 active:bg-red-700 focus:outline-none focus:ring-1 focus:ring-red-500;
+  }
+
+  .buttom-yellow {
+    @apply bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-400;
+  }
+
+  .buttom-gray {
+    @apply bg-zinc-700 text-white hover:bg-zinc-800 active:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-500;
+  }
+
+  .buttom-blue-outline {
+    @apply border border-marinho-500 text-marinho-600 hover:bg-marinho-50 active:bg-marinho-100 focus:outline-none focus:ring-1 focus:ring-marinho-300;
+  }
+
+  .buttom-green-outline {
+    @apply border border-green-700 text-green-700 hover:bg-green-50 active:bg-green-100 focus:outline-none focus:ring-1 focus:ring-green-500;
+  }
+
+  .buttom-yellow-outline {
+    @apply border border-orange-500 text-orange-500 hover:bg-orange-50 active:bg-orange-100 focus:outline-none focus:ring-1 focus:ring-orange-300;
+  }
+
+  .buttom-red-outline {
+    @apply border border-red-700 text-red-700 hover:bg-red-50 active:bg-red-100 focus:outline-none focus:ring-1 focus:ring-red-500;
+  }
+
+  .menu-items {
+    @apply flex w-full lg:w-fit items-center gap-2 text-marinho-500 font-semibold h-12 rounded-md lg:rounded-none lg:h-16 hover:bg-marinho-500 hover:text-white active:bg-marinho-600 select-none px-3 cursor-pointer focus:outline-none focus:bg-marinho-500;
+  }
+
+  .menu-items-sim {
+    @apply flex w-full lg:w-fit items-center gap-2 text-white font-semibold h-12 rounded-md lg:rounded-none lg:h-16 bg-orange-500 hover:bg-orange-600 active:bg-orange-500 select-none px-3 cursor-pointer focus:outline-none focus:bg-orange-500;
+  }
+
+  .Content {
+    @apply mr-5 w-[250px] pt-2 pb-4 px-2 mx-auto z-50 transition-all bg-white rounded-md shadow-lg border relative overflow-auto focus:outline-none;
+  }
+
+  .Content[data-state="open"] {
+    animation: slideUpAndFade 0.1s linear;
+  }
+
+  @keyframes slideUpAndFade {
+    from {
+      opacity: 0;
+      transform: translateY(9px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .Arrow {
+    @apply text-white fill-current dark:text-zinc-700;
   }
 }
