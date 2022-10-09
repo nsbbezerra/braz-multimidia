@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        jumbotronIndex: "url('../public/img/home/jumbo.jpg')",
+      },
       fontFamily: {
         sans: ["Roboto", "sans-serif"],
       },

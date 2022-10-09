@@ -108,4 +108,11 @@
   .Arrow {
     @apply text-white fill-current dark:text-zinc-700;
   }
+
+  .card-action-button {
+    @apply w-full flex items-center justify-center text-sm p-1 md:p-2 text-white md:font-semibold cursor-pointer bg-marinho-500 rounded-full mt-1 hover:bg-marinho-700 active:bg-marinho-500 focus:outline-none focus:ring-1 focus:ring-marinho-300 select-none;
+  }
+  .card {
+    @apply border shadow rounded-md overflow-hidden h-fit;
+  }
 }

@@ -40,7 +40,7 @@ export default function Header() {
 
   return (
     <Fragment>
-      <header className="w-full sticky top-0 min-h-fit shadow-md bg-white z-10">
+      <header className="w-full sticky top-0 min-h-fit shadow-md bg-white z-20">
         <div className="container mx-auto px-5 xl:px-0 max-w-6xl flex items-center justify-between h-16">
           <Link href={"/"} passHref>
             <a className="w-fit flex">
