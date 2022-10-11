@@ -43,7 +43,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className="w-full py-12 flex flex-col items-center text-center">
-          <strong className="text-marinho-500 text-3xl md:text-4xl font-extrabold">
+          <strong className="text-marinho-500 text-3xl md:text-4xl font-bold font-serif">
             VEJA NOSSOS MODELOS
           </strong>
           <span className="text-sm md:text-base">
@@ -99,27 +99,178 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="w-full relative py-16 bg-marinho-500 bg-jumbotronIndex bg-cover bg-center bg-no-repeat">
-        <div className="container mx-auto px-5 xl:px-0 max-w-6xl text-center text-white text-xl font-bold">
-          <strong className="text-white font-black text-3xl text-center w-full block mb-10">
-            QUEM SOMOS
-          </strong>
+      <section className="w-full relative bg-marinho-500 bg-jumbotronIndex bg-cover bg-center bg-no-repeat">
+        <div className="bg-gradient-to-b from-black to-transparent bg-opacity-50 py-16">
+          <div className="container mx-auto px-5 xl:px-0 max-w-6xl text-center text-white text-lg sm:text-xl md:text-3xl font-semibold font-mono">
+            <strong className="text-white font-black text-3xl md:text-4xl text-center w-full block mb-10">
+              QUEM SOMOS
+            </strong>
 
-          <p className="mb-5">
-            A Braz Multimídia é uma empresa especializada na fabricação e
-            comercialização de uniformes.
-          </p>
-          <p className="mb-5">
-            Com fábricas situadas na região de Brasília - DF, a Braz Multimídia
-            atua em todo o território brasileiro e veste diversas empresas,
-            eventos, times, alunos e etc, no país.
-          </p>
-          <p className="mb-96">
-            A qualidade estampada em nossos produtos é resultado de um constante
-            trabalho de pesquisa que busca inovações, tecnologias e tendências
-            do mercado, para que, interagindo com os clientes, possamos oferecer
-            o que há de melhor em uniformes e personalizados no Brasil.
-          </p>
+            <p className="mb-3">
+              A Braz Multimídia é uma empresa especializada na fabricação e
+              comercialização de uniformes.
+            </p>
+            <p className="mb-3">
+              Com fábricas situadas na região de Brasília - DF, a Braz
+              Multimídia atua em todo o território brasileiro e veste diversas
+              empresas, eventos, times, alunos e etc, no país.
+            </p>
+            <p>
+              A qualidade estampada em nossos produtos é resultado de um
+              constante trabalho de pesquisa que busca inovações, tecnologias e
+              tendências do mercado, para que, interagindo com os clientes,
+              possamos oferecer o que há de melhor em uniformes e personalizados
+              no Brasil.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-10 px-3 md:px-10 mt-10">
+              <div className="w-full overflow-hidden rounded-md">
+                <Image
+                  src="/img/home/textil_one.jpg"
+                  width={778}
+                  height={583}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="w-full overflow-hidden rounded-md">
+                <Image
+                  src="/img/home/textil_two.jpg"
+                  width={778}
+                  height={583}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-5 xl:px-0 max-w-6xl pb-16">
+          <strong className="w-full block text-white text-center text-xl sm:text-2xl md:text-3xl">
+            VEJA PASSO A PASSO
+          </strong>
+          <span className="w-full block text-white text-center text-base sm:text-lg md:text-xl">
+            DESDE O MOMENTO DA ESCOLHA ATÉ O RECEBIMENTO EM SUA CASA
+          </span>
+
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 sm:divide-x">
+            <div className="p-3 flex items-center flex-col relative">
+              <div className="w-[200px] sm:w-1/2">
+                <Image
+                  src="/img/home/t-shirts.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <span className="text-center text-sm text-white">
+                VOCÊ ESCOLHE O MODELO OU NOS ENVIA AS INFORMAÇÕES
+              </span>
+              <a className="text-orange-500 font-semibold mt-2 hover:underline cursor-pointer">
+                Nossos modelos
+              </a>
+              <a className="text-orange-500 font-semibold hover:underline cursor-pointer">
+                Catálogos
+              </a>
+            </div>
+            <div className="p-3 flex items-center flex-col relative">
+              <div className="w-[30px] absolute -left-2 top-10">
+                <Image
+                  src="/img/home/arrow.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="w-[200px] sm:w-1/2">
+                <Image
+                  src="/img/home/balon.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <span className="text-center text-sm text-white">
+                ALINHA SEU PEDIDO COM UM CONSULTOR
+              </span>
+              <a className="text-orange-500 font-semibold mt-2 hover:underline cursor-pointer">
+                Fale conosco
+              </a>
+            </div>
+            <div className="p-3 flex items-center flex-col relative">
+              <div className="w-[30px] absolute -left-2 top-10">
+                <Image
+                  src="/img/home/arrow.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="w-[200px] sm:w-1/2">
+                <Image
+                  src="/img/home/card.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <span className="text-center text-sm text-white">
+                EFETUA O PAGAMENTO
+              </span>
+              <span className="text-center text-sm text-white">
+                Via cartão de crédito ou depósito bancário
+              </span>
+            </div>
+            <div className="p-3 flex items-center flex-col relative">
+              <div className="w-[30px] absolute -left-2 top-10">
+                <Image
+                  src="/img/home/arrow.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="w-[200px] sm:w-1/2">
+                <Image
+                  src="/img/home/cut.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <span className="text-center text-sm text-white">
+                PRODUZIMOS E PREPARAMOS SEU PEDIDO
+              </span>
+            </div>
+            <div className="p-3 flex items-center flex-col relative">
+              <div className="w-[30px] absolute -left-2 top-10">
+                <Image
+                  src="/img/home/arrow.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="w-[200px] sm:w-[90%]">
+                <Image
+                  src="/img/home/brazil.svg"
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </Fragment>

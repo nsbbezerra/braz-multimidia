@@ -10,7 +10,9 @@ module.exports = {
         jumbotronIndex: "url('../public/img/home/jumbo.jpg')",
       },
       fontFamily: {
-        sans: ["Roboto", "sans-serif"],
+        sans: ["Futura PT", "sans-serif"],
+        serif: ["Berlin Sans FB Demi", "sans-serif"],
+        mono: ["Futura Condensed PT", "sans-serif"],
       },
       colors: {
         marinho: {
