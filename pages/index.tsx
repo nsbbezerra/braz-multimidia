@@ -3,6 +3,7 @@ import Image from "next/image";
 import { CircleWavyCheck } from "phosphor-react";
 import { Fragment } from "react";
 import Cards from "../components/layout/Cards";
+import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
 import Panel from "../components/layout/Panel";
@@ -99,6 +100,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
+
       <section className="w-full relative bg-marinho-500 bg-jumbotronIndex bg-cover bg-center bg-no-repeat">
         <div className="bg-gradient-to-b from-black to-transparent bg-opacity-50 py-16">
           <div className="container mx-auto px-5 xl:px-0 max-w-6xl text-center text-white text-lg sm:text-xl md:text-3xl font-semibold font-mono">
@@ -154,9 +156,9 @@ const Home: NextPage = () => {
             DESDE O MOMENTO DA ESCOLHA ATÉ O RECEBIMENTO EM SUA CASA
           </span>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 sm:divide-x">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 divide-x">
             <div className="p-3 flex items-center flex-col relative">
-              <div className="w-[200px] sm:w-1/2">
+              <div className="w-1/2">
                 <Image
                   src="/img/home/t-shirts.svg"
                   width={400}
@@ -185,7 +187,7 @@ const Home: NextPage = () => {
                   alt="Braz Multimidia"
                 />
               </div>
-              <div className="w-[200px] sm:w-1/2">
+              <div className="w-1/2">
                 <Image
                   src="/img/home/balon.svg"
                   width={400}
@@ -211,7 +213,7 @@ const Home: NextPage = () => {
                   alt="Braz Multimidia"
                 />
               </div>
-              <div className="w-[200px] sm:w-1/2">
+              <div className="w-1/2">
                 <Image
                   src="/img/home/card.svg"
                   width={400}
@@ -237,7 +239,7 @@ const Home: NextPage = () => {
                   alt="Braz Multimidia"
                 />
               </div>
-              <div className="w-[200px] sm:w-1/2">
+              <div className="w-1/2">
                 <Image
                   src="/img/home/cut.svg"
                   width={400}
@@ -260,7 +262,7 @@ const Home: NextPage = () => {
                   alt="Braz Multimidia"
                 />
               </div>
-              <div className="w-[200px] sm:w-[90%]">
+              <div className="w-[60%] sm:w-[90%]">
                 <Image
                   src="/img/home/brazil.svg"
                   width={400}
@@ -273,6 +275,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </Fragment>
   );
 };

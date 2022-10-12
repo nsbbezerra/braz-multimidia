@@ -77,11 +77,11 @@
   }
 
   .menu-items {
-    @apply flex w-full lg:w-fit items-center gap-2 text-marinho-500 font-semibold h-12 rounded-md lg:rounded-none lg:h-16 hover:bg-marinho-500 hover:text-white active:bg-marinho-600 select-none px-3 cursor-pointer focus:outline-none focus:bg-marinho-500;
+    @apply flex w-full lg:w-fit items-center gap-2 text-marinho-500 font-semibold h-12 rounded-md lg:rounded-none lg:h-16 hover:bg-marinho-500 hover:text-white active:bg-marinho-600 select-none px-4 cursor-pointer focus:outline-none focus:bg-marinho-500;
   }
 
   .menu-items-sim {
-    @apply flex w-full lg:w-fit items-center gap-2 text-white font-semibold h-12 rounded-md lg:rounded-none lg:h-16 bg-orange-500 hover:bg-orange-600 active:bg-orange-500 select-none px-3 cursor-pointer focus:outline-none focus:bg-orange-500;
+    @apply flex w-full lg:w-fit items-center gap-2 text-white font-semibold h-12 rounded-md lg:rounded-none lg:h-16 bg-orange-500 hover:bg-orange-600 active:bg-orange-500 select-none px-4 cursor-pointer focus:outline-none focus:bg-orange-500;
   }
 
   .Content {

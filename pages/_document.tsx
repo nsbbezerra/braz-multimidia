@@ -6,12 +6,14 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
-            href="http://fonts.cdnfonts.com/css/berlin-sans-fb-demi"
-            rel="stylesheet"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
           />
           <link
-            href="http://fonts.cdnfonts.com/css/futura-condensed-pt"
+            href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Signika:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
           />
         </Head>
