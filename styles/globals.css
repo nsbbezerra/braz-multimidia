@@ -4,16 +4,16 @@
 
 @layer components {
   .buttom-xs {
-    @apply px-2 h-7 text-xs text-white rounded-l-md flex items-center justify-center gap-2 select-none font-semibold;
+    @apply px-2 h-7 text-xs text-white rounded-full flex items-center justify-center gap-2 select-none font-semibold;
   }
   .buttom-sm {
-    @apply px-3 h-8 text-sm text-white justify-center rounded-l-md flex items-center gap-2 select-none font-semibold;
+    @apply px-3 h-8 text-sm text-white justify-center rounded-full flex items-center gap-2 select-none font-semibold;
   }
   .buttom-md {
-    @apply px-4 h-10 text-white rounded-l-md flex justify-center items-center gap-2 select-none font-semibold;
+    @apply px-4 h-10 text-white rounded-full flex justify-center items-center gap-2 select-none font-semibold;
   }
   .buttom-lg {
-    @apply px-5 h-12 text-lg text-white rounded-l-md flex justify-center items-center gap-2 select-none font-semibold;
+    @apply px-5 h-12 text-lg text-white rounded-full flex justify-center items-center gap-2 select-none font-semibold;
   }
   .buttom-disabled {
     @apply opacity-40 pointer-events-none select-none;
@@ -124,7 +124,7 @@
   }
 
   .card-action-button-orange {
-    @apply w-full flex items-center justify-center text-sm p-1 md:p-2 text-white md:font-semibold cursor-pointer bg-orange-500 rounded-full mt-1 hover:bg-orange-700 active:bg-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-300 select-none;
+    @apply w-full flex items-center justify-center text-sm p-1 md:p-2 text-white md:font-semibold cursor-pointer bg-orange-500 rounded-full mt-1 hover:bg-orange-700 active:bg-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-300 select-none gap-2;
   }
   .card {
     @apply border shadow rounded-md overflow-hidden h-fit;
@@ -138,5 +138,32 @@
   }
   .carousel::-webkit-scrollbar {
     @apply hidden;
+  }
+
+  .Root-tabs {
+    @apply flex flex-col w-full bg-white;
+  }
+
+  .List-tabs {
+    flex-shrink: 0;
+    @apply flex rounded-t-md overflow-hidden border-b-2 border-b-white flex-col sm:flex-row;
+  }
+
+  .Trigger-tabs {
+    flex: 1;
+    @apply flex items-center justify-center px-5 py-2 text-xl duration-300 cursor-pointer font-serif hover:bg-indigo-300 border-r-2 border-r-white last:border-r-0 text-marinho-500;
+  }
+
+  .Trigger-tabs[data-state="active"] {
+    @apply border-transparent bg-marinho-500 text-white border-r-2 border-r-white last:border-r-0;
+  }
+
+  .Trigger-tabs[data-state="inactive"] {
+    @apply bg-gray-100 hover:bg-marinho-50 text-marinho-500;
+  }
+
+  .Content-tabs {
+    flex: 1;
+    @apply p-5 duration-700 bg-gray-100 outline-none rounded-b-md;
   }
 }

@@ -7,18 +7,24 @@ import {
   ImageSquare,
   List,
   Phone,
+  ShoppingCart,
   Tag,
   TShirt,
 } from "phosphor-react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
+import Drawer from "./Drawer";
 
 export default function Header() {
+  const [openCart, setOpenCart] = useState<boolean>(false);
+
   const MenuItems = () => (
     <div className="flex items-center flex-col lg:flex-row gap-1 lg:gap-0">
-      <a className="menu-items">
-        <House /> Início
-      </a>
+      <Link href={"/"} passHref>
+        <a className="menu-items">
+          <House /> Início
+        </a>
+      </Link>
       <a className="menu-items">
         <IdentificationBadge /> Quem somos
       </a>
@@ -71,7 +77,7 @@ export default function Header() {
   return (
     <Fragment>
       <header className="w-full sticky top-0 min-h-fit shadow-md bg-white z-20">
-        <div className="container mx-auto px-5 xl:px-0 max-w-6xl flex items-center justify-between h-16">
+        <div className="container mx-auto pl-5 lg:px-5 xl:px-0 max-w-6xl flex items-center justify-between h-16">
           <Link href={"/"} passHref>
             <a className="w-fit flex">
               <Image
@@ -83,12 +89,21 @@ export default function Header() {
             </a>
           </Link>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex">
             <MenuItems />
+            <button
+              className="w-16 h-16 bg-marinho-500 text-white flex justify-center items-center text-3xl relative hover:bg-marinho-700 active:bg-marinho-500"
+              onClick={() => setOpenCart(!openCart)}
+            >
+              <ShoppingCart />
+              <span className="w-5 h-5 bg-white text-marinho-500 flex items-center justify-center text-xs rounded-full absolute top-2 right-2">
+                12
+              </span>
+            </button>
           </div>
-          <div className="block lg:hidden">
+          <div className="flex lg:hidden">
             <Popover.Root>
-              <Popover.Trigger className="w-16 h-16 bg-marinho-500 text-white flex justify-center items-center text-3xl">
+              <Popover.Trigger className="w-16 h-16 text-marinho-500 flex justify-center items-center text-3xl">
                 <List />
               </Popover.Trigger>
               <Popover.Anchor />
@@ -98,9 +113,20 @@ export default function Header() {
                 </Popover.Content>
               </Popover.Portal>
             </Popover.Root>
+            <button
+              className="w-16 h-16 bg-marinho-500 text-white flex justify-center items-center text-3xl relative hover:bg-marinho-700 active:bg-marinho-500"
+              onClick={() => setOpenCart(!openCart)}
+            >
+              <ShoppingCart />
+              <span className="w-5 h-5 bg-white text-marinho-500 flex items-center justify-center text-xs rounded-full absolute top-2 right-2">
+                12
+              </span>
+            </button>
           </div>
         </div>
       </header>
+
+      <Drawer isOpen={openCart} items={[]} onClose={setOpenCart} />
     </Fragment>
   );
 }

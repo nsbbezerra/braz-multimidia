@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ShoppingCart } from "phosphor-react";
 
 export default function CardsProduct() {
   const MyCard = () => (
@@ -22,8 +23,10 @@ export default function CardsProduct() {
           R$ 40,00
         </strong>
 
-        <Link href={"/produtos"} passHref>
-          <a className="card-action-button-orange">VER PRODUTO</a>
+        <Link href={"/produtos/produto"} passHref>
+          <a className="card-action-button-orange">
+            <ShoppingCart /> COMPRAR
+          </a>
         </Link>
       </div>
     </div>
