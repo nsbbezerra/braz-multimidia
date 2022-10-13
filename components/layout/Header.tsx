@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   CaretDown,
-  DotsThreeOutlineVertical,
   House,
   IdentificationBadge,
   ImageSquare,
@@ -23,11 +22,42 @@ export default function Header() {
       <a className="menu-items">
         <IdentificationBadge /> Quem somos
       </a>
+      <Popover.Root>
+        <Popover.Trigger className="menu-items">
+          <Tag /> Produtos <CaretDown />
+        </Popover.Trigger>
+        <Popover.Anchor />
+        <Popover.Portal>
+          <Popover.Content className="Content-product lg:mt-9">
+            <Link href={"/produtos"} passHref>
+              <a className="menu-items-product">
+                <TShirt />
+                EMPRESAS
+              </a>
+            </Link>
+            <Link href={"/produtos"} passHref>
+              <a className="menu-items-product">
+                <TShirt />
+                EMPRESAS
+              </a>
+            </Link>
+            <Link href={"/produtos"} passHref>
+              <a className="menu-items-product">
+                <TShirt />
+                EMPRESAS
+              </a>
+            </Link>
+            <Link href={"/produtos"} passHref>
+              <a className="menu-items-product">
+                <TShirt />
+                EMPRESAS
+              </a>
+            </Link>
+          </Popover.Content>
+        </Popover.Portal>
+      </Popover.Root>
       <a className="menu-items">
-        <Tag /> Produtos <CaretDown />
-      </a>
-      <a className="menu-items">
-        <ImageSquare /> Catálogos <CaretDown />
+        <ImageSquare /> Catálogos
       </a>
       <a className="menu-items">
         <Phone /> Fale conosco

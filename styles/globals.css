@@ -77,7 +77,11 @@
   }
 
   .menu-items {
-    @apply flex w-full lg:w-fit items-center gap-2 text-marinho-500 font-semibold h-12 rounded-md lg:rounded-none lg:h-16 hover:bg-marinho-500 hover:text-white active:bg-marinho-600 select-none px-4 cursor-pointer focus:outline-none focus:bg-marinho-500;
+    @apply flex w-full lg:w-fit items-center gap-2 text-marinho-500 font-semibold h-12 rounded-md lg:rounded-none lg:h-16 hover:bg-marinho-500 hover:text-white active:bg-marinho-600 select-none px-4 cursor-pointer focus:outline-none focus:bg-marinho-500 focus:text-white;
+  }
+
+  .menu-items-product {
+    @apply flex w-full items-center gap-2 text-marinho-500 font-semibold h-8 rounded-md hover:bg-marinho-500 hover:text-white active:bg-marinho-600 select-none px-4 cursor-pointer focus:outline-none focus:bg-marinho-500 focus:text-white;
   }
 
   .menu-items-sim {
@@ -86,6 +90,14 @@
 
   .Content {
     @apply mr-5 w-[250px] pt-2 pb-4 px-2 mx-auto z-50 transition-all bg-white rounded-md shadow-lg border relative overflow-auto focus:outline-none;
+  }
+
+  .Content-drop {
+    @apply ml-5 z-50 transition-all bg-white rounded-md shadow-lg border relative overflow-auto focus:outline-none mt-1;
+  }
+
+  .Content-product {
+    @apply mr-5 w-[280px] pt-2 pb-2 px-2 mx-auto z-50 transition-all bg-white rounded-md shadow-lg border relative overflow-auto focus:outline-none flex flex-col gap-1 max-h-[55vh] lg:max-h-[80vh];
   }
 
   .Content[data-state="open"] {
@@ -110,7 +122,21 @@
   .card-action-button {
     @apply w-full flex items-center justify-center text-sm p-1 md:p-2 text-white md:font-semibold cursor-pointer bg-marinho-500 rounded-full mt-1 hover:bg-marinho-700 active:bg-marinho-500 focus:outline-none focus:ring-1 focus:ring-marinho-300 select-none;
   }
+
+  .card-action-button-orange {
+    @apply w-full flex items-center justify-center text-sm p-1 md:p-2 text-white md:font-semibold cursor-pointer bg-orange-500 rounded-full mt-1 hover:bg-orange-700 active:bg-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-300 select-none;
+  }
   .card {
     @apply border shadow rounded-md overflow-hidden h-fit;
+  }
+
+  .carousel {
+    @apply flex gap-5 overflow-y-auto transition-all delay-200;
+  }
+  .carousel-item {
+    @apply rounded-md overflow-hidden h-fit w-[220px] flex-none;
+  }
+  .carousel::-webkit-scrollbar {
+    @apply hidden;
   }
 }

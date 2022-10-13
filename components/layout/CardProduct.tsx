@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Cards() {
+export default function CardsProduct() {
   const MyCard = () => (
     <div className="card">
       <div>
@@ -17,8 +17,13 @@ export default function Cards() {
         <strong className="text-center text-sm sm:text-base font-extrabold w-full block">
           EMPRESAS
         </strong>
+
+        <strong className="text-center text-sm sm:text-base w-full block font-light">
+          R$ 40,00
+        </strong>
+
         <Link href={"/produtos"} passHref>
-          <a className="card-action-button">VER PRODUTO</a>
+          <a className="card-action-button-orange">VER PRODUTO</a>
         </Link>
       </div>
     </div>
