@@ -4,19 +4,15 @@ import { Fragment } from "react";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
-import {
-  CreditCard,
-  CurrencyCircleDollar,
-  CurrencyDollar,
-  Money,
-  PaintBrush,
-  Truck,
-} from "phosphor-react";
 
 export default function Panel() {
   return (
     <Fragment>
-      <Swiper navigation={true} modules={[Navigation]} autoplay>
+      <Swiper
+        navigation={true}
+        modules={[Navigation]}
+        autoplay={{ delay: 5000 }}
+      >
         <SwiperSlide>
           <div className="w-full">
             <Image

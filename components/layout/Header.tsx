@@ -65,9 +65,11 @@ export default function Header() {
       <a className="menu-items">
         <ImageSquare /> Catálogos
       </a>
-      <a className="menu-items">
-        <Phone /> Fale conosco
-      </a>
+      <Link href={"/faleconosco"} passHref>
+        <a className="menu-items">
+          <Phone /> Fale conosco
+        </a>
+      </Link>
       <a className="menu-items-sim">
         <TShirt /> Simulador
       </a>

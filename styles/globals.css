@@ -151,11 +151,11 @@
 
   .Trigger-tabs {
     flex: 1;
-    @apply flex items-center justify-center px-5 py-2 text-xl duration-300 cursor-pointer font-serif hover:bg-indigo-300 border-r-2 border-r-white last:border-r-0 text-marinho-500;
+    @apply flex items-center justify-center px-5 py-2 text-xl duration-300 cursor-pointer font-serif hover:bg-indigo-300 border-b-2 border-b-white sm:border-b-0 sm:border-r-2 sm:border-r-white sm:last:border-r-0 text-marinho-500;
   }
 
   .Trigger-tabs[data-state="active"] {
-    @apply border-transparent bg-marinho-500 text-white border-r-2 border-r-white last:border-r-0;
+    @apply border-transparent bg-marinho-500 border-b-2 border-b-white text-white sm:border-r-2 sm:border-r-white sm:last:border-r-0 sm:border-b-0;
   }
 
   .Trigger-tabs[data-state="inactive"] {
