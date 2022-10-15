@@ -131,7 +131,10 @@ export default function Catalogos() {
 
   return (
     <Fragment>
-      <HeadApp title="Catalogos | Braz Multimídia" />
+      <HeadApp
+        title="Catalogos | Braz Camiseteria | Uniforme Empresarial, Uniforme Esportivo, Uniforme
+        Promocional, Abadás"
+      />
       <Header />
       <div className="w-full relative">
         <Image

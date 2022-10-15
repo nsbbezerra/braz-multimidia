@@ -7,7 +7,10 @@ import Header from "../components/layout/Header";
 export default function Sucesso() {
   return (
     <Fragment>
-      <HeadApp title="Pedido finalizado | Braz Multimidia" />
+      <HeadApp
+        title="Braz Camiseteria | Uniforme Empresarial, Uniforme Esportivo, Uniforme
+        Promocional, Abadás"
+      />
       <Header />
       <div className="bg-gradient-to-b h-52 from-green-400 to-green-700 flex justify-center items-center flex-col px-5 text-white text-center">
         <CircleWavyCheck className="text-7xl" />

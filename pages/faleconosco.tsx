@@ -8,7 +8,10 @@ import Header from "../components/layout/Header";
 export default function Contact() {
   return (
     <Fragment>
-      <HeadApp title="Contato | Braz Multimídia" />
+      <HeadApp
+        title="Contato | Braz Camiseteria | Uniforme Empresarial, Uniforme Esportivo, Uniforme
+        Promocional, Abadás"
+      />
       <Header />
       <div className="w-full relative">
         <Image

@@ -25,9 +25,11 @@ export default function Header() {
           <House /> Início
         </a>
       </Link>
-      <a className="menu-items">
-        <IdentificationBadge /> Quem somos
-      </a>
+      <Link href={"/quemsomos"} passHref>
+        <a className="menu-items">
+          <IdentificationBadge /> Quem somos
+        </a>
+      </Link>
       <Popover.Root>
         <Popover.Trigger className="menu-items">
           <Tag /> Produtos <CaretDown />

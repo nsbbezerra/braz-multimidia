@@ -13,7 +13,10 @@ import Pedidos from "../../../components/layout/Pedidos";
 const Produto: NextPage = () => {
   return (
     <Fragment>
-      <HeadApp title="Camisetas | Braz Multimídia" />
+      <HeadApp
+        title="Camisetas | Braz Camiseteria | Uniforme Empresarial, Uniforme Esportivo, Uniforme
+        Promocional, Abadás"
+      />
       <Header />
       <div className="w-full relative">
         <Image

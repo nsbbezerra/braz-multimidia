@@ -12,7 +12,10 @@ import Header from "../components/layout/Header";
 const Checkout: NextPage = () => {
   return (
     <Fragment>
-      <HeadApp title="Checkou | Braz Multimidia" />
+      <HeadApp
+        title="Checkou | Braz Camiseteria | Uniforme Empresarial, Uniforme Esportivo, Uniforme
+        Promocional, Abadás"
+      />
       <Header />
       <div className="w-full relative">
         <Image
