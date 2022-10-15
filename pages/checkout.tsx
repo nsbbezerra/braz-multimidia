@@ -102,7 +102,7 @@ const Checkout: NextPage = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-3 mt-1">
             <div>
               <label htmlFor="email" className="block">
                 Seu email
@@ -131,7 +131,7 @@ const Checkout: NextPage = () => {
               />
             </div>
           </div>
-          <div>
+          <div className="mt-1">
             <label htmlFor="state" className="block">
               Observações
             </label>
@@ -145,11 +145,11 @@ const Checkout: NextPage = () => {
 
         <div className="bg-gray-50 rounded-md py-3 px-5 mt-5 mb-10 shadow">
           <div className="grid grid-cols-1">
-            <div className="flex justify-between py-2 items-center font-bold text-2xl px-5">
+            <div className="flex justify-between py-2 items-center font-bold font-serif text-2xl px-5">
               <span>Total</span>
               <span>R$ 40,00</span>
             </div>
-            <div className="py-3">
+            <div className="py-1">
               <Link href={"/sucesso"}>
                 <Button buttonSize="lg" isFullSize>
                   <PaperPlane /> Enviar pedido

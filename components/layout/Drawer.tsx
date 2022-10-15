@@ -61,12 +61,12 @@ export default function Drawer({ isOpen, items, onClose }: Props) {
         </div>
 
         <div className="px-4 py-2 border-t absolute bottom-0 right-0 left-0 bg-white">
-          <div className="flex items-center justify-between text-xl mb-2 px-2">
+          <div className="flex items-center justify-between mb-2 px-2 font-serif text-xl font-bold">
             <span>Total</span>
             <span>R$ 40,00</span>
           </div>
           <Link href={"/checkout"}>
-            <Button isFullSize>
+            <Button isFullSize buttonSize="lg">
               <ShoppingBag />
               Finalizar pedido
             </Button>

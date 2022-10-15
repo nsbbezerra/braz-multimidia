@@ -102,7 +102,7 @@ const Home: NextPage = () => {
       </section>
 
       <section className="w-full relative bg-marinho-500 bg-jumbotronIndex bg-cover bg-center bg-no-repeat">
-        <div className="bg-gradient-to-b from-black to-transparent bg-opacity-50 py-16">
+        <div className="bg-gradient-to-b from-black to-transparent bg-opacity-50 py-10">
           <div className="container mx-auto px-5 xl:px-0 max-w-6xl text-center text-white text-lg sm:text-xl md:text-2xl font-mono">
             <strong className="text-white font-black heading text-center w-full block mb-10">
               QUEM SOMOS
@@ -148,7 +148,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-5 xl:px-0 max-w-6xl pb-16">
+        <div className="container mx-auto px-5 xl:px-0 max-w-6xl">
           <strong className="w-full block text-white text-center heading">
             VEJA PASSO A PASSO
           </strong>
@@ -156,7 +156,7 @@ const Home: NextPage = () => {
             DESDE O MOMENTO DA ESCOLHA ATÉ O RECEBIMENTO EM SUA CASA
           </span>
 
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-5 md:gap-0 md:pb-10">
             <div className="p-3 flex items-center flex-col relative border-l md:border-l-0">
               <span className="w-7 h-7 flex items-center justify-center bg-orange-500 text-white font-semibold rounded-full">
                 1
@@ -273,7 +273,7 @@ const Home: NextPage = () => {
                 PRODUZIMOS E PREPARAMOS SEU PEDIDO
               </span>
             </div>
-            <div className="p-3 flex items-center flex-col relative border-t mt-3 md:border-l col-span-2 sm:col-span-4 md:col-span-1 md:border-t-0 md:mt-0">
+            <div className="p-3 flex items-center flex-col relative border-t md:border-l col-span-2 sm:col-span-4 md:col-span-1 md:border-t-0 md:mt-0">
               <span className="w-7 h-7 flex items-center justify-center bg-orange-500 text-white font-semibold rounded-full">
                 5
               </span>
