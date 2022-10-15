@@ -53,10 +53,10 @@ const Produto: NextPage = () => {
           </div>
 
           <div>
-            <strong className="text-3xl font-serif font-bold text-marinho-500 block">
+            <strong className="heading text-marinho-500 block">
               BLUSA GOLA REDONDA PRETA
             </strong>
-            <p>
+            <p className="md:text-lg mb-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -243,7 +243,7 @@ const Produto: NextPage = () => {
         </div>
 
         <div className="flex items-center flex-col gap-2 mt-16 w-full">
-          <span className="block text-3xl font-extrabold text-marinho-500 font-serif text-center">
+          <span className="block heading text-marinho-500 text-center">
             CATÁLOGOS DE MODELOS PRONTOS
           </span>
           <div className="border-marinho-500 border-b-2 w-56" />
@@ -256,7 +256,7 @@ const Produto: NextPage = () => {
 
       <div className="bg-gray-50 w-full mt-10 py-10">
         <div className="flex items-center flex-col gap-2 mb-10 w-full">
-          <span className="block text-xl sm:text-2xl md:text-3xl font-extrabold text-marinho-500 font-serif text-center">
+          <span className="block heading text-marinho-500 text-center">
             CONFIRA A QUALIDADE DOS NOSSOS PRODUTOS
           </span>
           <div className="border-marinho-500 border-b-2 w-56" />

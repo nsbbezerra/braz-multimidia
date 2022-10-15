@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Cards() {
   const MyCard = () => (
     <Link href={"/produtos"} passHref>
-      <a className="card">
+      <div className="card cursor-pointer">
         <div>
           <Image
             src="https://www.brazmultimidia.com.br/_next/image?url=http%3A%2F%2Fpalmieriuniformes.nodejsng36f02.kinghost.net%3A21045%2Fimg%2F05-1643145668522.png&w=1380&q=75"
@@ -22,7 +22,7 @@ export default function Cards() {
             <a className="card-action-button">VER PRODUTO</a>
           </Link>
         </div>
-      </a>
+      </div>
     </Link>
   );
 
