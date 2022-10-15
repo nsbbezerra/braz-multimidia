@@ -20,11 +20,12 @@ const Checkout: NextPage = () => {
           width={1920}
           height={461}
           alt="Braz Multimidia banner"
+          layout="responsive"
         />
       </div>
 
       <section className="mt-10 container mx-auto px-5 xl:px-0 max-w-3xl">
-        <div className="flex gap-3 text-2xl font-serif text-marinho-500 font-bold items-center border-b border-b-marinho-500">
+        <div className="flex gap-3 heading text-marinho-500 items-center border-b border-b-marinho-500">
           <ShoppingCart />
           MEU CARRINHO
         </div>

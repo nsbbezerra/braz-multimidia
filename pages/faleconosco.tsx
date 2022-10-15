@@ -16,12 +16,11 @@ export default function Contact() {
           width={1920}
           height={461}
           alt="Braz Multimidia banner"
+          layout="responsive"
         />
       </div>
       <section className="py-10 container mx-auto max-w-5xl px-5 xl:px-0">
-        <strong className="font-serif text-3xl text-marinho-500 font-bold">
-          Onde estamos
-        </strong>
+        <strong className="heading text-marinho-500">Onde estamos</strong>
 
         <div className="mt-10">
           <iframe
@@ -33,7 +32,7 @@ export default function Contact() {
           ></iframe>
         </div>
 
-        <strong className="font-serif text-3xl text-marinho-500 font-bold block mt-10 mb-5">
+        <strong className="heading text-marinho-500 block mt-10 mb-5">
           Braz Multimidia
         </strong>
         <a className="flex items-center gap-2 cursor-pointer hover:underline text-xl">

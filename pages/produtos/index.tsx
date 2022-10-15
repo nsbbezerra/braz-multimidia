@@ -1,16 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import {
-  CaretDown,
-  CaretLeft,
-  CaretRight,
-  House,
-  Package,
-  Tag,
-  Truck,
-  TShirt,
-} from "phosphor-react";
-import { Fragment, useRef } from "react";
+import { CaretDown, CaretRight, House, Tag, TShirt } from "phosphor-react";
+import { Fragment } from "react";
 import CardsProduct from "../../components/layout/CardProduct";
 import Footer from "../../components/layout/Footer";
 import HeadApp from "../../components/layout/Head";
@@ -55,6 +46,7 @@ const Produtos: NextPage = () => {
           width={1920}
           height={461}
           alt="Braz Multimidia banner"
+          layout="responsive"
         />
       </div>
 

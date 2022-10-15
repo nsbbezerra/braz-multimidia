@@ -62,9 +62,11 @@ export default function Header() {
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
-      <a className="menu-items">
-        <ImageSquare /> Catálogos
-      </a>
+      <Link href={"/produtos/catalogos"} passHref>
+        <a className="menu-items">
+          <ImageSquare /> Catálogos
+        </a>
+      </Link>
       <Link href={"/faleconosco"} passHref>
         <a className="menu-items">
           <Phone /> Fale conosco
@@ -78,10 +80,10 @@ export default function Header() {
 
   return (
     <Fragment>
-      <header className="w-full sticky top-0 min-h-fit shadow-md bg-white z-20">
-        <div className="container mx-auto pl-5 lg:px-5 xl:px-0 max-w-6xl flex items-center justify-between h-16">
+      <header className="w-full sticky top-0 min-h-fit shadow-lg bg-white bg-opacity-80 backdrop-blur-sm z-20">
+        <div className="container mx-auto pl-5 lg:px-5 xl:px-0 max-w-6xl flex items-center justify-between h-14">
           <Link href={"/"} passHref>
-            <a className="w-fit flex">
+            <a className="w-[100px] flex">
               <Image
                 src="/img/logo.svg"
                 width={115}
@@ -94,18 +96,18 @@ export default function Header() {
           <div className="hidden lg:flex">
             <MenuItems />
             <button
-              className="w-16 h-16 bg-marinho-500 text-white flex justify-center items-center text-3xl relative hover:bg-marinho-700 active:bg-marinho-500"
+              className="w-14 h-14 bg-marinho-500 text-white flex justify-center items-center text-3xl relative hover:bg-marinho-700 active:bg-marinho-500"
               onClick={() => setOpenCart(!openCart)}
             >
               <ShoppingCart />
               <span className="w-5 h-5 bg-white text-marinho-500 flex items-center justify-center text-xs rounded-full absolute top-2 right-2">
-                12
+                11
               </span>
             </button>
           </div>
           <div className="flex lg:hidden">
             <Popover.Root>
-              <Popover.Trigger className="w-16 h-16 text-marinho-500 flex justify-center items-center text-3xl">
+              <Popover.Trigger className="w-14 h-14 text-marinho-500 flex justify-center items-center text-3xl">
                 <List />
               </Popover.Trigger>
               <Popover.Anchor />
@@ -116,12 +118,12 @@ export default function Header() {
               </Popover.Portal>
             </Popover.Root>
             <button
-              className="w-16 h-16 bg-marinho-500 text-white flex justify-center items-center text-3xl relative hover:bg-marinho-700 active:bg-marinho-500"
+              className="w-14 h-14 bg-marinho-500 text-white flex justify-center items-center text-2xl relative hover:bg-marinho-700 active:bg-marinho-500"
               onClick={() => setOpenCart(!openCart)}
             >
               <ShoppingCart />
               <span className="w-5 h-5 bg-white text-marinho-500 flex items-center justify-center text-xs rounded-full absolute top-2 right-2">
-                12
+                11
               </span>
             </button>
           </div>

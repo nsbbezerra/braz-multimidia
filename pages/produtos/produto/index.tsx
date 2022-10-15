@@ -21,6 +21,7 @@ const Produto: NextPage = () => {
           width={1920}
           height={461}
           alt="Braz Multimidia banner"
+          layout="responsive"
         />
       </div>
 

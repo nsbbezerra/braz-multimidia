@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.0.0",
     "@radix-ui/react-popover": "^1.0.0",
     "@radix-ui/react-tabs": "^1.0.0",
     "next": "12.3.1",
@@ -19,6 +20,7 @@
     "swiper": "^8.4.3"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@types/node": "18.8.2",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
