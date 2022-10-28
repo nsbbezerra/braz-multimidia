@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import { CircleWavyCheck } from "phosphor-react";
 import { Fragment } from "react";
@@ -7,8 +7,17 @@ import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
 import Panel from "../components/layout/Panel";
+import { FIND_IMAGES } from "../graphql/images";
+import { clientQuery } from "../lib/urql";
+import { ImagesPagesProps } from "../types";
 
-const Home: NextPage = () => {
+interface Props {
+  images: ImagesPagesProps;
+}
+
+const Home: NextPage<Props> = ({ images }) => {
+  console.log(images);
+
   return (
     <Fragment>
       <HeadApp
@@ -16,31 +25,27 @@ const Home: NextPage = () => {
         Promocional, Abadás"
       />
       <Header />
-      <Panel />
+      <Panel images={images.banner || []} />
       <section className="py-12 container mx-auto px-5 xl:px-0 max-w-6xl">
         <div className="flex gap-5 items-center justify-center">
-          <div className="rounded-md overflow-hidden shadow max-w-lg h-fit w-full">
-            <a className="cursor-pointer">
-              <Image
-                src="/img/home/sim_one.jpg"
-                width={713}
-                height={449}
-                layout="responsive"
-                alt="Braz Multimidia"
-              />
-            </a>
-          </div>
-          <div className="rounded-md overflow-hidden shadow max-w-lg h-fit w-full">
-            <a className="cursor-pointer">
-              <Image
-                src="/img/home/sim_two.jpg"
-                width={713}
-                height={449}
-                layout="responsive"
-                alt="Braz Multimidia"
-              />
-            </a>
-          </div>
+          {!images.simulatorImage
+            ? ""
+            : images.simulatorImage.map((sim) => (
+                <div
+                  className="rounded-md overflow-hidden shadow max-w-lg h-fit w-full"
+                  key={sim.id}
+                >
+                  <a className="cursor-pointer">
+                    <Image
+                      src={sim.url}
+                      width={713}
+                      height={449}
+                      layout="responsive"
+                      alt="Braz Multimidia"
+                    />
+                  </a>
+                </div>
+              ))}
         </div>
 
         <div className="w-full py-10 flex flex-col items-center text-center">
@@ -126,24 +131,22 @@ const Home: NextPage = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-10 px-3 md:px-10 mt-10">
-              <div className="w-full overflow-hidden rounded-md">
-                <Image
-                  src="/img/home/textil_one.jpg"
-                  width={778}
-                  height={583}
-                  layout="responsive"
-                  alt="Braz Multimidia"
-                />
-              </div>
-              <div className="w-full overflow-hidden rounded-md">
-                <Image
-                  src="/img/home/textil_two.jpg"
-                  width={778}
-                  height={583}
-                  layout="responsive"
-                  alt="Braz Multimidia"
-                />
-              </div>
+              {!images.imagesWhoIAm
+                ? ""
+                : images.imagesWhoIAm.map((image) => (
+                    <div
+                      className="w-full overflow-hidden rounded-md"
+                      key={image.id}
+                    >
+                      <Image
+                        src={image.url}
+                        width={778}
+                        height={583}
+                        layout="responsive"
+                        alt="Braz Multimidia"
+                      />
+                    </div>
+                  ))}
             </div>
           </div>
         </div>
@@ -306,3 +309,12 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await clientQuery.query(FIND_IMAGES, {}).toPromise();
+  return {
+    props: {
+      images: data.imagePages[0] || {},
+    },
+  };
+};

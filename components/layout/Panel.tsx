@@ -4,8 +4,13 @@ import { Fragment } from "react";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
+import { ImagesProps } from "../../types";
 
-export default function Panel() {
+interface Props {
+  images: ImagesProps[];
+}
+
+export default function Panel({ images }: Props) {
   return (
     <Fragment>
       <Swiper
@@ -13,54 +18,20 @@ export default function Panel() {
         modules={[Navigation]}
         autoplay={{ delay: 5000 }}
       >
-        <SwiperSlide>
-          <div className="w-full">
-            <Image
-              src={"/img/home/banner_one.jpg"}
-              alt="Braz Multimidia"
-              layout="responsive"
-              width={1731}
-              height={634}
-              objectFit="cover"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-full">
-            <Image
-              src={"/img/home/banner_two.jpg"}
-              alt="Braz Multimidia"
-              layout="responsive"
-              width={1731}
-              height={634}
-              objectFit="cover"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-full">
-            <Image
-              src={"/img/home/banner_three.jpg"}
-              alt="Braz Multimidia"
-              layout="responsive"
-              width={1731}
-              height={634}
-              objectFit="cover"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-full">
-            <Image
-              src={"/img/home/banner_four.jpg"}
-              alt="Braz Multimidia"
-              layout="responsive"
-              width={1731}
-              height={634}
-              objectFit="cover"
-            />
-          </div>
-        </SwiperSlide>
+        {images.map((image) => (
+          <SwiperSlide key={image.id}>
+            <div className="w-full">
+              <Image
+                src={image.url}
+                alt="Braz Multimidia"
+                layout="responsive"
+                width={1731}
+                height={634}
+                objectFit="cover"
+              />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className="hidden md:block w-full h-16 bg-gradient-to-t from-white via-zinc-200 to-white">
         <div className="container max-w-5xl mx-auto px-5 xl:px-0 h-full grid grid-cols-4 gap-5">
@@ -127,8 +98,9 @@ export default function Panel() {
           src="/img/home/shadow.png"
           width={1350}
           height={50}
-          layout="fixed"
+          layout="intrinsic"
           alt="Braz Multimidia"
+          quality={60}
         />
       </div>
     </Fragment>
