@@ -241,4 +241,38 @@
   .Content-link-item-accordion {
     @apply w-full px-2 py-1 rounded-md text-orange-500 flex items-center gap-2 cursor-pointer hover:bg-orange-500 hover:text-white;
   }
+
+  .html-parsed h1 {
+    @apply text-2xl md:text-3xl font-bold font-serif;
+  }
+  .html-parsed h2 {
+    @apply text-xl md:text-2xl font-bold font-serif;
+  }
+  .html-parsed h3 {
+    @apply text-lg md:text-xl font-bold font-serif;
+  }
+  .html-parsed h4 {
+    @apply text-base md:text-lg font-bold font-serif;
+  }
+  .html-parsed h5 {
+    @apply text-sm md:text-base font-bold font-serif;
+  }
+  .html-parsed h6 {
+    @apply text-xs md:text-sm font-bold font-serif;
+  }
+  .html-parsed blockquote {
+    @apply bg-zinc-50 rounded-md p-2 border-l-2 border-l-zinc-500 italic;
+  }
+  .html-parsed code {
+    @apply bg-zinc-50 rounded-md p-1 border border-zinc-500 font-mono text-sm;
+  }
+  .html-parsed ul {
+    @apply list-disc ml-4;
+  }
+  .html-parsed ol {
+    @apply list-decimal ml-3;
+  }
+  .html-parsed a {
+    @apply text-sky-700 hover:underline;
+  }
 }

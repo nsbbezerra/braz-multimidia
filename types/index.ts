@@ -60,6 +60,54 @@ interface ProductsPageProps {
   category: CategoryProps;
 }
 
+type ModelingsProps = {
+  id: string;
+  title: string;
+  description: string;
+  image: ImagesProps;
+};
+
+type MeasurementsProps = {
+  id: string;
+  title: string;
+  image: ImagesProps;
+};
+
+type InformationProps = {
+  html: string;
+};
+
+type ProductInformationProps = {
+  id: string;
+  name: string;
+  description: string;
+  images: ImagesProps[];
+  categories: CategoriesProps[];
+  information?: InformationProps | null;
+  price: number;
+  video?: string | null;
+  modelings: ModelingsProps[];
+  measurements: MeasurementsProps[];
+};
+
+type ProductsSizeVariantsProps = {
+  id: string;
+  name: string;
+  size: string;
+};
+
+type PortifolioProps = {
+  id: string;
+  image: ImagesProps;
+};
+
+interface ProductInformationPageProps {
+  banners: BannersProps | null;
+  product: ProductInformationProps | null;
+  productSizeVariants: ProductsSizeVariantsProps[];
+  portfolios: PortifolioProps[];
+}
+
 export type {
   ImagesPagesProps,
   ImagesProps,
@@ -68,4 +116,5 @@ export type {
   ProductsPageProps,
   ProductsProps,
   CatalogProps,
+  ProductInformationPageProps,
 };

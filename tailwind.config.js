@@ -13,7 +13,6 @@ module.exports = {
       fontFamily: {
         sans: ["PT Sans Narrow", "sans-serif"],
         serif: ["Signika", "sans-serif"],
-        mono: ["PT Sans Narrow", "sans-serif"],
       },
       colors: {
         marinho: {
