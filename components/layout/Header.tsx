@@ -2,21 +2,39 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   CaretDown,
+  CircleNotch,
   House,
   IdentificationBadge,
   ImageSquare,
+  Leaf,
   List,
   Phone,
   ShoppingCart,
   Tag,
   TShirt,
 } from "phosphor-react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import Drawer from "./Drawer";
+import { useQuery } from "urql";
+import { FIND_ALL_CATEGORIES } from "../../graphql/indexPage";
+import { CategoriesProps } from "../../types";
 
 export default function Header() {
   const [openCart, setOpenCart] = useState<boolean>(false);
+  const [categories, setCategories] = useState<CategoriesProps[]>([]);
+
+  const [findCategoriesResults] = useQuery({
+    query: FIND_ALL_CATEGORIES,
+  });
+
+  const { data, fetching } = findCategoriesResults;
+
+  useEffect(() => {
+    if (data) {
+      setCategories(data.categories);
+    }
+  }, [data]);
 
   const MenuItems = () => (
     <div className="flex items-center flex-col lg:flex-row gap-1 lg:gap-0">
@@ -37,30 +55,33 @@ export default function Header() {
         <Popover.Anchor />
         <Popover.Portal>
           <Popover.Content className="Content-product lg:mt-9">
-            <Link href={"/produtos"} passHref>
-              <a className="menu-items-product">
-                <TShirt />
-                EMPRESAS
-              </a>
-            </Link>
-            <Link href={"/produtos"} passHref>
-              <a className="menu-items-product">
-                <TShirt />
-                EMPRESAS
-              </a>
-            </Link>
-            <Link href={"/produtos"} passHref>
-              <a className="menu-items-product">
-                <TShirt />
-                EMPRESAS
-              </a>
-            </Link>
-            <Link href={"/produtos"} passHref>
-              <a className="menu-items-product">
-                <TShirt />
-                EMPRESAS
-              </a>
-            </Link>
+            {fetching ? (
+              <div className="flex items-center justify-center p-5">
+                <CircleNotch className="text-3xl animate-spin" />
+              </div>
+            ) : (
+              <>
+                {categories.length === 0 ? (
+                  <div className="flex justify-center items-center flex-col gap-1">
+                    <Leaf className="text-3xl" />
+                    <span>Nada para mostrar</span>
+                  </div>
+                ) : (
+                  <>
+                    {categories.map((cat) => (
+                      <div key={cat.id}>
+                        <Link href={`/produtos/${cat.id}`} passHref>
+                          <a className="menu-items-product uppercase">
+                            <TShirt />
+                            {cat.name}
+                          </a>
+                        </Link>
+                      </div>
+                    ))}
+                  </>
+                )}
+              </>
+            )}
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>

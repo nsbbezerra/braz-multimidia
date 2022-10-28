@@ -1,11 +1,19 @@
+import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import { Clock, Envelope, WhatsappLogo } from "phosphor-react";
 import { Fragment } from "react";
 import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
+import { FIND_OTHER_BANNER } from "../graphql/indexPage";
+import { clientQuery } from "../lib/urql";
+import { BannersProps } from "../types";
 
-export default function Contact() {
+interface Props {
+  banner: BannersProps | null;
+}
+
+const Contact: NextPage<Props> = ({ banner }) => {
   return (
     <Fragment>
       <HeadApp
@@ -13,15 +21,31 @@ export default function Contact() {
         Promocional, Abadás"
       />
       <Header />
-      <div className="w-full relative">
-        <Image
-          src={"/img/banner.webp"}
-          width={1920}
-          height={461}
-          alt="Braz Multimidia banner"
-          layout="responsive"
-        />
-      </div>
+      {!banner ? (
+        ""
+      ) : (
+        <>
+          <div className="w-full relative hidden sm:block">
+            <Image
+              src={banner.desktop.url}
+              width={1920}
+              height={461}
+              alt="Braz Multimidia banner"
+              layout="responsive"
+            />
+          </div>
+          <div className="w-full relative block sm:hidden">
+            <Image
+              src={banner.mobile.url}
+              alt="Braz Multimidia"
+              layout="responsive"
+              width={550}
+              height={775}
+              objectFit="cover"
+            />
+          </div>
+        </>
+      )}
       <section className="py-10 container mx-auto max-w-5xl px-5 xl:px-0">
         <strong className="heading text-marinho-500">Onde estamos</strong>
 
@@ -59,4 +83,17 @@ export default function Contact() {
       <Footer />
     </Fragment>
   );
-}
+};
+
+export default Contact;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await clientQuery.query(FIND_OTHER_BANNER, {}).toPromise();
+
+  return {
+    props: {
+      banner: data.banners[0] || null,
+    },
+    revalidate: 120,
+  };
+};

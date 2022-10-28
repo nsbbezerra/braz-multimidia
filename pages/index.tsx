@@ -7,17 +7,15 @@ import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
 import Panel from "../components/layout/Panel";
-import { FIND_IMAGES } from "../graphql/images";
+import { FIND_INDEX_PAGE } from "../graphql/indexPage";
 import { clientQuery } from "../lib/urql";
 import { ImagesPagesProps } from "../types";
 
 interface Props {
-  images: ImagesPagesProps;
+  information: ImagesPagesProps;
 }
 
-const Home: NextPage<Props> = ({ images }) => {
-  console.log(images);
-
+const Home: NextPage<Props> = ({ information }) => {
   return (
     <Fragment>
       <HeadApp
@@ -25,12 +23,12 @@ const Home: NextPage<Props> = ({ images }) => {
         Promocional, Abadás"
       />
       <Header />
-      <Panel images={images.banner || []} />
+      <Panel images={information.banners || []} />
       <section className="py-12 container mx-auto px-5 xl:px-0 max-w-6xl">
         <div className="flex gap-5 items-center justify-center">
-          {!images.simulatorImage
+          {!information.simulatorImage
             ? ""
-            : images.simulatorImage.map((sim) => (
+            : information.simulatorImage.map((sim) => (
                 <div
                   className="rounded-md overflow-hidden shadow max-w-lg h-fit w-full"
                   key={sim.id}
@@ -57,7 +55,7 @@ const Home: NextPage<Props> = ({ images }) => {
             atender
           </span>
         </div>
-        <Cards />
+        <Cards categories={information.categories || []} />
       </section>
 
       <section className="py-10 bg-gradient-to-r from-marinho-500 to-rose-700 relative hidden lg:block border-b-2 border-b-orange-500">
@@ -131,9 +129,9 @@ const Home: NextPage<Props> = ({ images }) => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-10 px-3 md:px-10 mt-10">
-              {!images.imagesWhoIAm
+              {!information.imagesWhoIAm
                 ? ""
-                : images.imagesWhoIAm.map((image) => (
+                : information.imagesWhoIAm.map((image) => (
                     <div
                       className="w-full overflow-hidden rounded-md"
                       key={image.id}
@@ -311,10 +309,17 @@ const Home: NextPage<Props> = ({ images }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await clientQuery.query(FIND_IMAGES, {}).toPromise();
+  const { data } = await clientQuery.query(FIND_INDEX_PAGE, {}).toPromise();
+
   return {
     props: {
-      images: data.imagePages[0] || {},
+      information: {
+        simulatorImage: data.imagePages[0].simulatorImage || [],
+        imagesWhoIAm: data.imagePages[0].imagesWhoIAm || [],
+        banners: data.banners || [],
+        categories: data.categories || [],
+      },
     },
+    revalidate: 120,
   };
 };

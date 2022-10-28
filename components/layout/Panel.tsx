@@ -4,10 +4,11 @@ import { Fragment } from "react";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
-import { ImagesProps } from "../../types";
+import { BannersProps } from "../../types";
+import Link from "next/link";
 
 interface Props {
-  images: ImagesProps[];
+  images: BannersProps[];
 }
 
 export default function Panel({ images }: Props) {
@@ -21,14 +22,61 @@ export default function Panel({ images }: Props) {
         {images.map((image) => (
           <SwiperSlide key={image.id}>
             <div className="w-full">
-              <Image
-                src={image.url}
-                alt="Braz Multimidia"
-                layout="responsive"
-                width={1731}
-                height={634}
-                objectFit="cover"
-              />
+              {image.redirect ? (
+                <div className="w-full">
+                  <Link href={image.redirect || ""} passHref>
+                    <a>
+                      <div className="w-full hidden sm:block">
+                        <Image
+                          src={image.desktop.url}
+                          alt="Braz Multimidia"
+                          layout="responsive"
+                          width={1731}
+                          height={634}
+                          objectFit="cover"
+                        />
+                      </div>
+                    </a>
+                  </Link>
+                  <Link href={image.redirect || ""} passHref>
+                    <a>
+                      <div className="w-full block sm:hidden">
+                        <Image
+                          src={image.mobile.url}
+                          alt="Braz Multimidia"
+                          layout="responsive"
+                          width={550}
+                          height={775}
+                          objectFit="cover"
+                        />
+                      </div>
+                    </a>
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <div className="w-full hidden sm:block">
+                    <Image
+                      src={image.desktop.url}
+                      alt="Braz Multimidia"
+                      layout="responsive"
+                      width={1731}
+                      height={634}
+                      objectFit="cover"
+                    />
+                  </div>
+                  <div className="w-full block sm:hidden">
+                    <Image
+                      src={image.mobile.url}
+                      alt="Braz Multimidia"
+                      layout="responsive"
+                      width={550}
+                      height={775}
+                      objectFit="cover"
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </SwiperSlide>
         ))}
