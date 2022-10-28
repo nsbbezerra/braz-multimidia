@@ -249,7 +249,7 @@ const Produto: NextPage = () => {
           <div className="border-marinho-500 border-b-2 w-56" />
         </div>
 
-        <Carousel />
+        <Carousel catalogs={null} category={null} />
 
         <Pedidos />
       </section>
