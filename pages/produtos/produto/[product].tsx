@@ -94,6 +94,7 @@ const Produto: NextPage<Props> = ({ information }) => {
       type: "success",
     });
     setOpenToast(true);
+    setQuantity(1);
   };
 
   return (

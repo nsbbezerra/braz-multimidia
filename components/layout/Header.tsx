@@ -148,7 +148,7 @@ export default function Header() {
             >
               <ShoppingCart />
               <span className="w-5 h-5 bg-white text-marinho-500 flex items-center justify-center text-xs rounded-full absolute top-2 right-2">
-                11
+                {cart.length}
               </span>
             </button>
           </div>
