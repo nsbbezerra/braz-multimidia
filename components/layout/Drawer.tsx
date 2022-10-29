@@ -1,15 +1,48 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ShoppingBag, ShoppingCart, Trash, X } from "phosphor-react";
+import { useContext, useEffect, useState } from "react";
+import CartContext from "../../context/cart/cart";
 import Button from "./Button";
+interface Cart {
+  id: string;
+  category: string;
+  product: string;
+  thumbnail: string;
+  name: string;
+  quantity: number;
+  total: number;
+  size: string;
+}
 
 interface Props {
   isOpen: boolean;
-  items: any;
+  items: Cart[];
   onClose: (data: boolean) => void;
 }
 
 export default function Drawer({ isOpen, items, onClose }: Props) {
+  const { setCart } = useContext(CartContext);
+  const [total, setTotal] = useState<number>(0);
+
+  const calcPrice = (price: number) => {
+    let transform = price / 100;
+    return transform.toLocaleString("pt-br", {
+      style: "currency",
+      currency: "BRL",
+    });
+  };
+
+  const removeFromCart = (id: string) => {
+    const result = items.filter((obj) => obj.id !== id);
+    setCart(result);
+  };
+
+  useEffect(() => {
+    const sum = items.reduce((a, b) => +a + +b.total, 0);
+    setTotal(sum);
+  }, [items]);
+
   return (
     <div
       className={`fixed bg-black bg-opacity-50 right-0 left-0 bottom-0 top-0 ${
@@ -30,32 +63,42 @@ export default function Drawer({ isOpen, items, onClose }: Props) {
 
           <div className="px-4 py-2">
             <div className="grid grid-cols-1 divide-y">
-              <div className="grid grid-cols-[80px_1fr] gap-5 items-start py-2">
-                <div className="w-full">
-                  <Image
-                    src="https://www.brazmultimidia.com.br/_next/image?url=http%3A%2F%2Fpalmieriuniformes.nodejsng36f02.kinghost.net%3A21045%2Fimg%2F05-1643145668522.png&w=1380&q=75"
-                    width={600}
-                    height={600}
-                    layout="responsive"
-                    alt="Braz Multimidia"
-                  />
-                </div>
-                <div>
-                  <div className="flex justify-between items-center">
-                    <strong>CAMISETA MANGA LONGA</strong>
-                    <span>R$ 40,00</span>
+              {items.map((item) => (
+                <div
+                  className="grid grid-cols-[80px_1fr] gap-5 items-start py-2"
+                  key={item.id}
+                >
+                  <div className="w-full">
+                    <Image
+                      src={item.thumbnail}
+                      width={600}
+                      height={600}
+                      layout="responsive"
+                      alt="Braz Multimidia"
+                    />
                   </div>
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <p>Tamanho: P</p>
-                      <p>QTD: 1</p>
+                  <div>
+                    <div className="flex justify-between items-center">
+                      <strong>{item.name}</strong>
+                      <span>{calcPrice(item.total)}</span>
                     </div>
-                    <Button buttonSize="sm" scheme="error" variant="outline">
-                      <Trash />
-                    </Button>
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <p>{item.size}</p>
+                        <p>QTD: {item.quantity}</p>
+                      </div>
+                      <Button
+                        buttonSize="sm"
+                        scheme="error"
+                        variant="outline"
+                        onClick={() => removeFromCart(item.id)}
+                      >
+                        <Trash />
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -63,7 +106,7 @@ export default function Drawer({ isOpen, items, onClose }: Props) {
         <div className="px-4 py-2 border-t absolute bottom-0 right-0 left-0 bg-white">
           <div className="flex items-center justify-between mb-2 px-2 font-serif text-xl font-bold">
             <span>Total</span>
-            <span>R$ 40,00</span>
+            <span>{calcPrice(total)}</span>
           </div>
           <Link href={"/checkout"}>
             <Button isFullSize buttonSize="lg">

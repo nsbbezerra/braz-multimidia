@@ -13,14 +13,16 @@ import {
   Tag,
   TShirt,
 } from "phosphor-react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import Drawer from "./Drawer";
 import { useQuery } from "urql";
 import { FIND_ALL_CATEGORIES } from "../../graphql/indexPage";
 import { CategoriesProps } from "../../types";
+import CartContext from "../../context/cart/cart";
 
 export default function Header() {
+  const { cart, setCart } = useContext(CartContext);
   const [openCart, setOpenCart] = useState<boolean>(false);
   const [categories, setCategories] = useState<CategoriesProps[]>([]);
 
@@ -124,7 +126,7 @@ export default function Header() {
             >
               <ShoppingCart />
               <span className="w-5 h-5 bg-white text-marinho-500 flex items-center justify-center text-xs rounded-full absolute top-2 right-2">
-                11
+                {cart.length}
               </span>
             </button>
           </div>
@@ -153,7 +155,7 @@ export default function Header() {
         </div>
       </header>
 
-      <Drawer isOpen={openCart} items={[]} onClose={setOpenCart} />
+      <Drawer isOpen={openCart} items={cart || []} onClose={setOpenCart} />
     </Fragment>
   );
 }

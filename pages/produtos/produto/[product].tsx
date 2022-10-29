@@ -1,13 +1,12 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import { CaretRight, House, ShoppingCart, TShirt } from "phosphor-react";
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import Button from "../../../components/layout/Button";
 import Footer from "../../../components/layout/Footer";
 import HeadApp from "../../../components/layout/Head";
 import Header from "../../../components/layout/Header";
 import * as Tabs from "@radix-ui/react-tabs";
-import Carousel from "../../../components/layout/Carousel";
 import Pedidos from "../../../components/layout/Pedidos";
 import { clientQuery } from "../../../lib/urql";
 import {
@@ -16,6 +15,9 @@ import {
 } from "../../../graphql/products";
 import { ProductInformationPageProps } from "../../../types";
 import Link from "next/link";
+import CartContext from "../../../context/cart/cart";
+import { nanoid } from "nanoid";
+import Toast from "../../../components/layout/Toast";
 
 interface ProductProps {
   id: string;
@@ -23,6 +25,12 @@ interface ProductProps {
 
 interface Props {
   information: ProductInformationPageProps;
+}
+
+interface ToastInfo {
+  title: string;
+  message: string;
+  type: "success" | "info" | "warning" | "error";
 }
 
 const Produto: NextPage<Props> = ({ information }) => {
@@ -34,10 +42,69 @@ const Produto: NextPage<Props> = ({ information }) => {
     });
   };
 
+  const { cart, setCart } = useContext(CartContext);
+
   const [quantity, setQuantity] = useState<number>(1);
+  const [price, setPrice] = useState<number>(0);
+  const [size, setSize] = useState<string>("");
+
+  const [toast, setToast] = useState<ToastInfo>({
+    title: "",
+    message: "",
+    type: "info",
+  });
+  const [openToast, setOpenToast] = useState<boolean>(false);
+
+  useEffect(() => {
+    const myPrice = information.product?.price || 0;
+    const sum = myPrice * quantity;
+    if (isNaN(sum)) {
+      setPrice(myPrice);
+    } else {
+      setPrice(sum);
+    }
+  }, [quantity, information]);
+
+  const addToCart = () => {
+    if (size === "") {
+      setToast({
+        title: "Atenção",
+        message: "Selecione um tamanho",
+        type: "warning",
+      });
+      setOpenToast(true);
+      return false;
+    }
+    setCart([
+      ...cart,
+      {
+        id: nanoid(),
+        category: information.product?.categories[0].name || "",
+        product: information.product?.id || "",
+        name: information.product?.name || "",
+        quantity,
+        size: size,
+        thumbnail: information.product?.images[0].url || "",
+        total: price,
+      },
+    ]);
+    setToast({
+      title: "Sucesso",
+      message: "Item adicionado com sucesso",
+      type: "success",
+    });
+    setOpenToast(true);
+  };
 
   return (
     <Fragment>
+      <Toast
+        title={toast.title}
+        message={toast.message}
+        onClose={setOpenToast}
+        open={openToast}
+        scheme={toast.type}
+      />
       <HeadApp title={`${information.product?.name} | Braz Camiseteria`} />
       <Header />
       {!information.banners ? (
@@ -114,23 +181,26 @@ const Produto: NextPage<Props> = ({ information }) => {
               </Link>
             </p>
 
-            <div className="flex justify-between sm:items-center mt-10 flex-col gap-5 sm:flex-row">
-              <strong className="text-3xl block">
-                {calcPrice(information.product?.price || 0)}
-              </strong>
+            <div className="flex justify-between md:items-center mt-10 flex-col gap-5 md:flex-row">
+              <div>
+                <span>Total a pagar:</span>
+                <strong className="text-3xl block">{calcPrice(price)}</strong>
+              </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-end gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-[150px_100px_1fr] md:grid-cols-2 gap-3 xl:max-w-lg items-end lg:grid-cols-[150px_100px_1fr]">
                 <div className="flex flex-col">
                   <label htmlFor="qtd" className="mr-2 hidden sm:block">
                     Tamanho:
                   </label>
                   <select
-                    className="border h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-36 bg-transparent"
+                    className="border h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full bg-transparent"
                     placeholder="Selecione um tamanho"
+                    value={size}
+                    onChange={(e) => setSize(e.target.value)}
                   >
                     <option value={""}>Selecione um tamanho</option>
                     {information.productSizeVariants.map((size) => (
-                      <option value={size.id} key={size.id}>
+                      <option value={size.name} key={size.id}>
                         {size.name}
                       </option>
                     ))}
@@ -142,16 +212,23 @@ const Produto: NextPage<Props> = ({ information }) => {
                   </label>
                   <input
                     id="qtd"
-                    className="border h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-20"
+                    className="border h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full"
                     type={"number"}
                     value={quantity}
                     onChange={(e) => setQuantity(parseInt(e.target.value))}
                   />
                 </div>
-                <Button buttonSize="lg" scheme="warning">
-                  <ShoppingCart />
-                  Adicionar ao carrinho
-                </Button>
+                <div className="col-span-2 sm:col-auto md:col-span-2 lg:col-auto">
+                  <Button
+                    buttonSize="lg"
+                    scheme="warning"
+                    isFullSize
+                    onClick={() => addToCart()}
+                  >
+                    <ShoppingCart />
+                    Adicionar ao carrinho
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
