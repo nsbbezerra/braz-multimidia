@@ -13,7 +13,7 @@ import {
   Tag,
   TShirt,
 } from "phosphor-react";
-import { Fragment, useContext, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState, memo } from "react";
 import * as Popover from "@radix-ui/react-popover";
 import Drawer from "./Drawer";
 import { useQuery } from "urql";
@@ -26,7 +26,7 @@ interface ProductProps {
   name: string;
 }
 
-export default function Header() {
+function Header() {
   const { cart, setCart } = useContext(CartContext);
   const [openCart, setOpenCart] = useState<boolean>(false);
   const [categories, setCategories] = useState<CategoriesProps[]>([]);
@@ -198,3 +198,5 @@ export default function Header() {
     </Fragment>
   );
 }
+
+export default memo(Header);

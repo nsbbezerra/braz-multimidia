@@ -1,12 +1,49 @@
 import { CircleWavyCheck, Copy, WhatsappLogo } from "phosphor-react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { configs } from "../configs";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import Toast from "../components/layout/Toast";
+
+interface ToastInfo {
+  title: string;
+  message: string;
+  type: "success" | "info" | "warning" | "error";
+}
 
 export default function Sucesso() {
+  const { query } = useRouter();
+  const { order } = query;
+
+  const [toast, setToast] = useState<ToastInfo>({
+    title: "",
+    message: "",
+    type: "info",
+  });
+  const [openToast, setOpenToast] = useState<boolean>(false);
+
+  const handleCopy = () => {
+    setToast({
+      title: "Informação",
+      message: `O valor: ${order} foi copiado para a área de transferência`,
+      type: "info",
+    });
+    setOpenToast(true);
+  };
+
   return (
     <Fragment>
+      <Toast
+        title={toast.title}
+        message={toast.message}
+        onClose={setOpenToast}
+        open={openToast}
+        scheme={toast.type}
+      />
       <HeadApp
         title="Braz Camiseteria | Uniforme Empresarial, Uniforme Esportivo, Uniforme
         Promocional, Abadás"
@@ -21,10 +58,12 @@ export default function Sucesso() {
         <div className="flex items-center justify-center flex-col text-2xl text-center">
           <span>Este é o número do seu pedido:</span>
           <strong className="flex items-center gap-3 text-3xl text-orange-500">
-            12301923789123{" "}
-            <button className="rounded-full bg-gray-200 p-2 text-gray-900">
-              <Copy />
-            </button>
+            {order}{" "}
+            <CopyToClipboard text={order as string} onCopy={() => handleCopy()}>
+              <button className="rounded-full bg-gray-200 w-7 h-7 text-base flex items-center justify-center text-gray-900">
+                <Copy />
+              </button>
+            </CopyToClipboard>
           </strong>
 
           <span className="mt-10">
@@ -33,10 +72,18 @@ export default function Sucesso() {
             iniciar o atendimento via Whatsapp
           </span>
 
-          <a className="mt-5 bg-green-600 text-white rounded-full py-3 px-5 flex items-center gap-4 cursor-pointer hover:bg-green-700 active:bg-green-600 select-none">
-            <WhatsappLogo />
-            Fale conosco agora
-          </a>
+          <Link
+            href={`https://api.whatsapp.com/send?phone=${configs.phone}&text=Ola realizei meu pedido com o numero: ${order}`}
+            passHref
+          >
+            <a
+              className="mt-5 bg-green-600 text-white rounded-full py-3 px-5 flex items-center gap-4 cursor-pointer hover:bg-green-700 active:bg-green-600 select-none"
+              target={"_blank"}
+            >
+              <WhatsappLogo />
+              Fale conosco agora
+            </a>
+          </Link>
         </div>
       </div>
       <Footer />

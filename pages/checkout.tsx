@@ -1,3 +1,4 @@
+import axios from "axios";
 import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,16 +16,25 @@ import Button from "../components/layout/Button";
 import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
+import Toast from "../components/layout/Toast";
 import CartContext from "../context/cart/cart";
 import { FIND_CART_BANNER } from "../graphql/indexPage";
 import { clientQuery } from "../lib/urql";
 import { BannersProps } from "../types";
+import { useRouter } from "next/router";
 
 interface Props {
   banner: BannersProps | null;
 }
 
+interface ToastInfo {
+  title: string;
+  message: string;
+  type: "success" | "info" | "warning" | "error";
+}
+
 const Checkout: NextPage<Props> = ({ banner }) => {
+  const { push } = useRouter();
   const { cart, setCart } = useContext(CartContext);
   const [total, setTotal] = useState<number>(0);
   const calcPrice = (price: number) => {
@@ -34,6 +44,21 @@ const Checkout: NextPage<Props> = ({ banner }) => {
       currency: "BRL",
     });
   };
+
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [city, setCity] = useState<string>("");
+  const [state, setState] = useState<string>("");
+  const [information, setInformation] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const [toast, setToast] = useState<ToastInfo>({
+    title: "",
+    message: "",
+    type: "info",
+  });
+  const [openToast, setOpenToast] = useState<boolean>(false);
 
   const removeFromCart = (id: string) => {
     const result = cart.filter((obj) => obj.id !== id);
@@ -45,8 +70,108 @@ const Checkout: NextPage<Props> = ({ banner }) => {
     setTotal(sum);
   }, [cart]);
 
+  const sendOrder = async () => {
+    if (name === "") {
+      setToast({
+        title: "Atenção",
+        message: "Insira seu nome",
+        type: "warning",
+      });
+      setOpenToast(true);
+      return false;
+    }
+    if (phone === "") {
+      setToast({
+        title: "Atenção",
+        message: "Insira seu telefone",
+        type: "warning",
+      });
+      setOpenToast(true);
+      return false;
+    }
+    if (email === "") {
+      setToast({
+        title: "Atenção",
+        message: "Insira seu email",
+        type: "warning",
+      });
+      setOpenToast(true);
+      return false;
+    }
+    if (city === "") {
+      setToast({
+        title: "Atenção",
+        message: "Insira sua cidade",
+        type: "warning",
+      });
+      setOpenToast(true);
+      return false;
+    }
+    if (state === "") {
+      setToast({
+        title: "Atenção",
+        message: "Insira seu estado",
+        type: "warning",
+      });
+      setOpenToast(true);
+      return false;
+    }
+
+    let order = {
+      name,
+      phone,
+      city,
+      state,
+      information,
+      email,
+      total,
+    };
+    setLoading(true);
+    try {
+      const { data } = await axios.post("/api/checkout", {
+        order: JSON.stringify(order),
+        items: JSON.stringify(cart),
+      });
+      setToast({
+        title: "Sucesso",
+        message: data.message,
+        type: "success",
+      });
+      setOpenToast(true);
+      setLoading(false);
+      setCart([]);
+      push(`/sucesso?order=${data.id}`);
+    } catch (error) {
+      setLoading(false);
+      if (axios.isAxiosError(error) && error.message) {
+        let message = error.response?.data.message || "";
+        setToast({
+          title: "Erro",
+          message: message,
+          type: "error",
+        });
+        setOpenToast(true);
+      } else {
+        let message = (error as Error).message;
+        setToast({
+          title: "Erro",
+          message: message,
+          type: "error",
+        });
+        setOpenToast(true);
+      }
+    }
+  };
+
   return (
     <Fragment>
+      <Toast
+        title={toast.title}
+        message={toast.message}
+        onClose={setOpenToast}
+        open={openToast}
+        scheme={toast.type}
+      />
       <HeadApp
         title="Checkou | Braz Camiseteria | Uniforme Empresarial, Uniforme Esportivo, Uniforme
         Promocional, Abadás"
@@ -139,21 +264,25 @@ const Checkout: NextPage<Props> = ({ banner }) => {
           <div className="grid grid-cols-3 gap-3">
             <div className="col-span-2">
               <label htmlFor="name" className="block">
-                Seu nome
+                Seu nome <span className="text-red-600">*</span>
               </label>
               <input
                 id="name"
                 className="border h-10 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div>
               <label htmlFor="phone" className="block">
-                Seu whatsapp
+                Seu whatsapp <span className="text-red-600">*</span>
               </label>
               <ReactInputMask
                 mask="(99) 99999-9999"
                 id="phone"
                 className="border h-10 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
           </div>
@@ -161,29 +290,35 @@ const Checkout: NextPage<Props> = ({ banner }) => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-3 mt-1">
             <div>
               <label htmlFor="email" className="block">
-                Seu email
+                Seu email <span className="text-red-600">*</span>
               </label>
               <input
                 id="email"
                 className="border h-10 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
               <label htmlFor="city" className="block">
-                Sua cidade
+                Sua cidade <span className="text-red-600">*</span>
               </label>
               <input
                 id="city"
                 className="border h-10 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
               />
             </div>
             <div>
               <label htmlFor="state" className="block">
-                Estado
+                Estado <span className="text-red-600">*</span>
               </label>
               <input
                 id="state"
                 className="border h-10 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full"
+                value={state}
+                onChange={(e) => setState(e.target.value)}
               />
             </div>
           </div>
@@ -195,6 +330,8 @@ const Checkout: NextPage<Props> = ({ banner }) => {
               id="state"
               className="border p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full resize-none"
               rows={4}
+              value={information}
+              onChange={(e) => setInformation(e.target.value)}
             />
           </div>
         </div>
@@ -206,11 +343,14 @@ const Checkout: NextPage<Props> = ({ banner }) => {
               <span>{calcPrice(total)}</span>
             </div>
             <div className="py-1">
-              <Link href={"/sucesso"}>
-                <Button buttonSize="lg" isFullSize>
-                  <PaperPlane /> Enviar pedido
-                </Button>
-              </Link>
+              <Button
+                buttonSize="lg"
+                isFullSize
+                isLoading={loading}
+                onClick={() => sendOrder()}
+              >
+                <PaperPlane /> Enviar pedido
+              </Button>
             </div>
           </div>
         </div>
