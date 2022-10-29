@@ -6,10 +6,10 @@ import { CatalogProps } from "../../types";
 
 interface Props {
   catalogs: CatalogProps | null;
-  category: string | null;
+  product: string | null;
 }
 
-export default function Carousel({ catalogs, category }: Props) {
+export default function Carousel({ catalogs, product }: Props) {
   const carousel = useRef<HTMLDivElement>(null);
 
   const handeLeftClick = (e: any) => {
@@ -68,8 +68,8 @@ export default function Carousel({ catalogs, category }: Props) {
             </button>
           </div>
           <div className="flex justify-center">
-            {category && (
-              <Link href={`/produtos/catelogos/${category}`} passHref>
+            {product && (
+              <Link href={`/produtos/catalogos/${product}`} passHref>
                 <a className="card-action-button-orange w-fit px-4 mt-5">
                   VEJA O CATÁLOGO COMPLETO
                 </a>

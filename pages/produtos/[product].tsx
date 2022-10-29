@@ -14,7 +14,6 @@ import Footer from "../../components/layout/Footer";
 import HeadApp from "../../components/layout/Head";
 import Header from "../../components/layout/Header";
 import * as Popover from "@radix-ui/react-popover";
-import Carousel from "../../components/layout/Carousel";
 import Pedidos from "../../components/layout/Pedidos";
 import { clientQuery } from "../../lib/urql";
 import {
@@ -131,18 +130,6 @@ const Produtos: NextPage<Props> = ({ information }) => {
             <CardsProduct products={information.category.products || []} />
           </div>
         </div>
-
-        <div className="flex items-center flex-col gap-2 mt-16 w-full">
-          <span className="block heading text-marinho-500 text-center">
-            CATÁLOGOS DE MODELOS PRONTOS
-          </span>
-          <div className="border-marinho-500 border-b-2 w-56" />
-        </div>
-
-        <Carousel
-          catalogs={information.category.collections[0] || null}
-          category={information.category.id || null}
-        />
 
         <Pedidos />
       </section>

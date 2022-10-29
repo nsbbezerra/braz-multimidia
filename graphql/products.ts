@@ -37,13 +37,6 @@ const FIND_CATEGORIES_INFORMATION = gql`
           url
         }
       }
-      collections(last: 1) {
-        id
-        images {
-          id
-          url
-        }
-      }
     }
   }
 `;
@@ -103,6 +96,13 @@ const FIND_PRODUCT_INFORMATION = gql`
           url
         }
       }
+      collections(last: 1) {
+        id
+        images {
+          id
+          url
+        }
+      }
     }
     productSizeVariants(where: { product: { id: $id } }) {
       id
@@ -119,9 +119,45 @@ const FIND_PRODUCT_INFORMATION = gql`
   }
 `;
 
+const FIND_COLLECTION_INFORMATION = gql`
+  query FindCollections($id: ID!) {
+    banners(where: { page: Catalogo }) {
+      id
+      desktop {
+        id
+        url
+      }
+      mobile {
+        id
+        url
+      }
+    }
+    collections(where: { product: { id: $id } }, last: 1) {
+      id
+      product {
+        id
+        name
+      }
+      images {
+        id
+        url
+      }
+    }
+    categories(last: 50) {
+      id
+      name
+      products {
+        id
+        name
+      }
+    }
+  }
+`;
+
 export {
   FIND_CATEGORIES_PATH,
   FIND_CATEGORIES_INFORMATION,
   FIND_PRODUCTS_PATH,
   FIND_PRODUCT_INFORMATION,
+  FIND_COLLECTION_INFORMATION,
 };

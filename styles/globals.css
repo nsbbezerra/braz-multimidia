@@ -146,16 +146,16 @@
 
   .List-tabs {
     flex-shrink: 0;
-    @apply flex rounded-t-md overflow-hidden border-b-2 border-b-white flex-col sm:flex-row;
+    @apply flex rounded-t-md overflow-hidden border-b-2 border-b-white flex-row;
   }
 
   .Trigger-tabs {
     flex: 1;
-    @apply flex items-center justify-center px-5 py-2 text-xl duration-300 cursor-pointer font-serif hover:bg-indigo-300 border-b-2 border-b-white sm:border-b-0 sm:border-r-2 sm:border-r-white sm:last:border-r-0 text-marinho-500;
+    @apply flex items-center justify-center px-2 sm:px-5 py-2 text-sm sm:text-xl duration-300 cursor-pointer font-serif hover:bg-indigo-300 sm:border-b-0 border-r-2 border-r-white last:border-r-0 text-marinho-500;
   }
 
   .Trigger-tabs[data-state="active"] {
-    @apply border-transparent bg-marinho-500 border-b-2 border-b-white text-white sm:border-r-2 sm:border-r-white sm:last:border-r-0 sm:border-b-0;
+    @apply border-transparent bg-marinho-500 text-white border-r-2 border-r-white last:border-r-0 sm:border-b-0;
   }
 
   .Trigger-tabs[data-state="inactive"] {
@@ -164,7 +164,7 @@
 
   .Content-tabs {
     flex: 1;
-    @apply p-5 duration-700 bg-gray-100 outline-none rounded-b-md;
+    @apply p-5 duration-700 bg-gray-50 outline-none rounded-b-md;
   }
 
   .heading {
@@ -261,10 +261,10 @@
     @apply text-xs md:text-sm font-bold font-serif;
   }
   .html-parsed blockquote {
-    @apply bg-zinc-50 rounded-md p-2 border-l-2 border-l-zinc-500 italic;
+    @apply bg-zinc-50 rounded-md p-2 border-l-2 border-l-zinc-500 italic my-1;
   }
   .html-parsed code {
-    @apply bg-zinc-50 rounded-md p-1 border border-zinc-500 font-mono text-sm;
+    @apply bg-zinc-50 rounded-md p-1 border border-zinc-500 font-mono text-sm my-1;
   }
   .html-parsed ul {
     @apply list-disc ml-4;
@@ -274,5 +274,24 @@
   }
   .html-parsed a {
     @apply text-sky-700 hover:underline;
+  }
+
+  .overlay {
+    @apply fixed flex justify-center items-center top-0 bottom-0 left-0 right-0 bg-black bg-opacity-60 z-40 w-screen h-screen inset-0;
+  }
+  .dialog-content {
+    @apply fixed top-0 right-0 left-0 bottom-0 z-40 bg-transparent flex justify-center items-center outline-none;
+  }
+  .dialog-body {
+    @apply rounded-md bg-white shadow-2xl w-full;
+  }
+  .dialog-body-img {
+    @apply rounded-md bg-transparent shadow-2xl w-full overflow-hidden relative bg-white;
+  }
+  .dialog-header {
+    @apply flex items-center justify-between py-3 px-4 font-semibold text-lg;
+  }
+  .dialog-close {
+    @apply hover:bg-zinc-200 rounded-full w-7 h-7 flex items-center justify-center active:bg-zinc-300;
   }
 }

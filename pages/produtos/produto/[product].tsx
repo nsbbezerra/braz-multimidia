@@ -4,9 +4,11 @@ import {
   CaretRight,
   Check,
   House,
+  MagnifyingGlassPlus,
   ShoppingBag,
   ShoppingCart,
   TShirt,
+  X,
 } from "phosphor-react";
 import { Fragment, useContext, useEffect, useState } from "react";
 import Button from "../../../components/layout/Button";
@@ -26,6 +28,8 @@ import CartContext from "../../../context/cart/cart";
 import { nanoid } from "nanoid";
 import Toast from "../../../components/layout/Toast";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
+import Carousel from "../../../components/layout/Carousel";
+import * as Dialog from "@radix-ui/react-dialog";
 
 interface ProductProps {
   id: string;
@@ -56,6 +60,8 @@ const Produto: NextPage<Props> = ({ information }) => {
   const [price, setPrice] = useState<number>(0);
   const [size, setSize] = useState<string>("");
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const [preview, setPreview] = useState<boolean>(false);
+  const [url, setUrl] = useState<string>("");
 
   const [toast, setToast] = useState<ToastInfo>({
     title: "",
@@ -112,6 +118,11 @@ const Produto: NextPage<Props> = ({ information }) => {
     setIsDialogOpen(true);
     setQuantity(1);
     setSize("");
+  };
+
+  const handleImage = (ref: string) => {
+    setUrl(ref);
+    setPreview(true);
   };
 
   return (
@@ -338,6 +349,18 @@ const Produto: NextPage<Props> = ({ information }) => {
           </Tabs.Root>
         </div>
 
+        <div className="flex items-center flex-col gap-2 mt-16 w-full">
+          <span className="block heading text-marinho-500 text-center">
+            CATÁLOGOS DE MODELOS PRONTOS
+          </span>
+          <div className="border-marinho-500 border-b-2 w-56" />
+        </div>
+
+        <Carousel
+          catalogs={information.product?.collections[0] || null}
+          product={information.product?.id || null}
+        />
+
         <Pedidos />
       </section>
 
@@ -351,7 +374,7 @@ const Produto: NextPage<Props> = ({ information }) => {
         <div className="container mx-auto px-5 xl:px-0 max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {information.portfolios.map((port) => (
             <div
-              className="w-full rounded-md overflow-hidden shadow"
+              className="w-full rounded-md overflow-hidden shadow relative"
               key={port.id}
             >
               <Image
@@ -361,6 +384,14 @@ const Produto: NextPage<Props> = ({ information }) => {
                 layout="responsive"
                 alt="Braz Multimidia"
               />
+              <div className="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 hover:opacity-100 transition-all">
+                <button
+                  className="text-gray-400 hover:text-white text-6xl p-2 rounded-2xl active:text-gray-400"
+                  onClick={() => handleImage(port.image.url)}
+                >
+                  <MagnifyingGlassPlus />
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -400,6 +431,28 @@ const Produto: NextPage<Props> = ({ information }) => {
           </AlertDialog.Content>
         </AlertDialog.Portal>
       </AlertDialog.Root>
+
+      <Dialog.Root onOpenChange={() => setPreview(!preview)} open={preview}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="overlay" />
+          <Dialog.Content className="dialog-content p-2">
+            <div className="dialog-body-img max-w-2xl">
+              <Dialog.Close className="bg-sky-700 hover:bg-sky-800 rounded-full w-7 h-7 flex items-center justify-center active:bg-sky-700 absolute right-3 top-3 z-10 text-white">
+                <X />
+              </Dialog.Close>
+              <div>
+                <Image
+                  src={url}
+                  width={626}
+                  height={417}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </Fragment>
   );
 };

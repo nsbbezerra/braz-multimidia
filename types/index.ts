@@ -51,7 +51,6 @@ type CategoryProps = {
   id: string;
   name: string;
   products: ProductsCategoryPageProps[];
-  collections: CatalogProps[];
 };
 
 interface ProductsPageProps {
@@ -88,6 +87,7 @@ type ProductInformationProps = {
   video?: string | null;
   modelings: ModelingsProps[];
   measurements: MeasurementsProps[];
+  collections: CatalogProps[];
 };
 
 type ProductsSizeVariantsProps = {
