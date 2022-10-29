@@ -97,7 +97,7 @@
   }
 
   .Content-product {
-    @apply mr-5 w-[280px] pt-2 pb-2 px-2 mx-auto z-50 transition-all bg-white rounded-md shadow-lg border relative overflow-auto focus:outline-none flex flex-col gap-1 max-h-[55vh] lg:max-h-[80vh];
+    @apply mr-5 w-[280px] pt-2 pb-2 px-2 mx-auto z-50 transition-all bg-white rounded-md shadow-lg border relative overflow-auto focus:outline-none flex flex-col gap-1 max-h-[50vh] lg:max-h-[60vh];
   }
 
   .Content[data-state="open"] {

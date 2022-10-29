@@ -21,10 +21,16 @@ import { FIND_ALL_CATEGORIES } from "../../graphql/indexPage";
 import { CategoriesProps } from "../../types";
 import CartContext from "../../context/cart/cart";
 
+interface ProductProps {
+  id: string;
+  name: string;
+}
+
 export default function Header() {
   const { cart, setCart } = useContext(CartContext);
   const [openCart, setOpenCart] = useState<boolean>(false);
   const [categories, setCategories] = useState<CategoriesProps[]>([]);
+  const [products, setProducts] = useState<ProductProps[]>([]);
 
   const [findCategoriesResults] = useQuery({
     query: FIND_ALL_CATEGORIES,
@@ -35,6 +41,7 @@ export default function Header() {
   useEffect(() => {
     if (data) {
       setCategories(data.categories);
+      setProducts(data.products);
     }
   }, [data]);
 
@@ -56,7 +63,7 @@ export default function Header() {
         </Popover.Trigger>
         <Popover.Anchor />
         <Popover.Portal>
-          <Popover.Content className="Content-product lg:mt-9">
+          <Popover.Content className="Content-product lg:mt-8">
             {fetching ? (
               <div className="flex items-center justify-center p-5">
                 <CircleNotch className="text-3xl animate-spin" />
@@ -87,11 +94,43 @@ export default function Header() {
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
-      <Link href={"/produtos/catalogos"} passHref>
-        <a className="menu-items">
-          <ImageSquare /> Catálogos
-        </a>
-      </Link>
+      <Popover.Root>
+        <Popover.Trigger className="menu-items">
+          <ImageSquare /> Catálogos <CaretDown />
+        </Popover.Trigger>
+        <Popover.Anchor />
+        <Popover.Portal>
+          <Popover.Content className="Content-product lg:mt-8">
+            {fetching ? (
+              <div className="flex items-center justify-center p-5">
+                <CircleNotch className="text-3xl animate-spin" />
+              </div>
+            ) : (
+              <>
+                {products.length === 0 ? (
+                  <div className="flex justify-center items-center flex-col gap-1">
+                    <Leaf className="text-3xl" />
+                    <span>Nada para mostrar</span>
+                  </div>
+                ) : (
+                  <>
+                    {products.map((cat) => (
+                      <div key={cat.id}>
+                        <Link href={`/produtos/catalogos/${cat.id}`} passHref>
+                          <a className="menu-items-product uppercase">
+                            <TShirt />
+                            {cat.name}
+                          </a>
+                        </Link>
+                      </div>
+                    ))}
+                  </>
+                )}
+              </>
+            )}
+          </Popover.Content>
+        </Popover.Portal>
+      </Popover.Root>
       <Link href={"/faleconosco"} passHref>
         <a className="menu-items">
           <Phone /> Fale conosco

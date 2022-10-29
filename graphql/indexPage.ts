@@ -46,6 +46,10 @@ const FIND_ALL_CATEGORIES = gql`
         url
       }
     }
+    products(last: 50, orderBy: name_ASC) {
+      id
+      name
+    }
   }
 `;
 
