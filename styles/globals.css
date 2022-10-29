@@ -57,7 +57,7 @@
   }
 
   .buttom-gray {
-    @apply bg-zinc-700 text-white hover:bg-zinc-800 active:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-500;
+    @apply bg-zinc-300 text-zinc-800 hover:bg-zinc-400 active:bg-zinc-700 focus:outline-none focus:ring-1 focus:ring-zinc-500;
   }
 
   .buttom-blue-outline {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBag, ShoppingCart, Trash, X } from "phosphor-react";
+import { Leaf, ShoppingBag, ShoppingCart, Trash, X } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/cart/cart";
 import Button from "./Button";
@@ -62,44 +62,52 @@ export default function Drawer({ isOpen, items, onClose }: Props) {
           </div>
 
           <div className="px-4 py-2">
-            <div className="grid grid-cols-1 divide-y">
-              {items.map((item) => (
-                <div
-                  className="grid grid-cols-[80px_1fr] gap-5 items-start py-2"
-                  key={item.id}
-                >
-                  <div className="w-full">
-                    <Image
-                      src={item.thumbnail}
-                      width={600}
-                      height={600}
-                      layout="responsive"
-                      alt="Braz Multimidia"
-                    />
-                  </div>
-                  <div>
-                    <div className="flex justify-between items-center">
-                      <strong>{item.name}</strong>
-                      <span>{calcPrice(item.total)}</span>
+            {items.length === 0 ? (
+              <div className="flex justify-center items-center flex-col gap-1">
+                <Leaf className="text-4xl" />
+                <span>Nada para mostrar</span>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 divide-y">
+                {items.map((item) => (
+                  <div
+                    className="grid grid-cols-[80px_1fr] gap-5 items-start py-2"
+                    key={item.id}
+                  >
+                    <div className="w-full">
+                      <Image
+                        src={item.thumbnail}
+                        width={600}
+                        height={600}
+                        layout="responsive"
+                        alt="Braz Multimidia"
+                      />
                     </div>
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <p>{item.size}</p>
-                        <p>QTD: {item.quantity}</p>
+                    <div>
+                      <div className="flex justify-between items-center">
+                        <strong>{item.name}</strong>
+                        <span>{calcPrice(item.total)}</span>
                       </div>
-                      <Button
-                        buttonSize="sm"
-                        scheme="error"
-                        variant="outline"
-                        onClick={() => removeFromCart(item.id)}
-                      >
-                        <Trash />
-                      </Button>
+                      <div className="flex items-end justify-between">
+                        <div>
+                          <p>{item.size}</p>
+                          <p>Categoria: {item.category}</p>
+                          <p>QTD: {item.quantity}</p>
+                        </div>
+                        <Button
+                          buttonSize="sm"
+                          scheme="error"
+                          variant="outline"
+                          onClick={() => removeFromCart(item.id)}
+                        >
+                          <Trash />
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

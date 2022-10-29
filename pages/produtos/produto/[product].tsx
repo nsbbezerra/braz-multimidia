@@ -1,6 +1,13 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
-import { CaretRight, House, ShoppingCart, TShirt } from "phosphor-react";
+import {
+  CaretRight,
+  Check,
+  House,
+  ShoppingBag,
+  ShoppingCart,
+  TShirt,
+} from "phosphor-react";
 import { Fragment, useContext, useEffect, useState } from "react";
 import Button from "../../../components/layout/Button";
 import Footer from "../../../components/layout/Footer";
@@ -18,6 +25,7 @@ import Link from "next/link";
 import CartContext from "../../../context/cart/cart";
 import { nanoid } from "nanoid";
 import Toast from "../../../components/layout/Toast";
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
 
 interface ProductProps {
   id: string;
@@ -47,6 +55,7 @@ const Produto: NextPage<Props> = ({ information }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [price, setPrice] = useState<number>(0);
   const [size, setSize] = useState<string>("");
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
   const [toast, setToast] = useState<ToastInfo>({
     title: "",
@@ -66,6 +75,18 @@ const Produto: NextPage<Props> = ({ information }) => {
   }, [quantity, information]);
 
   const addToCart = () => {
+    const findProduct = cart.find(
+      (obj) => obj.name === information.product?.name && obj.size === size
+    );
+    if (findProduct) {
+      setToast({
+        title: "Atenção",
+        message: "Este produto com este tamanho já foi adicionado ao carrinho",
+        type: "warning",
+      });
+      setOpenToast(true);
+      return false;
+    }
     if (size === "") {
       setToast({
         title: "Atenção",
@@ -88,13 +109,9 @@ const Produto: NextPage<Props> = ({ information }) => {
         total: price,
       },
     ]);
-    setToast({
-      title: "Sucesso",
-      message: "Item adicionado com sucesso",
-      type: "success",
-    });
-    setOpenToast(true);
+    setIsDialogOpen(true);
     setQuantity(1);
+    setSize("");
   };
 
   return (
@@ -350,6 +367,39 @@ const Produto: NextPage<Props> = ({ information }) => {
       </div>
 
       <Footer />
+
+      <AlertDialog.Root open={isDialogOpen}>
+        <AlertDialog.Trigger asChild />
+        <AlertDialog.Portal>
+          <AlertDialog.Overlay className="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-60 z-40" />
+          <AlertDialog.Content className="fixed w-[80%] left-[10%] right-[10%] sm:w-[50%] sm:left-[25%] sm:right-[25%] md:w-[40%] md:left-[30%] md:right-[30%] lg:w-[30%] bg-white shadow-2xl rounded-md top-[15%] z-50 lg:left-[35%] lg:right-[35%] flex items-center justify-center flex-col p-5 gap-2">
+            <AlertDialog.Title className="text-white px-4 py-3 font-semibold text-4xl w-20 h-20 flex items-center justify-center bg-green-600 rounded-full">
+              <Check />
+            </AlertDialog.Title>
+            <AlertDialog.Description className="text-green-600 text-2xl font-semibold">
+              Sucesso
+            </AlertDialog.Description>
+            <div className="text-center mb-5">
+              <span className="text-zinc-800 text-lg">
+                Item adicionado ao carrinho com sucesso!
+              </span>
+            </div>
+            <div className="flex items-center gap-3 w-full flex-col xl:flex-row">
+              <AlertDialog.Cancel
+                className="buttom-md buttom-gray buttom-full"
+                onClick={() => setIsDialogOpen(false)}
+              >
+                <ShoppingBag /> Continuar comprando
+              </AlertDialog.Cancel>
+              <Link href={"/checkout"}>
+                <AlertDialog.Action className="buttom-md buttom-blue buttom-full">
+                  <ShoppingCart /> Ir para o carrinho
+                </AlertDialog.Action>
+              </Link>
+            </div>
+          </AlertDialog.Content>
+        </AlertDialog.Portal>
+      </AlertDialog.Root>
     </Fragment>
   );
 };
