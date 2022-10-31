@@ -9,6 +9,8 @@ const CREATE_ORDER = gql`
     $city: String!
     $state: String!
     $information: String!
+    $items: Json!
+    $statusSale: String!
   ) {
     createOrder(
       data: {
@@ -19,6 +21,8 @@ const CREATE_ORDER = gql`
         city: $city
         state: $state
         information: $information
+        items: $items
+        statusSale: $statusSale
       }
     ) {
       id
@@ -34,36 +38,4 @@ const PUBLISH_ORDER = gql`
   }
 `;
 
-const PUBLISH_ORDER_ITEM = gql`
-  mutation PublishMany($id: ID!) {
-    publishManyOrderItemsConnection(where: { order: { id: $id } }) {
-      aggregate {
-        count
-      }
-    }
-  }
-`;
-
-const CREATE_ORDER_ITEM = gql`
-  mutation CreateOrderItem(
-    $quantity: Int!
-    $size: String!
-    $product: ID!
-    $total: Int!
-    $order: ID!
-  ) {
-    createOrderItem(
-      data: {
-        quantity: $quantity
-        total: $total
-        size: $size
-        product: { connect: { id: $product } }
-        order: { connect: { id: $order } }
-      }
-    ) {
-      id
-    }
-  }
-`;
-
-export { CREATE_ORDER, PUBLISH_ORDER, PUBLISH_ORDER_ITEM, CREATE_ORDER_ITEM };
+export { CREATE_ORDER, PUBLISH_ORDER };
