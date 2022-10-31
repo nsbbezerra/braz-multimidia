@@ -106,7 +106,7 @@ const Home: NextPage<Props> = ({ information }) => {
 
       <section className="w-full relative bg-marinho-500 bg-jumbotronIndex bg-cover bg-center bg-no-repeat">
         <div className="bg-gradient-to-b from-black to-transparent bg-opacity-50 py-10">
-          <div className="container mx-auto px-5 xl:px-0 max-w-6xl text-center text-white text-lg sm:text-xl md:text-2xl font-mono">
+          <div className="container mx-auto px-5 xl:px-0 max-w-6xl text-center text-white text-lg sm:text-xl md:text-2xl">
             <strong className="text-white font-black heading text-center w-full block mb-10">
               QUEM SOMOS
             </strong>

@@ -1,4 +1,9 @@
-import { CircleWavyCheck, Copy, WhatsappLogo } from "phosphor-react";
+import {
+  CircleWavyCheck,
+  Copy,
+  ShoppingBag,
+  WhatsappLogo,
+} from "phosphor-react";
 import { Fragment, useState } from "react";
 import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
@@ -8,6 +13,7 @@ import Link from "next/link";
 import { configs } from "../configs";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Toast from "../components/layout/Toast";
+import Button from "../components/layout/Button";
 
 interface ToastInfo {
   title: string;
@@ -84,6 +90,25 @@ export default function Sucesso() {
               Fale conosco agora
             </a>
           </Link>
+
+          <span className="mt-10">
+            <strong>
+              É de suma importância você guardar o número do pedido
+            </strong>
+            , para poder verificar posteriormente o status e os detalhes do
+            mesmo. Caso queira verificar os detalhes clique no botão abaixo:
+          </span>
+
+          <div className="flex justify-center mt-5">
+            <Link href={`/minhascompras?order=${order}`}>
+              <a>
+                <Button buttonSize="lg">
+                  <ShoppingBag />
+                  Ver compra
+                </Button>
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
       <Footer />

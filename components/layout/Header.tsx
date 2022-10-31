@@ -27,7 +27,7 @@ interface ProductProps {
 }
 
 function Header() {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
   const [openCart, setOpenCart] = useState<boolean>(false);
   const [categories, setCategories] = useState<CategoriesProps[]>([]);
   const [products, setProducts] = useState<ProductProps[]>([]);
