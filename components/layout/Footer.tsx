@@ -8,10 +8,19 @@ import {
 } from "phosphor-react";
 import { Fragment } from "react";
 import Router from "next/link";
+import NextLink from "next/link";
 
 export default function Footer() {
   return (
     <Fragment>
+      <NextLink href="/whatsapp" passHref>
+        <a className="flex h-16 w-16 fixed bottom-5 right-5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+          <span className="relative rounded-full h-16 w-16 bg-green-600 flex items-center justify-center text-4xl text-white">
+            <WhatsappLogo />
+          </span>
+        </a>
+      </NextLink>
       <footer className="bg-marinho-800 pt-10 pb-5">
         <div className="container mx-auto px-5 xl:px-0 max-w-6xl border-b border-b-orange-500 pb-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">

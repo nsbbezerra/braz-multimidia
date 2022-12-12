@@ -140,23 +140,13 @@ const Produto: NextPage<Props> = ({ information }) => {
         ""
       ) : (
         <>
-          <div className="w-full relative hidden sm:block">
+          <div className="w-full relative">
             <Image
               src={information.banners.desktop.url}
               width={1920}
               height={461}
               alt="Braz Multimidia banner"
               layout="responsive"
-            />
-          </div>
-          <div className="w-full relative block sm:hidden">
-            <Image
-              src={information.banners.mobile.url}
-              alt="Braz Multimidia"
-              layout="responsive"
-              width={550}
-              height={775}
-              objectFit="cover"
             />
           </div>
         </>
@@ -190,7 +180,7 @@ const Produto: NextPage<Props> = ({ information }) => {
             />
           </div>
 
-          <div>
+          <div className="w-full">
             <strong className="heading text-marinho-500 block">
               {information.product?.name}
             </strong>
@@ -216,25 +206,7 @@ const Produto: NextPage<Props> = ({ information }) => {
                 <strong className="text-3xl block">{calcPrice(price)}</strong>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-[150px_100px_1fr] md:grid-cols-2 gap-3 xl:max-w-lg items-end lg:grid-cols-[150px_100px_1fr]">
-                <div className="flex flex-col">
-                  <label htmlFor="qtd" className="mr-2 hidden sm:block">
-                    Tamanho:
-                  </label>
-                  <select
-                    className="border h-12 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full bg-transparent"
-                    placeholder="Selecione um tamanho"
-                    value={size}
-                    onChange={(e) => setSize(e.target.value)}
-                  >
-                    <option value={""}>Selecione um tamanho</option>
-                    {information.productSizeVariants.map((size) => (
-                      <option value={size.name} key={size.id}>
-                        {size.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              <div className="grid grid-cols-3 gap-3 xl:max-w-lg items-end">
                 <div className="flex flex-col">
                   <label htmlFor="qtd" className="mr-2 hidden sm:block">
                     QTD:
@@ -247,7 +219,7 @@ const Produto: NextPage<Props> = ({ information }) => {
                     onChange={(e) => setQuantity(parseInt(e.target.value))}
                   />
                 </div>
-                <div className="col-span-2 sm:col-auto md:col-span-2 lg:col-auto">
+                <div className="col-span-2">
                   <Button
                     buttonSize="lg"
                     scheme="warning"

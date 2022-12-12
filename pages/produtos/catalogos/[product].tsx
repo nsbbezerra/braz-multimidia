@@ -113,23 +113,13 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
         ""
       ) : (
         <>
-          <div className="w-full relative hidden sm:block">
+          <div className="w-full relative">
             <Image
               src={banners.desktop.url}
               width={1920}
               height={461}
               alt="Braz Multimidia banner"
               layout="responsive"
-            />
-          </div>
-          <div className="w-full relative block sm:hidden">
-            <Image
-              src={banners.mobile.url}
-              alt="Braz Multimidia"
-              layout="responsive"
-              width={550}
-              height={775}
-              objectFit="cover"
             />
           </div>
         </>

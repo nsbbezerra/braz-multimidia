@@ -64,23 +64,13 @@ const Produtos: NextPage<Props> = ({ information }) => {
         ""
       ) : (
         <>
-          <div className="w-full relative hidden sm:block">
+          <div className="w-full relative">
             <Image
               src={information.banners[0].desktop.url}
               width={1920}
               height={461}
               alt="Braz Multimidia banner"
               layout="responsive"
-            />
-          </div>
-          <div className="w-full relative block sm:hidden">
-            <Image
-              src={information.banners[0].mobile.url}
-              alt="Braz Multimidia"
-              layout="responsive"
-              width={550}
-              height={775}
-              objectFit="cover"
             />
           </div>
         </>

@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import { Leaf, MagnifyingGlass, ShoppingBag } from "phosphor-react";
+import { Leaf, MagnifyingGlass, Phone, ShoppingBag } from "phosphor-react";
 import { Fragment, useEffect, useState } from "react";
 import Button from "../components/layout/Button";
 import Footer from "../components/layout/Footer";
@@ -119,8 +119,8 @@ const MinhasCompras: NextPage = () => {
       />
       <Header />
       <div className="bg-gradient-to-b h-52 from-marinho-500 to-marinho-900 flex justify-center items-center flex-col px-5 text-white text-center">
-        <ShoppingBag className="text-7xl" />
-        <strong className="text-3xl mt-2">MINHAS COMPRAS</strong>
+        <Phone className="text-7xl" />
+        <strong className="text-3xl mt-2">FALE CONOSCO</strong>
       </div>
 
       <section className="container mx-auto max-w-4xl px-5 xl:px-0 my-10">

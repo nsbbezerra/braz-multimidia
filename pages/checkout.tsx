@@ -1,12 +1,10 @@
 import axios from "axios";
-import { GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Leaf,
-  Minus,
   PaperPlane,
-  Plus,
+  ShoppingBag,
   ShoppingCart,
   Trash,
 } from "phosphor-react";
@@ -18,14 +16,7 @@ import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
 import Toast from "../components/layout/Toast";
 import CartContext from "../context/cart/cart";
-import { FIND_CART_BANNER } from "../graphql/indexPage";
-import { clientQuery } from "../lib/urql";
-import { BannersProps } from "../types";
 import { useRouter } from "next/router";
-
-interface Props {
-  banner: BannersProps | null;
-}
 
 interface ToastInfo {
   title: string;
@@ -33,7 +24,7 @@ interface ToastInfo {
   type: "success" | "info" | "warning" | "error";
 }
 
-const Checkout: NextPage<Props> = ({ banner }) => {
+const Checkout: NextPage = () => {
   const { push } = useRouter();
   const { cart, setCart } = useContext(CartContext);
   const [total, setTotal] = useState<number>(0);
@@ -177,31 +168,10 @@ const Checkout: NextPage<Props> = ({ banner }) => {
         Promocional, Abadás"
       />
       <Header />
-      {!banner ? (
-        ""
-      ) : (
-        <>
-          <div className="w-full relative hidden sm:block">
-            <Image
-              src={banner.desktop.url}
-              width={1920}
-              height={461}
-              alt="Braz Multimidia banner"
-              layout="responsive"
-            />
-          </div>
-          <div className="w-full relative block sm:hidden">
-            <Image
-              src={banner.mobile.url}
-              alt="Braz Multimidia"
-              layout="responsive"
-              width={550}
-              height={775}
-              objectFit="cover"
-            />
-          </div>
-        </>
-      )}
+      <div className="bg-gradient-to-b h-52 from-marinho-500 to-marinho-900 flex justify-center items-center flex-col px-5 text-white text-center">
+        <ShoppingBag className="text-7xl" />
+        <strong className="text-3xl mt-2">CHECKOUT</strong>
+      </div>
 
       <section className="mt-10 container mx-auto px-5 xl:px-0 max-w-3xl">
         <div className="flex gap-3 heading text-marinho-500 items-center border-b border-b-marinho-500">
@@ -362,14 +332,3 @@ const Checkout: NextPage<Props> = ({ banner }) => {
 };
 
 export default Checkout;
-
-export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await clientQuery.query(FIND_CART_BANNER, {}).toPromise();
-
-  return {
-    props: {
-      banner: data.banners[0] || null,
-    },
-    revalidate: 120,
-  };
-};
