@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import { Fragment } from "react";
 import Image from "next/image";
 import "swiper/css";
@@ -16,7 +16,7 @@ export default function Panel({ images }: Props) {
     <Fragment>
       <Swiper
         navigation={true}
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         autoplay={{ delay: 5000 }}
       >
         {images.map((image) => (

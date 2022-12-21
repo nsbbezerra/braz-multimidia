@@ -9,6 +9,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         jumbotronIndex: "url('../public/img/home/jumbo.jpg')",
+        backgroundAbada: "url('../public/img/abada/background.png')",
+        backgroundPesca: "url('../public/img/pesca/background.png')",
+        backgroundEsportivo: "url('../public/img/esportivo/background.png')",
       },
       fontFamily: {
         sans: ["PT Sans Narrow", "sans-serif"],

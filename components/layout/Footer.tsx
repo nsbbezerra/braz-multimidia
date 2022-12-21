@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <Fragment>
       <NextLink href="/whatsapp" passHref>
-        <a className="flex h-16 w-16 fixed bottom-5 right-5">
+        <a className="flex h-16 w-16 fixed bottom-5 right-5 z-50">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
           <span className="relative rounded-full h-16 w-16 bg-green-600 flex items-center justify-center text-4xl text-white">
             <WhatsappLogo />

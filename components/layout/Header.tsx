@@ -64,6 +64,30 @@ function Header() {
         <Popover.Anchor />
         <Popover.Portal>
           <Popover.Content className="Content-product lg:mt-8">
+            <Link href={`/produtos/abadas`} passHref>
+              <a className="menu-items-product-orange uppercase">
+                <TShirt />
+                ABADÁS
+              </a>
+            </Link>
+            <Link href={`/produtos/ciclismo`} passHref>
+              <a className="menu-items-product-orange uppercase">
+                <TShirt />
+                CICLISMO
+              </a>
+            </Link>
+            <Link href={`/produtos/pesca`} passHref>
+              <a className="menu-items-product-orange uppercase">
+                <TShirt />
+                PESCA
+              </a>
+            </Link>
+            <Link href={`/produtos/esportivos`} passHref>
+              <a className="menu-items-product-orange uppercase">
+                <TShirt />
+                ESPORTIVOS
+              </a>
+            </Link>
             {fetching ? (
               <div className="flex items-center justify-center p-5">
                 <CircleNotch className="text-3xl animate-spin" />
