@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Check } from "phosphor-react";
 import { Fragment } from "react";
 import Depoiments from "../../components/layout/Depoiments";
 import Footer from "../../components/layout/Footer";
@@ -27,7 +28,44 @@ export default function Esportivos() {
       </div>
 
       <div className="container mx-auto px-5 xl:px-0 max-w-5xl">
-        <div className="py-12 grid grid-cols-1 sm:grid-cols-3 gap-5 select-none">
+        <div className="w-full pt-10 flex flex-col items-center text-center">
+          <strong className="text-marinho-500 heading font-bold font-serif">
+            A SUA MELHOR ESCOLHA
+          </strong>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 pt-12 items-center justify-items-center">
+          <div className="w-full max-w-xs">
+            <Image
+              src={"/img/esportivo/about.png"}
+              width={300}
+              height={300}
+              alt="Braz Multimidia banner"
+              layout="responsive"
+            />
+          </div>
+          <div className="col-span-2 font-regular text-xl text-justify">
+            <ul className="list-disc list-inside">
+              <li>
+                Camisetas com estampas estilosas, qualidade fotográfica e
+                totalmente personalizáveis de acordo com a sua necessidade.
+              </li>
+              <li>
+                Nossas camisas de times são desenvolvidas com tecido DryFit que
+                além de ser leve e confortável auxilia na evaporação do suor,
+                deixando sua pele e camisa sempre secas.
+              </li>
+              <li>
+                Estampas exclusivas e estilosas, possuem cores vivas e
+                qualidades incrível.
+              </li>
+              <li>
+                Profissionalize o visual de seu time e destaque-se dos demais.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="py-12 grid sm:grid-cols-3 gap-5 select-none">
           <div className="bg-zinc-100 p-6 rounded-md flex flex-col justify-start items-center gap-2 text-center">
             <div className="w-36">
               <Image
@@ -84,7 +122,7 @@ export default function Esportivos() {
         </div>
       </div>
 
-      <div className="bg-backgroundEsportivo w-full pt-16 pb-32 bg-bottom bg-no-repeat px-10 flex justify-center items-center">
+      <div className="bg-backgroundEsportivo w-full pt-16 pb-32 bg-bottom bg-no-repeat px-10 flex justify-center items-center flex-col">
         <div className="w-full max-w-lg">
           <Image
             src={"/img/esportivo/uniforme.png"}
@@ -94,14 +132,80 @@ export default function Esportivos() {
             layout="responsive"
           />
         </div>
+
+        <div className="container mx-auto px-5 xl:px-0 max-w-5xl mt-10 mb-5">
+          <div className="p-4 bg-white rounded-md w-full grid sm:grid-cols-2 gap-10 bg-opacity-90">
+            <div className="w-full">
+              <div className="flex justify-between items-center text-2xl text-marinho-500">
+                <strong>Camisa</strong>
+                <strong>R$ 37,90</strong>
+              </div>
+              <div className="flex gap-0 flex-col">
+                <span className="flex gap-2 items-center">
+                  <Check /> Tecido DryEspecial + DryWind
+                </span>
+                <span className="flex gap-2 items-center">
+                  <Check /> Modelagem Formato Europeu
+                </span>
+                <span className="flex gap-2 items-center">
+                  <Check /> Personalizado em Sublimação Digital
+                </span>
+                <span className="flex gap-2 items-center">
+                  <Check /> Proteção UV 30
+                </span>
+                <span className="flex gap-2 items-center">
+                  <Check /> Tratamento Anti-Bacteriano
+                </span>
+                <span className="flex gap-2 items-center">
+                  <Check /> Patrocinadores Ilimitados
+                </span>
+              </div>
+              <div className="flex justify-between items-center text-2xl text-marinho-500 mt-2">
+                <strong>CONJUNTO: R$ 82,00</strong>
+              </div>
+            </div>
+
+            <div className="w-full flex flex-col justify-between">
+              <div className="w-full">
+                <div className="flex justify-between items-center text-2xl text-marinho-500">
+                  <strong>Calção</strong>
+                  <strong>R$ 32,70</strong>
+                </div>
+                <div className="flex gap-0 flex-col">
+                  <span className="flex gap-2 items-center">
+                    <Check /> Tecido MicroElastic
+                  </span>
+                  <span className="flex gap-2 items-center">
+                    <Check /> Modelagem Infinite
+                  </span>
+                  <span className="flex gap-2 items-center">
+                    <Check /> Personalizado em Sublimação Digital
+                  </span>
+                </div>
+              </div>
+
+              <div className="w-full">
+                <div className="flex justify-between items-center text-2xl text-marinho-500">
+                  <strong>Meião</strong>
+                  <strong>R$ 11,40</strong>
+                </div>
+                <div className="flex gap-0 flex-col">
+                  <span className="flex gap-2 items-center">
+                    <Check /> Tecelagem Multitrama de 4 fios
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="bg-gradient-to-t from-zinc-200 to-white py-10">
         <div className="container mx-auto px-5 xl:px-0 max-w-5xl">
           <div className="flex flex-col justify-center items-center gap-5 sm:flex-row sm:justify-between sm:items-center">
-            <strong className="text-5xl text-zinc-700 text-center">
+            <strong className="text-3xl sm:text-5xl text-zinc-700 text-center">
               SIMULADOR 24 HORAS
             </strong>
-            <span className="w-[50%] text-center font-semibold text-xl text-zinc-700">
+            <span className="sm:w-[50%] text-center font-semibold sm:text-lg md:text-xl text-zinc-700">
               CONHEÇA ESSA INCRÍVEL FERRAMENTA E CRIE VIRTUALMENTE O PRODUTO
               DESEJADO ANTECIPANDO A VISUALIZAÇÃO ANTES QUE SEJA FABRICADO.
             </span>
@@ -122,27 +226,27 @@ export default function Esportivos() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-12">
             <div className="w-full">
               <Image
-                src={"/img/pesca/sim-one.png"}
-                width={636}
-                height={769}
+                src={"/img/esportivo/sim-one.png"}
+                width={492}
+                height={889}
                 alt="Braz Multimidia banner"
                 layout="responsive"
               />
             </div>
             <div className="w-full">
               <Image
-                src={"/img/pesca/sim-two.png"}
-                width={636}
-                height={769}
+                src={"/img/esportivo/sim-two.png"}
+                width={492}
+                height={889}
                 alt="Braz Multimidia banner"
                 layout="responsive"
               />
             </div>
             <div className="w-full">
               <Image
-                src={"/img/pesca/sim-three.png"}
-                width={636}
-                height={769}
+                src={"/img/esportivo/sim-three.png"}
+                width={492}
+                height={889}
                 alt="Braz Multimidia banner"
                 layout="responsive"
               />

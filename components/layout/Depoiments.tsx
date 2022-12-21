@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import Image from "next/image";
+import { comments } from "../data/comments";
 
 export default function Depoiments() {
   return (
@@ -31,115 +32,27 @@ export default function Depoiments() {
             },
           }}
         >
-          <SwiperSlide className="pb-10">
-            <div className="flex justify-center items-center flex-col w-full">
-              <div className="rounded-md bg-white bg-opacity-50 px-4 pt-5 pb-9 w-full relative text-center text-lg">
-                Depoimentos
+          {comments.map((comm) => (
+            <SwiperSlide className="pb-10" key={comm._id}>
+              <div className="flex justify-center items-center flex-col w-full">
+                <div className="rounded-md bg-white shadow px-4 pt-5 h-52 w-full relative text-center text-lg">
+                  {comm.text}
+                </div>
+                <div className="w-16 z-10 rounded-full overflow-hidden border-2 border-marinho-500 -mt-8">
+                  <Image
+                    src={"/img/avatar.png"}
+                    width={300}
+                    height={300}
+                    alt="Braz Multimidia banner"
+                    layout="responsive"
+                  />
+                </div>
+                <div className="text-center font-semibold text-marinho-500">
+                  {comm.author}
+                </div>
               </div>
-              <div className="w-16 z-10 rounded-full overflow-hidden border-2 border-marinho-500 -mt-8">
-                <Image
-                  src={
-                    "https://img.freepik.com/vetores-gratis/avatar-de-personagem-de-empresario-isolado_24877-60111.jpg?w=2000"
-                  }
-                  width={300}
-                  height={300}
-                  alt="Braz Multimidia banner"
-                  layout="responsive"
-                />
-              </div>
-              <div className="text-center font-semibold text-marinho-500">
-                Natanael Bezerra
-              </div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide className="pb-10">
-            <div className="flex justify-center items-center flex-col w-full">
-              <div className="rounded-md bg-white bg-opacity-50 px-4 pt-5 pb-9 w-full relative text-center text-lg">
-                Depoimentos
-              </div>
-              <div className="w-16 z-10 rounded-full overflow-hidden border-2 border-marinho-500 -mt-8">
-                <Image
-                  src={
-                    "https://img.freepik.com/vetores-gratis/avatar-de-personagem-de-empresario-isolado_24877-60111.jpg?w=2000"
-                  }
-                  width={300}
-                  height={300}
-                  alt="Braz Multimidia banner"
-                  layout="responsive"
-                />
-              </div>
-              <div className="text-center font-semibold text-marinho-500">
-                Natanael Bezerra
-              </div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide className="pb-10">
-            <div className="flex justify-center items-center flex-col w-full">
-              <div className="rounded-md bg-white bg-opacity-50 px-4 pt-5 pb-9 w-full relative text-center text-lg">
-                Depoimentos
-              </div>
-              <div className="w-16 z-10 rounded-full overflow-hidden border-2 border-marinho-500 -mt-8">
-                <Image
-                  src={
-                    "https://img.freepik.com/vetores-gratis/avatar-de-personagem-de-empresario-isolado_24877-60111.jpg?w=2000"
-                  }
-                  width={300}
-                  height={300}
-                  alt="Braz Multimidia banner"
-                  layout="responsive"
-                />
-              </div>
-              <div className="text-center font-semibold text-marinho-500">
-                Natanael Bezerra
-              </div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide className="pb-10">
-            <div className="flex justify-center items-center flex-col w-full">
-              <div className="rounded-md bg-white bg-opacity-50 px-4 pt-5 pb-9 w-full relative text-center text-lg">
-                Depoimentos
-              </div>
-              <div className="w-16 z-10 rounded-full overflow-hidden border-2 border-marinho-500 -mt-8">
-                <Image
-                  src={
-                    "https://img.freepik.com/vetores-gratis/avatar-de-personagem-de-empresario-isolado_24877-60111.jpg?w=2000"
-                  }
-                  width={300}
-                  height={300}
-                  alt="Braz Multimidia banner"
-                  layout="responsive"
-                />
-              </div>
-              <div className="text-center font-semibold text-marinho-500">
-                Natanael Bezerra
-              </div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide className="pb-10">
-            <div className="flex justify-center items-center flex-col w-full">
-              <div className="rounded-md bg-white bg-opacity-50 px-4 pt-5 pb-9 w-full relative text-center text-lg">
-                Depoimentos
-              </div>
-              <div className="w-16 z-10 rounded-full overflow-hidden border-2 border-marinho-500 -mt-8">
-                <Image
-                  src={
-                    "https://img.freepik.com/vetores-gratis/avatar-de-personagem-de-empresario-isolado_24877-60111.jpg?w=2000"
-                  }
-                  width={300}
-                  height={300}
-                  alt="Braz Multimidia banner"
-                  layout="responsive"
-                />
-              </div>
-              <div className="text-center font-semibold text-marinho-500">
-                Natanael Bezerra
-              </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

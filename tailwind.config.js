@@ -12,6 +12,7 @@ module.exports = {
         backgroundAbada: "url('../public/img/abada/background.png')",
         backgroundPesca: "url('../public/img/pesca/background.png')",
         backgroundEsportivo: "url('../public/img/esportivo/background.png')",
+        backgroundCiclismo: "url('../public/img/ciclismo/background.png')",
       },
       fontFamily: {
         sans: ["PT Sans Narrow", "sans-serif"],

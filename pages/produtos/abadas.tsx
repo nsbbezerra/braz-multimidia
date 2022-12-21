@@ -97,10 +97,10 @@ export default function Abadas() {
       <div className="bg-gradient-to-t from-zinc-200 to-white py-10">
         <div className="container mx-auto px-5 xl:px-0 max-w-5xl">
           <div className="flex flex-col justify-center items-center gap-5 sm:flex-row sm:justify-between sm:items-center">
-            <strong className="text-5xl text-zinc-700 text-center">
+            <strong className="text-3xl sm:text-5xl text-zinc-700 text-center">
               SIMULADOR 24 HORAS
             </strong>
-            <span className="w-[50%] text-center font-semibold text-xl text-zinc-700">
+            <span className="sm:w-[50%] text-center font-semibold sm:text-lg md:text-xl text-zinc-700">
               CONHEÇA ESSA INCRÍVEL FERRAMENTA E CRIE VIRTUALMENTE O PRODUTO
               DESEJADO ANTECIPANDO A VISUALIZAÇÃO ANTES QUE SEJA FABRICADO.
             </span>
