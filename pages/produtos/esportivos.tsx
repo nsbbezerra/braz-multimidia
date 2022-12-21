@@ -7,6 +7,7 @@ import Footer from "../../components/layout/Footer";
 import HeadApp from "../../components/layout/Head";
 import Header from "../../components/layout/Header";
 import Pedidos from "../../components/layout/Pedidos";
+import Specs from "../../components/layout/Specs";
 import { configs } from "../../configs";
 
 export default function Esportivos() {
@@ -65,61 +66,7 @@ export default function Esportivos() {
           </div>
         </div>
 
-        <div className="py-12 grid sm:grid-cols-3 gap-5 select-none">
-          <div className="bg-zinc-100 p-6 rounded-md flex flex-col justify-start items-center gap-2 text-center">
-            <div className="w-36">
-              <Image
-                src={"/img/abada/tecido.png"}
-                width={200}
-                height={200}
-                alt="Braz Multimidia banner"
-                layout="responsive"
-              />
-            </div>
-            <strong className="text-2xl">TECIDO DRYFIT</strong>
-            <span className="text-lg">
-              A tecnologia DryFit proporciona maior troca de calor com o
-              ambiente, deixando seu uniforme sempre mais leve, pois não acumula
-              suor.
-            </span>
-          </div>
-
-          <div className="bg-zinc-100 p-6 rounded-md flex flex-col justify-start items-center gap-2 text-center">
-            <div className="w-36">
-              <Image
-                src={"/img/esportivo/estampa.png"}
-                width={200}
-                height={200}
-                alt="Braz Multimidia banner"
-                layout="responsive"
-              />
-            </div>
-            <strong className="text-2xl">ESTAMPAS DE QUALIDADE</strong>
-            <span className="text-lg">
-              Prezamos pela qualidade de nossos produtos, nossos uniformes
-              personalizados possuem estampas realizadas com qualidade
-              fotográfica.
-            </span>
-          </div>
-
-          <div className="bg-zinc-100 p-6 rounded-md flex flex-col justify-start items-center gap-2 text-center">
-            <div className="w-36 h-36 rounded-full bg-white">
-              <Image
-                src={"/img/abada/uv.png"}
-                width={200}
-                height={200}
-                alt="Braz Multimidia banner"
-                layout="responsive"
-              />
-            </div>
-            <strong className="text-2xl">PROTEÇÃO UV</strong>
-            <span className="text-lg">
-              Além do conforto do tecido especial DryFit, nossos uniformes
-              possuem proteção solar, o que garante horas de diversão mesmo sob
-              o sol.
-            </span>
-          </div>
-        </div>
+        <Specs origin="esportivo" />
       </div>
 
       <div className="bg-backgroundEsportivo w-full pt-16 pb-32 bg-bottom bg-no-repeat px-10 flex justify-center items-center flex-col">
@@ -223,7 +170,7 @@ export default function Esportivos() {
             ></iframe>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-12">
+          <div className="grid grid-cols-3 gap-5 mt-12">
             <div className="w-full">
               <Image
                 src={"/img/esportivo/sim-one.png"}
