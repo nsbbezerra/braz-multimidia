@@ -21,8 +21,8 @@ export default function Esportivos() {
       <div className="w-full relative">
         <Image
           src={"/img/esportivo/banner.png"}
-          width={1920}
-          height={461}
+          width={1731}
+          height={634}
           alt="Braz Multimidia banner"
           layout="responsive"
         />

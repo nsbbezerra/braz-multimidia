@@ -13,6 +13,7 @@ const nextConfig = {
       "storage.googleapis.com",
       "media.graphassets.com",
       "www.brazmultimidia.com.br",
+      "palmieriuniformes.nodejsng36f02.kinghost.net",
     ],
   },
 };
