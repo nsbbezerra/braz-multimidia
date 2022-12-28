@@ -17,6 +17,90 @@ export default function Cards({ categories }: Props) {
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+          <Link href={`/produtos/abadas`} passHref>
+            <div className="card cursor-pointer">
+              <div>
+                <Image
+                  src={"/img/abada.png"}
+                  width={600}
+                  height={600}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="p-2 md:p-4">
+                <strong className="text-center text-sm sm:text-base font-extrabold w-full block uppercase">
+                  ABADÁS
+                </strong>
+                <Link href={`/produtos/abadas`} passHref>
+                  <a className="card-action-button">VER PRODUTO</a>
+                </Link>
+              </div>
+            </div>
+          </Link>
+          <Link href={`/produtos/ciclismo`} passHref>
+            <div className="card cursor-pointer">
+              <div>
+                <Image
+                  src={"/img/ciclismo.webp"}
+                  width={600}
+                  height={600}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="p-2 md:p-4">
+                <strong className="text-center text-sm sm:text-base font-extrabold w-full block uppercase">
+                  CICLISMO
+                </strong>
+                <Link href={`/produtos/ciclismo`} passHref>
+                  <a className="card-action-button">VER PRODUTO</a>
+                </Link>
+              </div>
+            </div>
+          </Link>
+          <Link href={`/produtos/esportivos`} passHref>
+            <div className="card cursor-pointer">
+              <div>
+                <Image
+                  src={"/img/times.jpg"}
+                  width={600}
+                  height={600}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="p-2 md:p-4">
+                <strong className="text-center text-sm sm:text-base font-extrabold w-full block uppercase">
+                  ESPORTIVOS / TIMES
+                </strong>
+                <Link href={`/produtos/esportivos`} passHref>
+                  <a className="card-action-button">VER PRODUTO</a>
+                </Link>
+              </div>
+            </div>
+          </Link>
+          <Link href={`/produtos/pesca`} passHref>
+            <div className="card cursor-pointer">
+              <div>
+                <Image
+                  src={"/img/pesca.png"}
+                  width={600}
+                  height={600}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+              <div className="p-2 md:p-4">
+                <strong className="text-center text-sm sm:text-base font-extrabold w-full block uppercase">
+                  PESCA
+                </strong>
+                <Link href={`/produtos/pesca`} passHref>
+                  <a className="card-action-button">VER PRODUTO</a>
+                </Link>
+              </div>
+            </div>
+          </Link>
           {categories.map((cat) => (
             <Link href={`/produtos/${cat.id}`} passHref key={cat.id}>
               <div className="card cursor-pointer">
