@@ -32,7 +32,7 @@ export default function Abadas() {
       </div>
 
       <div className="bg-backgroundAbada w-full pt-16 pb-32 bg-bottom bg-no-repeat px-10 flex justify-center items-center">
-        <div className="w-full max-w-xl">
+        <div className="w-full max-w-md">
           <Image
             src={"/img/abada/abada.png"}
             width={1124}
@@ -54,7 +54,7 @@ export default function Abadas() {
             </span>
           </div>
 
-          <div className="aspect-video mt-10 rounded-md overflow-hidden">
+          <div className="aspect-video mt-10 rounded-md overflow-hidden max-w-lg mx-auto">
             <iframe
               width="100%"
               height={"100%"}
@@ -66,7 +66,7 @@ export default function Abadas() {
             ></iframe>
           </div>
 
-          <div className="grid grid-cols-3 gap-5 mt-12">
+          <div className="grid grid-cols-3 gap-5 mt-12 max-w-4xl mx-auto">
             <div className="w-full">
               <Image
                 src={"/img/abada/sim-one.png"}

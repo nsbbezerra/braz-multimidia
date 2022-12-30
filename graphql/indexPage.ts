@@ -18,10 +18,6 @@ const FIND_INDEX_PAGE = gql`
         id
         url
       }
-      mobile {
-        id
-        url
-      }
       redirect
       page
     }
@@ -61,10 +57,6 @@ const FIND_OTHER_BANNER = gql`
         id
         url
       }
-      mobile {
-        id
-        url
-      }
     }
   }
 `;
@@ -74,10 +66,6 @@ const FIND_PRODUCT_BANNER = gql`
     banners(where: { page: Produto }, last: 1) {
       id
       desktop {
-        id
-        url
-      }
-      mobile {
         id
         url
       }
@@ -93,10 +81,6 @@ const FIND_PRODUCTS_BANNER = gql`
         id
         url
       }
-      mobile {
-        id
-        url
-      }
     }
   }
 `;
@@ -109,10 +93,6 @@ const FIND_CART_BANNER = gql`
         id
         url
       }
-      mobile {
-        id
-        url
-      }
     }
   }
 `;
@@ -122,10 +102,6 @@ const FIND_CATALOG_BANNER = gql`
     banners(where: { page: Catalogo }, last: 1) {
       id
       desktop {
-        id
-        url
-      }
-      mobile {
         id
         url
       }

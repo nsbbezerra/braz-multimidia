@@ -20,7 +20,7 @@ export default function Ciclismo() {
       <Header />
       <div className="w-full relative">
         <Image
-          src={"/img/ciclismo/banner.png"}
+          src={"/img/ciclismo/banner.jpg"}
           width={1731}
           height={634}
           alt="Braz Multimidia banner"
@@ -33,7 +33,7 @@ export default function Ciclismo() {
       </div>
 
       <div className="bg-backgroundCiclismo w-full pt-16 pb-32 bg-bottom bg-no-repeat px-10 flex justify-center items-center flex-col">
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-xs">
           <Image
             src={"/img/ciclismo/uniforme.png"}
             width={1124}
@@ -44,7 +44,7 @@ export default function Ciclismo() {
         </div>
 
         <div className="container mx-auto px-5 xl:px-0 max-w-5xl mt-10 mb-5">
-          <div className="p-4 bg-white rounded-md w-full grid sm:grid-cols-2 gap-10 bg-opacity-90">
+          <div className="px-4 py-2 bg-white rounded-md w-full grid sm:grid-cols-2 gap-10 bg-opacity-90">
             <div className="w-full">
               <div className="flex justify-between items-center text-2xl text-marinho-500">
                 <strong>Camisa</strong>
@@ -109,7 +109,7 @@ export default function Ciclismo() {
             </span>
           </div>
 
-          <div className="aspect-video mt-10 rounded-md overflow-hidden">
+          <div className="aspect-video mt-10 rounded-md overflow-hidden max-w-lg mx-auto">
             <iframe
               width="100%"
               height={"100%"}
@@ -121,7 +121,7 @@ export default function Ciclismo() {
             ></iframe>
           </div>
 
-          <div className="grid grid-cols-3 gap-5 mt-12">
+          <div className="grid grid-cols-3 gap-5 mt-12 max-w-3xl mx-auto">
             <div className="w-full">
               <Image
                 src={"/img/ciclismo/sim-one.png"}

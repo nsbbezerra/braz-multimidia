@@ -9,10 +9,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         jumbotronIndex: "url('../public/img/home/jumbo.jpg')",
-        backgroundAbada: "url('../public/img/abada/background.png')",
-        backgroundPesca: "url('../public/img/pesca/background.png')",
-        backgroundEsportivo: "url('../public/img/esportivo/background.png')",
-        backgroundCiclismo: "url('../public/img/ciclismo/background.png')",
+        backgroundAbada: "url('../public/img/abada/bg-abada.png')",
+        backgroundPesca: "url('../public/img/pesca/bg-pesca.png')",
+        backgroundEsportivo: "url('../public/img/esportivo/bg-esportivo.png')",
+        backgroundCiclismo: "url('../public/img/ciclismo/bg-ciclismo.png')",
       },
       fontFamily: {
         sans: ["PT Sans Narrow", "sans-serif"],

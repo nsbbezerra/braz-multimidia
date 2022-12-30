@@ -16,10 +16,6 @@ const FIND_CATEGORIES_INFORMATION = gql`
         id
         url
       }
-      mobile {
-        id
-        url
-      }
     }
     categories(last: 50) {
       id
@@ -54,10 +50,6 @@ const FIND_PRODUCT_INFORMATION = gql`
     banners(where: { page: Produto }) {
       id
       desktop {
-        id
-        url
-      }
-      mobile {
         id
         url
       }
@@ -124,10 +116,6 @@ const FIND_COLLECTION_INFORMATION = gql`
     banners(where: { page: Catalogo }) {
       id
       desktop {
-        id
-        url
-      }
-      mobile {
         id
         url
       }
