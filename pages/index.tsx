@@ -311,8 +311,6 @@ export default Home;
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await clientQuery.query(FIND_INDEX_PAGE, {}).toPromise();
 
-  console.log(data);
-
   return {
     props: {
       information: {
