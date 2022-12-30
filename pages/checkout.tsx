@@ -207,7 +207,6 @@ const Checkout: NextPage = () => {
                   </div>
                   <div className="flex items-end justify-between">
                     <div>
-                      <p>{car.size}</p>
                       <p>Categoria: {car.category}</p>
                       <span className="flex items-center gap-5">
                         QTD: {car.quantity}

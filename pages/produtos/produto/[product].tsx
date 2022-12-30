@@ -93,15 +93,6 @@ const Produto: NextPage<Props> = ({ information }) => {
       setOpenToast(true);
       return false;
     }
-    if (size === "") {
-      setToast({
-        title: "Atenção",
-        message: "Selecione um tamanho",
-        type: "warning",
-      });
-      setOpenToast(true);
-      return false;
-    }
     setCart([
       ...cart,
       {
@@ -110,7 +101,7 @@ const Produto: NextPage<Props> = ({ information }) => {
         product: information.product?.id || "",
         name: information.product?.name || "",
         quantity,
-        size: size,
+        size: "none",
         thumbnail: information.product?.images[0].url || "",
         total: price,
       },

@@ -90,7 +90,6 @@ export default function Drawer({ isOpen, items, onClose }: Props) {
                       </div>
                       <div className="flex items-end justify-between">
                         <div>
-                          <p>{item.size}</p>
                           <p>Categoria: {item.category}</p>
                           <p>QTD: {item.quantity}</p>
                         </div>

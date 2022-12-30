@@ -224,9 +224,6 @@ const MinhasCompras: NextPage = () => {
                           Quantidade: {item.quantity}
                         </span>
                         <span className="text-sm sm:text-base">
-                          {item.size}
-                        </span>
-                        <span className="text-sm sm:text-base">
                           Categoria: {item.category}
                         </span>
                       </div>
