@@ -30,10 +30,12 @@ export default function Footer() {
               </strong>
 
               <div className="mt-3 flex flex-col gap-2">
-                <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
-                  <Link />
-                  Depoimentos
-                </a>
+                <NextLink href={"/depoimentos"} passHref>
+                  <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
+                    <Link />
+                    Depoimentos
+                  </a>
+                </NextLink>
                 <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
                   <Link />
                   Onde estamos?

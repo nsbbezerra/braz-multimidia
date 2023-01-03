@@ -40,7 +40,7 @@ export default function Depoiments() {
                 </div>
                 <div className="w-16 z-10 rounded-full overflow-hidden border-2 border-marinho-500 -mt-8">
                   <Image
-                    src={`http://palmieriuniformes.nodejsng36f02.kinghost.net:21489/img/${comm.avatar}`}
+                    src={`/img/avatar.png`}
                     width={300}
                     height={300}
                     alt="Braz Multimidia banner"
