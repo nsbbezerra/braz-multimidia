@@ -1,5 +1,8 @@
 import Head from "next/head";
 
+import FACEBOOK_PIXEL_1 from "../../facebook/pixel-1";
+import FACEBOOK_PIXEL_2 from "../../facebook/pixel-2";
+
 interface Props {
   title: string;
 }
@@ -27,6 +30,8 @@ export default function HeadApp({ title }: Props) {
         name="google-site-verification"
         content="ONO9UDSfHSU6yquNIFhFnjmgOGv7nj3iZZ50mRLjrhM"
       />
+      <FACEBOOK_PIXEL_1 />
+      <FACEBOOK_PIXEL_2 />
     </Head>
   );
 }

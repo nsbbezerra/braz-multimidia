@@ -25,9 +25,7 @@ const CartContext = createContext<PropsCartContext>(DEFAULT_VALUE);
 
 const CartContextProvider = ({ children }: any) => {
   const [cart, setCart] = useState(DEFAULT_VALUE.cart);
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+
   return (
     <CartContext.Provider value={{ cart, setCart }}>
       {children}

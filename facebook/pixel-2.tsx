@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FacePixel() {
+export default function FacePixel2() {
   return (
     <React.Fragment>
       <script
@@ -13,15 +13,15 @@ export default function FacePixel() {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '636572647554629');
+          fbq('init', '713867743586011');
           fbq('track', 'PageView');`,
         }}
       />
       <noscript
         dangerouslySetInnerHTML={{
           __html: `<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=636572647554629&ev=PageView&noscript=1"
-/>`,
+          src="https://www.facebook.com/tr?id=713867743586011&ev=PageView&noscript=1"
+        />`,
         }}
       />
     </React.Fragment>
