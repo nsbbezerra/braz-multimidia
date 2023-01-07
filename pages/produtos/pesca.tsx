@@ -32,11 +32,11 @@ export default function Pesca() {
       </div>
 
       <div className="bg-backgroundPesca w-full pt-16 pb-32 bg-bottom bg-no-repeat px-10 flex justify-center items-center">
-        <div className="w-full max-w-3xl">
+        <div className="w-full max-w-lg">
           <Image
             src={"/img/pesca/uniforme.png"}
-            width={1684}
-            height={990}
+            width={600}
+            height={377}
             alt="Braz Multimidia banner"
             layout="responsive"
           />

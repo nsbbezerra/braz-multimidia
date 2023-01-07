@@ -32,7 +32,7 @@ export default function Ciclismo() {
         <Specs origin="ciclismo" />
       </div>
 
-      <div className="bg-backgroundCiclismo w-full pt-16 pb-32 bg-bottom bg-no-repeat px-10 flex justify-center items-center flex-col">
+      <div className="bg-backgroundCiclismo w-full pt-16 pb-32 bg-bottom bg-no-repeat px-5 flex justify-center items-center flex-col">
         <div className="w-full max-w-xs">
           <Image
             src={"/img/ciclismo/uniforme.png"}
@@ -43,12 +43,11 @@ export default function Ciclismo() {
           />
         </div>
 
-        <div className="container mx-auto px-5 xl:px-0 max-w-5xl mt-10 mb-5">
+        <div className="container mx-auto xl:px-0 max-w-5xl mt-10 mb-5">
           <div className="px-4 py-2 bg-white rounded-md w-full grid sm:grid-cols-2 gap-10 bg-opacity-90">
             <div className="w-full">
               <div className="flex justify-between items-center text-2xl text-marinho-500">
                 <strong>Camisa</strong>
-                <strong>R$ 37,90</strong>
               </div>
               <div className="flex gap-0 flex-col">
                 <span className="flex gap-2 items-center">
@@ -70,16 +69,12 @@ export default function Ciclismo() {
                   <Check /> Patrocinadores Ilimitados
                 </span>
               </div>
-              <div className="flex justify-between items-center text-2xl text-marinho-500 mt-2">
-                <strong>CONJUNTO: R$ 82,00</strong>
-              </div>
             </div>
 
             <div className="w-full flex flex-col justify-between">
               <div className="w-full">
                 <div className="flex justify-between items-center text-2xl text-marinho-500">
                   <strong>Calção</strong>
-                  <strong>R$ 32,70</strong>
                 </div>
                 <div className="flex gap-0 flex-col">
                   <span className="flex gap-2 items-center">

@@ -69,7 +69,7 @@ export default function Esportivos() {
         <Specs origin="esportivo" />
       </div>
 
-      <div className="bg-backgroundEsportivo w-full pt-16 pb-32 bg-bottom bg-no-repeat px-10 flex justify-center items-center flex-col">
+      <div className="bg-backgroundEsportivo w-full pt-16 pb-32 bg-bottom bg-no-repeat px-5 flex justify-center items-center flex-col">
         <div className="w-full max-w-xs">
           <Image
             src={"/img/esportivo/uniforme.png"}
@@ -80,12 +80,11 @@ export default function Esportivos() {
           />
         </div>
 
-        <div className="container mx-auto px-5 xl:px-0 max-w-5xl mt-10 mb-5">
-          <div className="px-4 py-2 bg-white rounded-md w-full grid sm:grid-cols-2 gap-10 bg-opacity-90">
+        <div className="container mx-auto px-0 xl:px-0 max-w-5xl mt-10 mb-5">
+          <div className="px-4 py-2 bg-white rounded-md w-full grid sm:grid-cols-2 gap-2 sm:gap-10 bg-opacity-90">
             <div className="w-full">
               <div className="flex justify-between items-center text-2xl text-marinho-500">
                 <strong>Camisa</strong>
-                <strong>R$ 37,90</strong>
               </div>
               <div className="flex gap-0 flex-col">
                 <span className="flex gap-2 items-center">
@@ -107,16 +106,12 @@ export default function Esportivos() {
                   <Check /> Patrocinadores Ilimitados
                 </span>
               </div>
-              <div className="flex justify-between items-center text-2xl text-marinho-500 mt-2">
-                <strong>CONJUNTO: R$ 82,00</strong>
-              </div>
             </div>
 
             <div className="w-full flex flex-col justify-between">
               <div className="w-full">
                 <div className="flex justify-between items-center text-2xl text-marinho-500">
                   <strong>Calção</strong>
-                  <strong>R$ 32,70</strong>
                 </div>
                 <div className="flex gap-0 flex-col">
                   <span className="flex gap-2 items-center">
@@ -134,7 +129,6 @@ export default function Esportivos() {
               <div className="w-full">
                 <div className="flex justify-between items-center text-2xl text-marinho-500">
                   <strong>Meião</strong>
-                  <strong>R$ 11,40</strong>
                 </div>
                 <div className="flex gap-0 flex-col">
                   <span className="flex gap-2 items-center">

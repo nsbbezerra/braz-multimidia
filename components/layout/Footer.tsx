@@ -7,7 +7,6 @@ import {
   WhatsappLogo,
 } from "phosphor-react";
 import { Fragment } from "react";
-import Router from "next/link";
 import NextLink from "next/link";
 
 export default function Footer() {
@@ -40,10 +39,12 @@ export default function Footer() {
                   <Link />
                   Onde estamos?
                 </a>
-                <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
-                  <Link />
-                  Fretes e entrega
-                </a>
+                <NextLink href={"/freteseentregas"} passHref>
+                  <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
+                    <Link />
+                    Fretes e entrega
+                  </a>
+                </NextLink>
               </div>
             </div>
 
@@ -75,16 +76,18 @@ export default function Footer() {
                   <Link />
                   Quem somos?
                 </a>
-                <Router href={"/minhascompras"} passHref>
+                <NextLink href={"/minhascompras"} passHref>
                   <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
                     <Link />
                     Minhas compras
                   </a>
-                </Router>
-                <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
-                  <Link />
-                  Como comprar?
-                </a>
+                </NextLink>
+                <NextLink href={"/comocomprar"} passHref>
+                  <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
+                    <Link />
+                    Como comprar?
+                  </a>
+                </NextLink>
               </div>
             </div>
 
