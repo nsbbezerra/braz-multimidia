@@ -22,13 +22,13 @@ export default function Footer() {
       </NextLink>
       <footer className="bg-marinho-800 pt-10 pb-5">
         <div className="container mx-auto px-5 xl:px-0 max-w-6xl border-b border-b-orange-500 pb-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 justify-items-center sm:justify-items-start">
             <div>
-              <strong className="text-2xl text-orange-500 font-bold block">
+              <strong className="text-2xl text-orange-500 font-bold block text-center sm:text-left">
                 INSTITUCIONAL
               </strong>
 
-              <div className="mt-3 flex flex-col gap-2">
+              <div className="mt-3 flex flex-col gap-2 items-center sm:items-start">
                 <NextLink href={"/depoimentos"} passHref>
                   <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
                     <Link />
@@ -49,25 +49,41 @@ export default function Footer() {
             </div>
 
             <div>
-              <strong className="text-2xl text-orange-500 font-bold block">
+              <strong className="text-2xl text-orange-500 font-bold block text-center sm:text-left">
                 REDES SOCIAIS
               </strong>
 
-              <div className="flex items-center gap-3 mt-3">
-                <a className="flex items-center justify-center w-10 h-10 bg-white text-marinho-800 text-3xl rounded-full hover:bg-opacity-75 active:bg-opacity-100 cursor-pointer">
-                  <InstagramLogo />
-                </a>
-                <a className="flex items-center justify-center w-10 h-10 bg-white text-marinho-800 text-3xl rounded-full hover:bg-opacity-75 active:bg-opacity-100 cursor-pointer">
-                  <FacebookLogo />
-                </a>
+              <div className="flex items-center gap-3 mt-3 justify-center sm:justify-start">
+                <NextLink
+                  href={"https://www.instagram.com/braz.multimidia/"}
+                  passHref
+                >
+                  <a
+                    className="flex items-center justify-center w-10 h-10 bg-white text-marinho-800 text-3xl rounded-full hover:bg-opacity-75 active:bg-opacity-100 cursor-pointer"
+                    target={"_blank"}
+                  >
+                    <InstagramLogo />
+                  </a>
+                </NextLink>
+                <NextLink
+                  href={"https://www.facebook.com/brazmultimidia"}
+                  passHref
+                >
+                  <a
+                    className="flex items-center justify-center w-10 h-10 bg-white text-marinho-800 text-3xl rounded-full hover:bg-opacity-75 active:bg-opacity-100 cursor-pointer"
+                    target={"_blank"}
+                  >
+                    <FacebookLogo />
+                  </a>
+                </NextLink>
               </div>
             </div>
 
             <div>
-              <strong className="text-2xl text-orange-500 font-bold block">
+              <strong className="text-2xl text-orange-500 font-bold block text-center sm:text-left">
                 PRECISA DE AJUDA?
               </strong>
-              <div className="mt-3 flex flex-col gap-2">
+              <div className="mt-3 flex flex-col gap-2 items-center sm:items-start">
                 <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
                   <Link />
                   Fale conosco
@@ -92,10 +108,10 @@ export default function Footer() {
             </div>
 
             <div>
-              <strong className="text-2xl text-orange-500 font-bold block">
+              <strong className="text-2xl text-orange-500 font-bold block text-center sm:text-left">
                 ATENDIMENTO
               </strong>
-              <div className="mt-3 flex flex-col gap-2">
+              <div className="mt-3 flex flex-col gap-2 items-center sm:items-start">
                 <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
                   <WhatsappLogo />
                   (61) 99911-6450

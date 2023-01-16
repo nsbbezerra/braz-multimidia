@@ -21,16 +21,10 @@ import { FIND_ALL_CATEGORIES } from "../../graphql/indexPage";
 import { CategoriesProps } from "../../types";
 import CartContext from "../../context/cart/cart";
 
-interface ProductProps {
-  id: string;
-  name: string;
-}
-
 function Header() {
   const { cart } = useContext(CartContext);
   const [openCart, setOpenCart] = useState<boolean>(false);
   const [categories, setCategories] = useState<CategoriesProps[]>([]);
-  const [products, setProducts] = useState<ProductProps[]>([]);
 
   const [findCategoriesResults] = useQuery({
     query: FIND_ALL_CATEGORIES,
@@ -41,7 +35,6 @@ function Header() {
   useEffect(() => {
     if (data) {
       setCategories(data.categories);
-      setProducts(data.products);
     }
   }, [data]);
 
@@ -131,14 +124,14 @@ function Header() {
               </div>
             ) : (
               <>
-                {products.length === 0 ? (
+                {categories.length === 0 ? (
                   <div className="flex justify-center items-center flex-col gap-1">
                     <Leaf className="text-3xl" />
                     <span>Nada para mostrar</span>
                   </div>
                 ) : (
                   <>
-                    {products.map((cat) => (
+                    {categories.map((cat) => (
                       <div key={cat.id}>
                         <Link href={`/produtos/catalogos/${cat.id}`} passHref>
                           <a className="menu-items-product uppercase">
@@ -158,6 +151,11 @@ function Header() {
       <Link href={"/faleconosco"} passHref>
         <a className="menu-items">
           <Phone /> Fale conosco
+        </a>
+      </Link>
+      <Link href={"/minhascompras"} passHref>
+        <a className="menu-items">
+          <ShoppingCart /> Minhas compras
         </a>
       </Link>
       <a className="menu-items-sim">

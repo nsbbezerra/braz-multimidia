@@ -58,7 +58,6 @@ const Produto: NextPage<Props> = ({ information }) => {
 
   const [quantity, setQuantity] = useState<number>(1);
   const [price, setPrice] = useState<number>(0);
-  const [size, setSize] = useState<string>("");
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [preview, setPreview] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
@@ -81,18 +80,6 @@ const Produto: NextPage<Props> = ({ information }) => {
   }, [quantity, information]);
 
   const addToCart = () => {
-    const findProduct = cart.find(
-      (obj) => obj.name === information.product?.name && obj.size === size
-    );
-    if (findProduct) {
-      setToast({
-        title: "Atenção",
-        message: "Este produto com este tamanho já foi adicionado ao carrinho",
-        type: "warning",
-      });
-      setOpenToast(true);
-      return false;
-    }
     setCart([
       ...cart,
       {
@@ -101,14 +88,12 @@ const Produto: NextPage<Props> = ({ information }) => {
         product: information.product?.id || "",
         name: information.product?.name || "",
         quantity,
-        size: "none",
         thumbnail: information.product?.images[0].url || "",
         total: price,
       },
     ]);
     setIsDialogOpen(true);
     setQuantity(1);
-    setSize("");
   };
 
   const handleImage = (ref: string) => {

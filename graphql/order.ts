@@ -31,8 +31,8 @@ const CREATE_ORDER = gql`
 `;
 
 const FIND_ORDER = gql`
-  query FindOrder($id: ID!) {
-    order(where: { id: $id }) {
+  query FindOrder($email: String!) {
+    orders(where: { email: $email }, orderBy: createdAt_DESC, last: 15) {
       id
       name
       phone
@@ -44,6 +44,7 @@ const FIND_ORDER = gql`
       statusSale
       createdAt
       total
+      rastreio
     }
   }
 `;

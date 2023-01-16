@@ -96,11 +96,6 @@ const FIND_PRODUCT_INFORMATION = gql`
         }
       }
     }
-    productSizeVariants(where: { product: { id: $id } }) {
-      id
-      name
-      size
-    }
     portfolios(last: 6) {
       id
       image {
@@ -120,10 +115,9 @@ const FIND_COLLECTION_INFORMATION = gql`
         url
       }
     }
-    collections(where: { product: { id: $id } }, last: 1) {
+    collections(where: { category: { id: $id } }) {
       id
-      product {
-        id
+      category {
         name
       }
       images {

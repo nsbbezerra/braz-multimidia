@@ -90,12 +90,6 @@ type ProductInformationProps = {
   collections: CatalogProps[];
 };
 
-type ProductsSizeVariantsProps = {
-  id: string;
-  name: string;
-  size: string;
-};
-
 type PortifolioProps = {
   id: string;
   image: ImagesProps;
@@ -104,7 +98,6 @@ type PortifolioProps = {
 interface ProductInformationPageProps {
   banners: BannersProps | null;
   product: ProductInformationProps | null;
-  productSizeVariants: ProductsSizeVariantsProps[];
   portfolios: PortifolioProps[];
 }
 

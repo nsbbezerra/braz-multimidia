@@ -5,6 +5,7 @@ import {
   House,
   ImageSquare,
   MagnifyingGlassPlus,
+  Tag,
   TShirt,
   X,
 } from "phosphor-react";
@@ -12,26 +13,16 @@ import { Fragment, useState } from "react";
 import Footer from "../../../components/layout/Footer";
 import HeadApp from "../../../components/layout/Head";
 import Header from "../../../components/layout/Header";
-import * as Accordion from "@radix-ui/react-accordion";
 import * as Popover from "@radix-ui/react-popover";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { clientQuery } from "../../../lib/urql";
 import {
+  FIND_CATEGORIES_PATH,
   FIND_COLLECTION_INFORMATION,
-  FIND_PRODUCTS_PATH,
 } from "../../../graphql/products";
 import { BannersProps } from "../../../types";
 import Link from "next/link";
 import * as Dialog from "@radix-ui/react-dialog";
-
-interface ProductProps {
-  id: string;
-}
-
-type ProductNameProps = {
-  id: string;
-  name: string;
-};
 
 type ImageProps = {
   id: string;
@@ -41,12 +32,11 @@ type ImageProps = {
 type CategoriesProps = {
   id: string;
   name: string;
-  products: ProductNameProps[];
 };
 
 type CollectionsProps = {
   id: string;
-  product: ProductNameProps;
+  category: { name: string };
   images: ImageProps[];
 };
 
@@ -58,41 +48,22 @@ interface Props {
 
 const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
   const AccordionApp = () => (
-    <Accordion.Root
-      type="single"
-      className={"Container-accordion"}
-      defaultValue={categories[0].id}
-    >
-      {categories.map((cat) => (
-        <Accordion.Item
-          value={cat.id}
-          className={"Item-accordion"}
-          key={cat.id}
-        >
-          <Accordion.Header className={"Header-accordion"}>
-            <Accordion.Trigger className={"Trigger-accordion"}>
-              <TShirt className="flex-shrink-0" />
-              <span>{cat.name}</span>
-              <CaretDown aria-hidden className={"Icon-accordion"} />
-            </Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Content className={"Content-accordion"}>
-            <div className="flex flex-col gap-1">
-              {cat.products.map((prod) => (
-                <div key={prod.id}>
-                  <Link href={`/produtos/catalogos/${prod.id}`} passHref>
-                    <a className="Content-link-item-accordion">
-                      <ImageSquare className="flex-shrink-0" />
-                      <span className="block line-clamp-1">{prod.name}</span>
-                    </a>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </Accordion.Content>
-        </Accordion.Item>
-      ))}
-    </Accordion.Root>
+    <Fragment>
+      <div className="flex gap-3 bg-orange-500 text-white items-center py-2 px-3 font-semibold text-lg">
+        <TShirt />
+        CATEGORIAS
+      </div>
+      <div className="p-2">
+        {categories.map((cat) => (
+          <Link key={cat.id} href={`/produtos/catalogos/${cat.id}`} passHref>
+            <a className="flex w-full items-center gap-2 text-marinho-500 font-semibold h-8 rounded-md hover:bg-marinho-500 hover:text-white active:bg-marinho-600 select-none px-4 cursor-pointer focus:outline-none focus:bg-marinho-500 focus:text-white uppercase">
+              <Tag />
+              {cat.name}
+            </a>
+          </Link>
+        ))}
+      </div>
+    </Fragment>
   );
 
   const [preview, setPreview] = useState<boolean>(false);
@@ -106,7 +77,7 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
   return (
     <Fragment>
       <HeadApp
-        title={`Catálogo - ${collections?.product.name} | Braz Camiseteria`}
+        title={`Catálogo - ${collections?.category.name} | Braz Camiseteria`}
       />
       <Header />
       {!banners ? (
@@ -142,10 +113,12 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
             Catálogos
           </a>
           <CaretRight />
-          <Link href={`/produtos/catalogos/${collections?.product.id || ""}`}>
+          <Link
+            href={`/produtos/catalogos/${collections?.category.name || ""}`}
+          >
             <a className="flex items-center gap-2 cursor-pointer hover:underline">
               <TShirt />
-              {collections?.product.name}
+              {collections?.category.name}
             </a>
           </Link>
         </div>
@@ -153,7 +126,7 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
         <div className="w-fit">
           <Popover.Root>
             <Popover.Trigger className="flex gap-3 bg-orange-500 text-white items-center py-2 px-3 font-semibold text-lg lg:hidden mt-5 rounded-md">
-              <TShirt /> PRODUTOS <CaretDown />
+              <TShirt /> CATEGORIAS <CaretDown />
             </Popover.Trigger>
             <Popover.Anchor />
             <Popover.Portal>
@@ -172,7 +145,7 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
           <div>
             <strong className="heading text-marinho-500 flex items-center gap-3 w-full border-b border-b-marinho-500 pb-1 mb-5">
               <ImageSquare />{" "}
-              <span className="line-clamp-1">{collections?.product.name}</span>
+              <span className="line-clamp-1">{collections?.category.name}</span>
             </strong>
             <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-5">
               {collections?.images.map((picture) => (
@@ -232,9 +205,11 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
 export default Catalogos;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await clientQuery.query(FIND_PRODUCTS_PATH, {}).toPromise();
+  const { data } = await clientQuery
+    .query(FIND_CATEGORIES_PATH, {})
+    .toPromise();
 
-  const products: ProductProps[] = data.products;
+  const products: CategoriesProps[] = data.categories;
 
   const paths = products.map((prod) => {
     return { params: { product: prod.id } };

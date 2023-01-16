@@ -1,12 +1,11 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import { Leaf, MagnifyingGlass, ShoppingCart } from "phosphor-react";
+import { MagnifyingGlass, ShoppingCart } from "phosphor-react";
 import { Fragment, useEffect, useState } from "react";
 import Button from "../components/layout/Button";
 import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
-import { useRouter } from "next/router";
 import { useQuery } from "urql";
 import { FIND_ORDER } from "../graphql/order";
 import Toast from "../components/layout/Toast";
@@ -34,6 +33,7 @@ type Order = {
   items: Cart[];
   statusSale: string;
   createdAt: Date;
+  rastreio?: string;
 };
 
 interface ToastInfo {
@@ -43,8 +43,8 @@ interface ToastInfo {
 }
 
 const MinhasCompras: NextPage = () => {
-  const [myOrder, setMyOrder] = useState<string>("");
-  const [orderToShow, setOrderToShow] = useState<Order | null>(null);
+  const [email, setEmail] = useState<string>("");
+  const [orderToShow, setOrderToShow] = useState<Order[]>([]);
 
   const [toast, setToast] = useState<ToastInfo>({
     title: "",
@@ -53,19 +53,16 @@ const MinhasCompras: NextPage = () => {
   });
   const [openToast, setOpenToast] = useState<boolean>(false);
 
-  const { query } = useRouter();
-  const { order } = query;
-
   const [findOrderResults, findOrder] = useQuery({
     query: FIND_ORDER,
-    variables: { id: myOrder },
+    variables: { email: email },
   });
 
   const { fetching, data, error } = findOrderResults;
 
   useEffect(() => {
     if (data) {
-      setOrderToShow(data.order);
+      setOrderToShow(data.orders);
     }
     if (error) {
       let message = error.message;
@@ -77,15 +74,6 @@ const MinhasCompras: NextPage = () => {
       setOpenToast(true);
     }
   }, [data, error]);
-
-  useEffect(() => {
-    if (order) {
-      setMyOrder(order as string);
-    }
-    if (myOrder === "" && order) {
-      setMyOrder(order as string);
-    }
-  }, [order, myOrder]);
 
   const calcPrice = (price: number) => {
     let transform = price / 100;
@@ -127,13 +115,14 @@ const MinhasCompras: NextPage = () => {
         <div className="flex items-end gap-3 w-full mb-10">
           <div className="w-full">
             <label htmlFor="name" className="block">
-              Insira o número do pedido <span className="text-red-600">*</span>
+              Insira o seu email <span className="text-red-600">*</span>
             </label>
             <input
               id="name"
               className="border h-10 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-marinho-500 w-full"
-              value={myOrder}
-              onChange={(e) => setMyOrder(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
             />
           </div>
           <Button isLoading={fetching} onClick={findOrder}>
@@ -142,66 +131,62 @@ const MinhasCompras: NextPage = () => {
           </Button>
         </div>
 
-        <div className="rounded-md border shadow overflow-hidden">
-          {orderToShow ? (
-            <>
+        <div className="flex flex-col gap-5">
+          {orderToShow.map((order) => (
+            <div
+              className="rounded-md border shadow overflow-hidden"
+              key={order.id}
+            >
               <div className="text-sm sm:text-base">
-                <div className="px-3 py-2 sm:px-6">
-                  <h3 className="text-lg font-medium leading-6 text-gray-900">
-                    {formateDate(orderToShow.createdAt)}
-                  </h3>
-                  <p className="mt-1 max-w-2xl text-gray-500">
-                    ID: {orderToShow.id}
-                  </p>
-                </div>
+                <div className="px-3 py-2 sm:px-6"></div>
                 <div className="border-t border-gray-200">
                   <dl>
                     <div className="bg-zinc-50 px-3 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                      <dt className="font-medium text-gray-500">Nome</dt>
+                      <dt className="font-medium text-gray-500">ID</dt>
                       <dd className="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                        {orderToShow.name}
+                        {order.id}
                       </dd>
                     </div>
                     <div className="bg-white px-3 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                      <dt className="font-medium text-gray-500">Email</dt>
+                      <dt className="font-medium text-gray-500">Cliente</dt>
                       <dd className="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                        {orderToShow.email}
+                        {order.name}
                       </dd>
                     </div>
                     <div className="bg-zinc-50 px-3 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                       <dt className="font-medium text-gray-500">Telefone</dt>
                       <dd className="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                        {orderToShow.phone}
+                        {order.phone}
                       </dd>
                     </div>
                     <div className="bg-white px-3 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                       <dt className="font-medium text-gray-500">
-                        Status da Compra
+                        Data da compra
                       </dt>
                       <dd className="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                        {orderToShow.statusSale}
+                        {formateDate(order.createdAt)}
                       </dd>
                     </div>
                     <div className="bg-zinc-50 px-3 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                       <dt className="font-medium text-gray-500">Endereço</dt>
                       <dd className="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
                         <div className="flex flex-col">
-                          <span>Cidade: {orderToShow.city}</span>
-                          <span>Estado: {orderToShow.state}</span>
+                          <span>Cidade: {order.city}</span>
+                          <span>Estado: {order.state}</span>
                         </div>
                       </dd>
                     </div>
                     <div className="px-3 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                       <dt className="font-medium text-gray-500">Informações</dt>
                       <dd className="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                        {orderToShow.information}
+                        {order.information}
                       </dd>
                     </div>
                   </dl>
                 </div>
               </div>
               <div className="grid grid-cols-1 divide-y border-t">
-                {orderToShow.items.map((item) => (
+                {order.items.map((item) => (
                   <div
                     className="grid grid-cols-[70px_1fr] sm:grid-cols-[100px_1fr] gap-5 px-5 py-2"
                     key={item.id}
@@ -236,15 +221,10 @@ const MinhasCompras: NextPage = () => {
               </div>
               <div className="flex justify-between p-4 border-t text-xl font-bold text-marinho-500 bg-zinc-50">
                 <span>Total da compra</span>
-                <span>{calcPrice(orderToShow.total)}</span>
+                <span>{calcPrice(order.total)}</span>
               </div>
-            </>
-          ) : (
-            <div className="flex justify-center items-center flex-col gap-1 py-5">
-              <Leaf className="text-7xl animate-bounce" />
-              <span>Nada para mostrar</span>
             </div>
-          )}
+          ))}
         </div>
       </section>
 
