@@ -64,6 +64,13 @@ const FIND_PRODUCT_INFORMATION = gql`
       categories {
         id
         name
+        collections {
+          id
+          images(last: 5) {
+            id
+            url
+          }
+        }
       }
       description
       information {
@@ -84,13 +91,6 @@ const FIND_PRODUCT_INFORMATION = gql`
         id
         title
         image {
-          id
-          url
-        }
-      }
-      collections(last: 1) {
-        id
-        images {
           id
           url
         }

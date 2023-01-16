@@ -10,6 +10,8 @@ interface Props {
 }
 
 export default function Carousel({ catalogs, product }: Props) {
+  console.log(catalogs);
+
   const carousel = useRef<HTMLDivElement>(null);
 
   const handeLeftClick = (e: any) => {

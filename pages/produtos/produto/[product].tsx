@@ -26,9 +26,7 @@ import { ProductInformationPageProps } from "../../../types";
 import Link from "next/link";
 import CartContext from "../../../context/cart/cart";
 import { nanoid } from "nanoid";
-import Toast from "../../../components/layout/Toast";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
-import Carousel from "../../../components/layout/Carousel";
 import * as Dialog from "@radix-ui/react-dialog";
 
 interface ProductProps {
@@ -37,12 +35,6 @@ interface ProductProps {
 
 interface Props {
   information: ProductInformationPageProps;
-}
-
-interface ToastInfo {
-  title: string;
-  message: string;
-  type: "success" | "info" | "warning" | "error";
 }
 
 const Produto: NextPage<Props> = ({ information }) => {
@@ -61,13 +53,6 @@ const Produto: NextPage<Props> = ({ information }) => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [preview, setPreview] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
-
-  const [toast, setToast] = useState<ToastInfo>({
-    title: "",
-    message: "",
-    type: "info",
-  });
-  const [openToast, setOpenToast] = useState<boolean>(false);
 
   useEffect(() => {
     const myPrice = information.product?.price || 0;
@@ -103,13 +88,6 @@ const Produto: NextPage<Props> = ({ information }) => {
 
   return (
     <Fragment>
-      <Toast
-        title={toast.title}
-        message={toast.message}
-        onClose={setOpenToast}
-        open={openToast}
-        scheme={toast.type}
-      />
       <HeadApp title={`${information.product?.name} | Braz Camiseteria`} />
       <Header />
       {!information.banners ? (
@@ -304,10 +282,29 @@ const Produto: NextPage<Props> = ({ information }) => {
           <div className="border-marinho-500 border-b-2 w-56" />
         </div>
 
-        <Carousel
-          catalogs={information.product?.collections[0] || null}
-          product={information.product?.id || null}
-        />
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 mt-10 justify-items-center">
+          {information.product?.categories[0].collections[0].images.map(
+            (coll) => (
+              <div className="w-full" key={coll.id}>
+                <Image
+                  src={coll.url}
+                  width={600}
+                  height={600}
+                  layout="responsive"
+                  alt="Braz Multimidia"
+                />
+              </div>
+            )
+          )}
+        </div>
+        <div className="flex justify-center mt-5">
+          <Link
+            href={`/produtos/catalogos/${information?.product?.categories[0].id}`}
+            passHref
+          >
+            <a className="card-action-button w-fit">VER CATÁLOGO</a>
+          </Link>
+        </div>
 
         <Pedidos />
       </section>

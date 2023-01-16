@@ -16,6 +16,13 @@ type CategoriesProps = {
   image: ImagesProps;
 };
 
+type CategoriesListProps = {
+  id: string;
+  name: string;
+  image: ImagesProps;
+  collections: [{ id: string; images: [{ id: string; url: string }] }];
+};
+
 interface ImagesPagesProps {
   banners: BannersProps[];
   simulatorImage: ImagesProps[];
@@ -81,7 +88,7 @@ type ProductInformationProps = {
   name: string;
   description: string;
   images: ImagesProps[];
-  categories: CategoriesProps[];
+  categories: CategoriesListProps[];
   information?: InformationProps | null;
   price: number;
   video?: string | null;
