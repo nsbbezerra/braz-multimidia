@@ -9,6 +9,8 @@ import Header from "../components/layout/Header";
 import { useQuery } from "urql";
 import { FIND_ORDER } from "../graphql/order";
 import Toast from "../components/layout/Toast";
+import Link from "next/link";
+import Steps from "../components/layout/Steps";
 
 type Cart = {
   id: string;
@@ -45,6 +47,7 @@ interface ToastInfo {
 const MinhasCompras: NextPage = () => {
   const [email, setEmail] = useState<string>("");
   const [orderToShow, setOrderToShow] = useState<Order[]>([]);
+  const [showItems, setShowItems] = useState<string>("");
 
   const [toast, setToast] = useState<ToastInfo>({
     title: "",
@@ -111,7 +114,7 @@ const MinhasCompras: NextPage = () => {
         <strong className="text-3xl mt-2">MINHAS COMPRAS</strong>
       </div>
 
-      <section className="container mx-auto max-w-4xl px-5 xl:px-0 my-10">
+      <section className="container mx-auto max-w-3xl px-5 xl:px-0 my-10">
         <div className="flex items-end gap-3 w-full mb-10">
           <div className="w-full">
             <label htmlFor="name" className="block">
@@ -138,7 +141,9 @@ const MinhasCompras: NextPage = () => {
               key={order.id}
             >
               <div className="text-sm sm:text-base">
-                <div className="px-3 py-2 sm:px-6"></div>
+                <div className="px-3 py-2 sm:px-6">
+                  <Steps step={order.statusSale} />
+                </div>
                 <div className="border-t border-gray-200">
                   <dl>
                     <div className="bg-zinc-50 px-3 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -182,42 +187,82 @@ const MinhasCompras: NextPage = () => {
                         {order.information}
                       </dd>
                     </div>
+                    {order.rastreio?.length && (
+                      <div className="bg-zinc-50 px-3 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt className="font-medium text-gray-500">
+                          Rastreamento
+                        </dt>
+                        <dd className="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
+                          <Link href={order.rastreio} passHref>
+                            <a
+                              className="text-sky-700 hover:underline"
+                              target={"_blank"}
+                            >
+                              Clique aqui para rastrear
+                            </a>
+                          </Link>
+                        </dd>
+                      </div>
+                    )}
                   </dl>
                 </div>
               </div>
-              <div className="grid grid-cols-1 divide-y border-t">
-                {order.items.map((item) => (
-                  <div
-                    className="grid grid-cols-[70px_1fr] sm:grid-cols-[100px_1fr] gap-5 px-5 py-2"
-                    key={item.id}
-                  >
-                    <div>
-                      <Image
-                        src={item.thumbnail}
-                        width={600}
-                        height={600}
-                        layout="responsive"
-                        alt="Braz Multimidia"
-                      />
-                    </div>
-                    <div className="flex justify-between items-start">
-                      <div className="flex flex-col">
-                        <strong className="font-bold text-marinho-500 sm:text-lg">
-                          {item.name}
-                        </strong>
-                        <span className="text-sm sm:text-base">
-                          Quantidade: {item.quantity}
-                        </span>
-                        <span className="text-sm sm:text-base">
-                          Categoria: {item.category}
-                        </span>
+              <div className="border-t">
+                <div className="py-2 px-10">
+                  {showItems === order.id ? (
+                    <Button
+                      onClick={() => setShowItems("")}
+                      isFullSize
+                      variant="outline"
+                    >
+                      Ocultar itens
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={() => setShowItems(order.id)}
+                      isFullSize
+                      variant="outline"
+                    >
+                      Mostrar itens
+                    </Button>
+                  )}
+                </div>
+                {showItems === order.id && (
+                  <div className="grid grid-cols-1 divide-y border-t">
+                    {order.items.map((item) => (
+                      <div
+                        className="grid grid-cols-[70px_1fr] sm:grid-cols-[100px_1fr] gap-5 px-5 py-2"
+                        key={item.id}
+                      >
+                        <div>
+                          <Image
+                            src={item.thumbnail}
+                            width={600}
+                            height={600}
+                            layout="responsive"
+                            alt="Braz Multimidia"
+                          />
+                        </div>
+                        <div className="flex justify-between items-start">
+                          <div className="flex flex-col">
+                            <strong className="font-bold text-marinho-500 sm:text-lg">
+                              {item.name}
+                            </strong>
+                            <span className="text-sm sm:text-base">
+                              Quantidade: {item.quantity}
+                            </span>
+                            <span className="text-sm sm:text-base">
+                              Categoria: {item.category}
+                            </span>
+                          </div>
+                          <div className="w-32 font-bold text-right sm:text-lg">
+                            {calcPrice(item.total)}
+                          </div>
+                        </div>
                       </div>
-                      <div className="w-32 font-bold text-right sm:text-lg">
-                        {calcPrice(item.total)}
-                      </div>
-                    </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
               <div className="flex justify-between p-4 border-t text-xl font-bold text-marinho-500 bg-zinc-50">
                 <span>Total da compra</span>
