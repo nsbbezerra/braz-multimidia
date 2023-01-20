@@ -29,7 +29,7 @@ export default function CardsProduct({ products }: Props) {
             <div className="card" key={prod.id}>
               <div>
                 <Image
-                  src={prod.images[0].url}
+                  src={prod.images[0]?.url || ""}
                   width={600}
                   height={600}
                   layout="responsive"

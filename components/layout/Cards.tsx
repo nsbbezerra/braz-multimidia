@@ -106,7 +106,7 @@ export default function Cards({ categories }: Props) {
               <div className="card cursor-pointer">
                 <div>
                   <Image
-                    src={cat.image.url}
+                    src={cat.image?.url || ""}
                     width={600}
                     height={600}
                     layout="responsive"

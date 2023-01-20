@@ -58,7 +58,7 @@ const FIND_ORDERS_PAG = gql`
         pageSize
       }
     }
-    orders(skip: $page, last: 20) {
+    orders(skip: $page, orderBy: createdAt_DESC, last: 20) {
       id
       name
       phone
@@ -70,6 +70,69 @@ const FIND_ORDERS_PAG = gql`
       statusSale
       createdAt
       total
+      rastreio
+    }
+  }
+`;
+
+const FIND_ORDERS_PAG_NAME = gql`
+  query FindCount($page: Int!, $name: String!) {
+    ordersConnection(skip: $page, last: 20) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        pageSize
+      }
+    }
+    orders(
+      where: { name_contains: $name }
+      skip: $page
+      orderBy: createdAt_DESC
+      last: 20
+    ) {
+      id
+      name
+      phone
+      email
+      city
+      state
+      information
+      items
+      statusSale
+      createdAt
+      total
+      rastreio
+    }
+  }
+`;
+
+const FIND_ORDERS_PAG_EMAIL = gql`
+  query FindCount($page: Int!, $name: String!) {
+    ordersConnection(skip: $page, last: 20) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        pageSize
+      }
+    }
+    orders(
+      where: { email: $name }
+      skip: $page
+      orderBy: createdAt_DESC
+      last: 20
+    ) {
+      id
+      name
+      phone
+      email
+      city
+      state
+      information
+      items
+      statusSale
+      createdAt
+      total
+      rastreio
     }
   }
 `;
@@ -90,10 +153,21 @@ const UPDATE_STATUS = gql`
   }
 `;
 
+const UPDATE_SHIPPING = gql`
+  mutation UpdateStatus($id: ID!, $rastreio: String!) {
+    updateOrder(where: { id: $id }, data: { rastreio: $rastreio }) {
+      id
+    }
+  }
+`;
+
 export {
   CREATE_ORDER,
   PUBLISH_ORDER,
   FIND_ORDER,
   FIND_ORDERS_PAG,
   UPDATE_STATUS,
+  FIND_ORDERS_PAG_NAME,
+  FIND_ORDERS_PAG_EMAIL,
+  UPDATE_SHIPPING,
 };

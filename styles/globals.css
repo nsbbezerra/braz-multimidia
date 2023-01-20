@@ -247,22 +247,22 @@
   }
 
   .html-parsed h1 {
-    @apply text-2xl md:text-3xl font-bold font-serif;
+    @apply text-2xl md:text-3xl font-bold font-serif my-2;
   }
   .html-parsed h2 {
-    @apply text-xl md:text-2xl font-bold font-serif;
+    @apply text-xl md:text-2xl font-bold font-serif my-2;
   }
   .html-parsed h3 {
-    @apply text-lg md:text-xl font-bold font-serif;
+    @apply text-lg md:text-xl font-bold font-serif my-2;
   }
   .html-parsed h4 {
-    @apply text-base md:text-lg font-bold font-serif;
+    @apply text-base md:text-lg font-bold font-serif my-2;
   }
   .html-parsed h5 {
-    @apply text-sm md:text-base font-bold font-serif;
+    @apply text-sm md:text-base font-bold font-serif my-2;
   }
   .html-parsed h6 {
-    @apply text-xs md:text-sm font-bold font-serif;
+    @apply text-xs md:text-sm font-bold font-serif my-2;
   }
   .html-parsed blockquote {
     @apply bg-zinc-50 rounded-md p-2 border-l-2 border-l-zinc-500 italic my-1;
@@ -285,6 +285,9 @@
   }
   .dialog-content {
     @apply fixed top-0 right-0 left-0 bottom-0 z-40 bg-transparent flex justify-center items-center outline-none;
+  }
+  .dialog-content-order {
+    @apply fixed top-0 right-0 left-0 bottom-0 z-40 bg-transparent flex justify-center items-start outline-none;
   }
   .dialog-body {
     @apply rounded-md bg-white shadow-2xl w-full;

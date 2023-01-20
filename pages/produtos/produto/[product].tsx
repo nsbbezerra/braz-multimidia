@@ -4,7 +4,6 @@ import {
   CaretRight,
   Check,
   House,
-  MagnifyingGlassPlus,
   ShoppingBag,
   ShoppingCart,
   TShirt,
@@ -81,11 +80,6 @@ const Produto: NextPage<Props> = ({ information }) => {
     setQuantity(1);
   };
 
-  const handleImage = (ref: string) => {
-    setUrl(ref);
-    setPreview(true);
-  };
-
   return (
     <Fragment>
       <HeadApp title={`${information.product?.name} | Braz Camiseteria`} />
@@ -126,7 +120,7 @@ const Produto: NextPage<Props> = ({ information }) => {
         <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] lg:grid-cols-[380px_1fr] gap-5 mt-5 justify-items-center">
           <div className="w-full rounded-md overflow-hidden h-fit max-w-sm">
             <Image
-              src={information.product?.images[0].url || ""}
+              src={information.product?.images[0]?.url || ""}
               width={600}
               height={600}
               layout="responsive"
@@ -309,7 +303,7 @@ const Produto: NextPage<Props> = ({ information }) => {
         <Pedidos />
       </section>
 
-      <div className="bg-gray-50 w-full mt-10 py-10">
+      {/* <div className="bg-gray-50 w-full mt-10 py-10">
         <div className="flex items-center flex-col gap-2 mb-10 w-full">
           <span className="block heading text-marinho-500 text-center">
             CONFIRA A QUALIDADE DOS NOSSOS PRODUTOS
@@ -340,7 +334,7 @@ const Produto: NextPage<Props> = ({ information }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <Footer />
 
@@ -431,7 +425,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       information: {
         banners: data.banners[0] || null,
         product: data.product || null,
-        productSizeVariants: data.productSizeVariants || [],
         portfolios: data.portfolios || [],
       },
     },

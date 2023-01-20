@@ -66,7 +66,7 @@ const Produtos: NextPage<Props> = ({ information }) => {
         <>
           <div className="w-full relative">
             <Image
-              src={information.banners[0].desktop.url}
+              src={information.banners[0]?.desktop?.url || ""}
               width={1920}
               height={461}
               alt="Braz Multimidia banner"
@@ -153,6 +153,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data } = await clientQuery
     .query(FIND_CATEGORIES_INFORMATION, { id })
     .toPromise();
+
   return {
     props: {
       information: data || null,
