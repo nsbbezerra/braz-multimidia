@@ -42,7 +42,7 @@ export default function Cards({ categories }: Props) {
             <div className="card cursor-pointer">
               <div>
                 <Image
-                  src={"/img/ciclismo.webp"}
+                  src={"/img/ciclismo.png"}
                   width={600}
                   height={600}
                   layout="responsive"
@@ -63,7 +63,7 @@ export default function Cards({ categories }: Props) {
             <div className="card cursor-pointer">
               <div>
                 <Image
-                  src={"/img/times.jpg"}
+                  src={"/img/esportivos.png"}
                   width={600}
                   height={600}
                   layout="responsive"
