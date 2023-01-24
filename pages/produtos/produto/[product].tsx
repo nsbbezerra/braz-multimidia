@@ -6,6 +6,7 @@ import {
   House,
   ShoppingBag,
   ShoppingCart,
+  Tag,
   TShirt,
   X,
 } from "phosphor-react";
@@ -85,7 +86,12 @@ const Produto: NextPage<Props> = ({ information }) => {
       <HeadApp title={`${information.product?.name} | Braz Camiseteria`} />
       <Header />
       {!information.banners ? (
-        ""
+        <div className="bg-gradient-to-b h-52 from-marinho-500 to-marinho-900 flex justify-center items-center flex-col px-5 text-white text-center">
+          <Tag className="text-7xl" />
+          <strong className="text-3xl mt-2">
+            {information.product?.name || ""}
+          </strong>
+        </div>
       ) : (
         <>
           <div className="w-full relative">
@@ -277,7 +283,7 @@ const Produto: NextPage<Props> = ({ information }) => {
         </div>
 
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 mt-10 justify-items-center">
-          {information.product?.categories[0].collections[0].images.map(
+          {information.product?.categories[0]?.collections[0]?.images.map(
             (coll) => (
               <div className="w-full" key={coll.id}>
                 <Image
