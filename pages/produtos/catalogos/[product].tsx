@@ -231,9 +231,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       banners: data.banners[0] || null,
-      collections: data.collections[0] || null,
+      collections: data.collections || null,
       categories: data.categories || [],
     },
-    revalidate: 60,
+    revalidate: 30,
   };
 };
