@@ -434,6 +434,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         portfolios: data.portfolios || [],
       },
     },
-    revalidate: 60,
+    revalidate: 30,
   };
 };

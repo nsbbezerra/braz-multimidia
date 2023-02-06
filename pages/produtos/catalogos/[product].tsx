@@ -42,7 +42,7 @@ type CollectionsProps = {
 
 interface Props {
   banners: BannersProps | null;
-  collections: CollectionsProps | null;
+  collections: CollectionsProps[];
   categories: CategoriesProps[];
 }
 
@@ -77,7 +77,9 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
   return (
     <Fragment>
       <HeadApp
-        title={`Catálogo - ${collections?.category.name} | Braz Camiseteria`}
+        title={`Catálogo - ${
+          collections[0]?.category.name || ""
+        } | Braz Camiseteria`}
       />
       <Header />
       {!banners ? (
@@ -114,11 +116,11 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
           </a>
           <CaretRight />
           <Link
-            href={`/produtos/catalogos/${collections?.category.name || ""}`}
+            href={`/produtos/catalogos/${collections[0]?.category.name || ""}`}
           >
             <a className="flex items-center gap-2 cursor-pointer hover:underline">
               <TShirt />
-              {collections?.category.name}
+              {collections[0]?.category.name}
             </a>
           </Link>
         </div>
@@ -145,16 +147,18 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
           <div>
             <strong className="heading text-marinho-500 flex items-center gap-3 w-full border-b border-b-marinho-500 pb-1 mb-5">
               <ImageSquare />{" "}
-              <span className="line-clamp-1">{collections?.category.name}</span>
+              <span className="line-clamp-1">
+                {collections[0]?.category.name}
+              </span>
             </strong>
             <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-5">
-              {collections?.images.map((picture) => (
+              {collections.map((picture) => (
                 <div
-                  className="w-full relative rounded-md overflow-hidden"
+                  className="w-full relative rounded-md overflow-hidden p-2"
                   key={picture.id}
                 >
                   <Image
-                    src={picture.url}
+                    src={picture.images[0].url}
                     width={600}
                     height={600}
                     layout="responsive"
@@ -163,7 +167,7 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
                   <div className="absolute top-0 right-0 left-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-all">
                     <button
                       className="text-gray-400 hover:text-white text-6xl p-2 rounded-2xl active:text-gray-400"
-                      onClick={() => handleImage(picture.url)}
+                      onClick={() => handleImage(picture.images[0].url)}
                     >
                       <MagnifyingGlassPlus />
                     </button>
@@ -231,7 +235,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       banners: data.banners[0] || null,
-      collections: data.collections || null,
+      collections: data.collections || [],
       categories: data.categories || [],
     },
     revalidate: 30,

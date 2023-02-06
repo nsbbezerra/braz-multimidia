@@ -320,6 +320,6 @@ export const getStaticProps: GetStaticProps = async () => {
         categories: data.categories || [],
       },
     },
-    revalidate: 120,
+    revalidate: 30,
   };
 };

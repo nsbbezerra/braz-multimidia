@@ -2,7 +2,7 @@ import { gql } from "urql";
 
 const FIND_CATEGORIES_PATH = gql`
   query FindCategoriesPath {
-    categories(last: 50) {
+    categories(last: 10) {
       id
     }
   }
@@ -39,7 +39,7 @@ const FIND_CATEGORIES_INFORMATION = gql`
 
 const FIND_PRODUCTS_PATH = gql`
   query FindProductsPath {
-    products(last: 50) {
+    products(last: 10) {
       id
     }
   }
