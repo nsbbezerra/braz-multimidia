@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import Footer from "../components/layout/Footer";
 import HeadApp from "../components/layout/Head";
 import Header from "../components/layout/Header";
+import NextLink from "next/link";
 
 const Contact: NextPage = () => {
   return (
