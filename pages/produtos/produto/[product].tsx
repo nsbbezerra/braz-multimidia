@@ -85,7 +85,7 @@ const Produto: NextPage<Props> = ({ information }) => {
     <Fragment>
       <HeadApp title={`${information.product?.name} | Braz Camiseteria`} />
       <Header />
-      {!information.banners ? (
+      {!information?.banners ? (
         <div className="bg-gradient-to-b h-52 from-marinho-500 to-marinho-900 flex justify-center items-center flex-col px-5 text-white text-center">
           <Tag className="text-7xl" />
           <strong className="text-3xl mt-2">
@@ -96,7 +96,7 @@ const Produto: NextPage<Props> = ({ information }) => {
         <>
           <div className="w-full relative">
             <Image
-              src={information.banners.desktop.url}
+              src={information?.banners.desktop.url}
               width={1920}
               height={461}
               alt="Braz Multimidia banner"
