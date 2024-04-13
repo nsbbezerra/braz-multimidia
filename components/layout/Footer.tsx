@@ -112,10 +112,12 @@ export default function Footer() {
                 ATENDIMENTO
               </strong>
               <div className="mt-3 flex flex-col gap-2 items-center sm:items-start">
-                <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
-                  <WhatsappLogo />
-                  (61) 99911-6450
-                </a>
+                <NextLink href="/whatsapp" passHref>
+                  <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
+                    <WhatsappLogo />
+                    (63) 98501-4015
+                  </a>
+                </NextLink>
                 <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
                   <Envelope />
                   brazmultimidia@gmail.com

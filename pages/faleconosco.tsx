@@ -33,10 +33,12 @@ const Contact: NextPage = () => {
         <strong className="heading text-marinho-500 block mt-10 mb-5">
           Braz Multimidia
         </strong>
-        <a className="flex items-center gap-2 cursor-pointer hover:underline text-xl">
-          <WhatsappLogo />
-          (61) 99911-6450
-        </a>
+        <NextLink href="/whatsapp" passHref>
+          <a className="flex items-center gap-2 cursor-pointer hover:underline text-xl">
+            <WhatsappLogo />
+            (63) 98501-4015
+          </a>
+        </NextLink>
         <a className="flex items-center gap-2 cursor-pointer hover:underline text-xl">
           <Envelope />
           brazmultimidia@gmail.com

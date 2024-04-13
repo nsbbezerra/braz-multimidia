@@ -1,5 +1,5 @@
 const configs = {
-  phone: "5561999116450",
+  phone: "5563985014015",
   simulador: "https://www.google.com.br/",
 };
 

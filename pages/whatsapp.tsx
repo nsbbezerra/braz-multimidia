@@ -11,7 +11,7 @@ export default function WhatsappPage() {
   useEffect(() => {
     setTimeout(() => {
       push(
-        `https://api.whatsapp.com/send?phone=556199116450&text=Olá Braz Multimídia, vim pelo site`
+        `https://api.whatsapp.com/send?phone=5563985014015&text=Olá Braz Multimídia, vim pelo site`
       );
     }, 2000);
   }, [push]);
