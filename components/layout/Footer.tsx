@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <Fragment>
       <NextLink href="/whatsapp" passHref>
-        <a className="flex h-16 w-16 fixed bottom-5 right-5 z-50">
+        <a className="flex h-16 w-16 fixed bottom-5 left-5 z-50">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
           <span className="relative rounded-full h-16 w-16 bg-green-600 flex items-center justify-center text-4xl text-white">
             <WhatsappLogo />
@@ -118,10 +118,16 @@ export default function Footer() {
                     (63) 98501-4015
                   </a>
                 </NextLink>
-                <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
-                  <Envelope />
-                  brazmultimidia@gmail.com
-                </a>
+                <NextLink
+                  href="mailto:palmieriuniformes@gmail.com"
+                  target="_blank"
+                  passHref
+                >
+                  <a className="text-white flex items-center gap-2 cursor-pointer hover:underline">
+                    <Envelope />
+                    palmieriuniformes@gmail.com
+                  </a>
+                </NextLink>
                 <span className="text-white flex items-center gap-2">
                   <Clock />
                   8:00 - 18:00hrs de Segunda a Sexta
@@ -135,7 +141,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-full text-center mt-5 text-white px-5">
-          © Braz Multimídia desde 2007 - Todos os direitos reservados
+          © Palmieri Uniformes desde 2007 - Todos os direitos reservados
         </div>
       </footer>
     </Fragment>

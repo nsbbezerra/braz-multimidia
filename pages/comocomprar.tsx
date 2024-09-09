@@ -22,7 +22,7 @@ export default function HowToBuy() {
           <h2>COMO COMPRAR</h2>
 
           <p>
-            Comprar a Braz Multimidia é muito mais simples do que se pode
+            Comprar a Palmieri Uniformes é muito mais simples do que se pode
             imaginar!{" "}
           </p>
 

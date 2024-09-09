@@ -29,7 +29,7 @@ export default function Panel({ images }: Props) {
                       <div className="w-full">
                         <Image
                           src={image.desktop.url}
-                          alt="Braz Multimidia"
+                          alt="Palmieri Uniformes"
                           layout="responsive"
                           width={1731}
                           height={634}
@@ -44,7 +44,7 @@ export default function Panel({ images }: Props) {
                   <div className="w-full">
                     <Image
                       src={image.desktop.url}
-                      alt="Braz Multimidia"
+                      alt="Palmieri Uniformes"
                       layout="responsive"
                       width={1731}
                       height={634}
@@ -66,7 +66,7 @@ export default function Panel({ images }: Props) {
                 width={713}
                 height={449}
                 layout="responsive"
-                alt="Braz Multimidia"
+                alt="Palmieri Uniformes"
               />
             </div>
             <span className="text-sm lg:text-base font-serif">
@@ -80,7 +80,7 @@ export default function Panel({ images }: Props) {
                 width={713}
                 height={449}
                 layout="responsive"
-                alt="Braz Multimidia"
+                alt="Palmieri Uniformes"
               />
             </div>
             <span className="text-sm lg:text-base font-serif">
@@ -94,7 +94,7 @@ export default function Panel({ images }: Props) {
                 width={713}
                 height={449}
                 layout="responsive"
-                alt="Braz Multimidia"
+                alt="Palmieri Uniformes"
               />
             </div>
             <span className="text-sm lg:text-base font-serif">
@@ -108,7 +108,7 @@ export default function Panel({ images }: Props) {
                 width={713}
                 height={449}
                 layout="responsive"
-                alt="Braz Multimidia"
+                alt="Palmieri Uniformes"
               />
             </div>
             <span className="text-sm lg:text-base font-serif">
@@ -123,7 +123,7 @@ export default function Panel({ images }: Props) {
           width={1350}
           height={50}
           layout="intrinsic"
-          alt="Braz Multimidia"
+          alt="Palmieri Uniformes"
           quality={60}
         />
       </div>

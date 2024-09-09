@@ -43,7 +43,7 @@ export default function Depoiments() {
                     src={`/img/avatar.png`}
                     width={300}
                     height={300}
-                    alt="Braz Multimidia banner"
+                    alt="Palmieri Uniformes banner"
                     layout="responsive"
                   />
                 </div>

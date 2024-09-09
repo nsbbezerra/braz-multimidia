@@ -72,7 +72,7 @@ const Produtos: NextPage<Props> = ({ information }) => {
               src={information.banners[0]?.desktop?.url || ""}
               width={1920}
               height={461}
-              alt="Braz Multimidia banner"
+              alt="Palmieri Uniformes banner"
               layout="responsive"
             />
           </div>

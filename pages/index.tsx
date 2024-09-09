@@ -10,6 +10,7 @@ import Panel from "../components/layout/Panel";
 import { FIND_INDEX_PAGE } from "../graphql/indexPage";
 import { clientQuery } from "../lib/urql";
 import { ImagesPagesProps } from "../types";
+import Link from "next/link";
 
 interface Props {
   information: ImagesPagesProps;
@@ -19,7 +20,7 @@ const Home: NextPage<Props> = ({ information }) => {
   return (
     <Fragment>
       <HeadApp
-        title="Braz Camiseteria | Uniforme Empresarial, Uniforme Esportivo, Uniforme
+        title="Palmieri Uniformes | Uniforme Empresarial, Uniforme Esportivo, Uniforme
         Promocional, Abadás"
       />
       <Header />
@@ -28,20 +29,22 @@ const Home: NextPage<Props> = ({ information }) => {
         <div className="flex gap-5 items-center justify-center">
           {!information.simulatorImage
             ? ""
-            : information.simulatorImage.map((sim) => (
+            : information.simulatorImage.map((sim, index) => (
                 <div
                   className="rounded-md overflow-hidden shadow max-w-lg h-fit w-full"
                   key={sim.id}
                 >
-                  <a className="cursor-pointer">
-                    <Image
-                      src={sim.url}
-                      width={713}
-                      height={449}
-                      layout="responsive"
-                      alt="Braz Multimidia"
-                    />
-                  </a>
+                  <Link href={index === 0 ? "/" : "/whatsapp"} passHref>
+                    <a className="cursor-pointer">
+                      <Image
+                        src={index === 0 ? sim.url : "/img/call.png"}
+                        width={713}
+                        height={449}
+                        layout="responsive"
+                        alt="Palmieri Uniformes"
+                      />
+                    </a>
+                  </Link>
                 </div>
               ))}
         </div>
@@ -67,7 +70,7 @@ const Home: NextPage<Props> = ({ information }) => {
                 width={1628}
                 height={308}
                 layout="responsive"
-                alt="Braz Multimidia"
+                alt="Palmieri Uniformes"
                 quality={100}
               />
             </div>
@@ -79,7 +82,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={297}
                   height={427}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                   quality={100}
                 />
               </div>
@@ -112,12 +115,12 @@ const Home: NextPage<Props> = ({ information }) => {
             </strong>
 
             <p className="mb-3">
-              A Braz Multimídia é uma empresa especializada na fabricação e
+              A Palmieri Uniformes é uma empresa especializada na fabricação e
               comercialização de uniformes.
             </p>
             <p className="mb-3">
-              Com fábricas situadas na região de Brasília - DF, a Braz
-              Multimídia atua em todo o território brasileiro e veste diversas
+              Com fábricas situadas na região de Pedro afonso - TO, a Palmieri
+              Uniformes atua em todo o território brasileiro e veste diversas
               empresas, eventos, times, alunos e etc, no país.
             </p>
             <p>
@@ -141,7 +144,7 @@ const Home: NextPage<Props> = ({ information }) => {
                         width={778}
                         height={583}
                         layout="responsive"
-                        alt="Braz Multimidia"
+                        alt="Palmieri Uniformes"
                       />
                     </div>
                   ))}
@@ -168,7 +171,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="w-1/2">
@@ -177,7 +180,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <span className="text-center text-sm text-white">
@@ -200,7 +203,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="w-1/2">
@@ -209,7 +212,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <span className="text-center text-sm text-white">
@@ -229,7 +232,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="w-1/2">
@@ -238,7 +241,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <span className="text-center text-sm text-white">
@@ -258,7 +261,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="w-1/2">
@@ -267,7 +270,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <span className="text-center text-sm text-white">
@@ -284,7 +287,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="w-[60%] sm:w-[30%] md:w-full">
@@ -293,7 +296,7 @@ const Home: NextPage<Props> = ({ information }) => {
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
             </div>

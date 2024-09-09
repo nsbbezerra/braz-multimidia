@@ -94,7 +94,7 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
               src={banners.desktop.url}
               width={1920}
               height={461}
-              alt="Braz Multimidia banner"
+              alt="Palmieri Uniformes banner"
               layout="responsive"
             />
           </div>
@@ -162,7 +162,7 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
                     width={600}
                     height={600}
                     layout="responsive"
-                    alt="Braz Multimidia"
+                    alt="Palmieri Uniformes"
                   />
                   <div className="absolute top-0 right-0 left-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-all">
                     <button
@@ -195,7 +195,7 @@ const Catalogos: NextPage<Props> = ({ collections, categories, banners }) => {
                   width={600}
                   height={600}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
             </div>

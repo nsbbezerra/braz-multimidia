@@ -169,12 +169,12 @@ function Header() {
       <header className="w-full sticky top-0 min-h-fit shadow-lg bg-white bg-opacity-80 backdrop-blur-sm z-20">
         <div className="container mx-auto pl-5 lg:px-5 xl:px-0 max-w-6xl flex items-center justify-between h-14">
           <Link href={"/"} passHref>
-            <a className="w-[100px] flex">
+            <a className="w-[135px] flex">
               <Image
                 src="/img/logo.svg"
                 width={115}
                 height={50}
-                alt="Braz Multimídia"
+                alt="Palmieri Uniformes"
               />
             </a>
           </Link>

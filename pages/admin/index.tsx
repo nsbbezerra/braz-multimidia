@@ -340,7 +340,7 @@ export default function Admin() {
                             width={600}
                             height={600}
                             layout="responsive"
-                            alt="Braz Multimidia"
+                            alt="Palmieri Uniformes"
                           />
                         </div>
                         <div className="flex justify-between items-start">

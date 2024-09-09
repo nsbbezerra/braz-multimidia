@@ -48,7 +48,7 @@ export default function Carousel({ catalogs, product }: Props) {
                   width={600}
                   height={600}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
             ))}

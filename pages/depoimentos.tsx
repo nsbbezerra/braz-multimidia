@@ -34,7 +34,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo1.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={183}
@@ -43,7 +43,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo2.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={135}
@@ -52,7 +52,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo3.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={146}
@@ -61,7 +61,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo4.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -70,7 +70,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo5.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -79,7 +79,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo6.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -88,7 +88,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo7.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -97,7 +97,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo8.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -106,7 +106,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo9.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -115,7 +115,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo10.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -124,7 +124,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo11.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -133,7 +133,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/depo12.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={137}
@@ -149,7 +149,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz1.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}
@@ -159,7 +159,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz2.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}
@@ -169,7 +169,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz3.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}
@@ -179,7 +179,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz4.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}
@@ -189,7 +189,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz5.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}
@@ -199,7 +199,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz6.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}
@@ -209,7 +209,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz7.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}
@@ -219,7 +219,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz8.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}
@@ -229,7 +229,7 @@ export default function Depoimentos() {
           <div className="relative w-full h-fit rounded-md shadow overflow-hidden">
             <Image
               src={"/img/depoimentos/braz9.jpg"}
-              alt="Depoimentos Braz Multimídia"
+              alt="Depoimentos Palmieri Uniformes"
               layout="responsive"
               width={600}
               height={600}

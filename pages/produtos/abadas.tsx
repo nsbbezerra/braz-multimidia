@@ -22,7 +22,7 @@ export default function Abadas() {
           src={"/img/abada/banner.png"}
           width={1731}
           height={634}
-          alt="Braz Multimidia banner"
+          alt="Palmieri Uniformes banner"
           layout="responsive"
         />
       </div>
@@ -37,7 +37,7 @@ export default function Abadas() {
             src={"/img/abada/abada.png"}
             width={1124}
             height={977}
-            alt="Braz Multimidia banner"
+            alt="Palmieri Uniformes banner"
             layout="responsive"
           />
         </div>
@@ -72,7 +72,7 @@ export default function Abadas() {
                 src={"/img/abada/sim-one.png"}
                 width={636}
                 height={769}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>
@@ -81,7 +81,7 @@ export default function Abadas() {
                 src={"/img/abada/sim-two.png"}
                 width={636}
                 height={769}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>
@@ -90,7 +90,7 @@ export default function Abadas() {
                 src={"/img/abada/sim-three.png"}
                 width={636}
                 height={769}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>

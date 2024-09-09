@@ -99,7 +99,7 @@ const Produto: NextPage<Props> = ({ information }) => {
               src={information?.banners.desktop.url}
               width={1920}
               height={461}
-              alt="Braz Multimidia banner"
+              alt="Palmieri Uniformes banner"
               layout="responsive"
             />
           </div>
@@ -130,7 +130,7 @@ const Produto: NextPage<Props> = ({ information }) => {
               width={600}
               height={600}
               layout="responsive"
-              alt="Braz Multimidia"
+              alt="Palmieri Uniformes"
             />
           </div>
 
@@ -291,7 +291,7 @@ const Produto: NextPage<Props> = ({ information }) => {
                   width={600}
                   height={600}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
             )
@@ -327,7 +327,7 @@ const Produto: NextPage<Props> = ({ information }) => {
                 width={626}
                 height={417}
                 layout="responsive"
-                alt="Braz Multimidia"
+                alt="Palmieri Uniformes"
               />
               <div className="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 hover:opacity-100 transition-all">
                 <button
@@ -391,7 +391,7 @@ const Produto: NextPage<Props> = ({ information }) => {
                   width={626}
                   height={417}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
             </div>

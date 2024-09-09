@@ -23,16 +23,16 @@ const Contact: NextPage = () => {
 
         <div className="mt-10">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15350.058163681302!2d-48.0800549!3d-15.8820922!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2b78d6139019e60a!2sBraz%20Multim%C3%ADdia%20-%20Camiseteria!5e0!3m2!1spt-BR!2sbr!4v1643287585779!5m2!1spt-BR!2sbr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4560.1570645972515!2d-48.17474012434777!3d-9.014814806826168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x932683d7b83e77c7%3A0x97168c9dad5d8964!2sBraz%20Uniformes!5e0!3m2!1spt-BR!2sbr!4v1725916642508!5m2!1spt-BR!2sbr"
             width="100%"
             height="100%"
             loading="lazy"
             className="aspect-video rounded-md shadow"
-          ></iframe>
+          />
         </div>
 
         <strong className="heading text-marinho-500 block mt-10 mb-5">
-          Braz Multimidia
+          Palmieri Uniformes
         </strong>
         <NextLink href="/whatsapp" passHref>
           <a className="flex items-center gap-2 cursor-pointer hover:underline text-xl">
@@ -40,10 +40,19 @@ const Contact: NextPage = () => {
             (63) 98501-4015
           </a>
         </NextLink>
-        <a className="flex items-center gap-2 cursor-pointer hover:underline text-xl">
-          <Envelope />
-          brazmultimidia@gmail.com
-        </a>
+        <NextLink
+          href="mailto:palmieriuniformes@gmail.com"
+          target="_blank"
+          passHref
+        >
+          <a
+            className="flex items-center gap-2 cursor-pointer hover:underline text-xl"
+            target="_blank"
+          >
+            <Envelope />
+            palmieriuniformes@gmail.com
+          </a>
+        </NextLink>
         <span className="flex items-center gap-2 text-xl">
           <Clock />
           8:00 - 18:00hrs de Segunda a Sexta

@@ -23,7 +23,7 @@ export default function Ciclismo() {
           src={"/img/ciclismo/banner.jpg"}
           width={1731}
           height={634}
-          alt="Braz Multimidia banner"
+          alt="Palmieri Uniformes banner"
           layout="responsive"
         />
       </div>
@@ -38,7 +38,7 @@ export default function Ciclismo() {
             src={"/img/ciclismo/uniforme.png"}
             width={1124}
             height={977}
-            alt="Braz Multimidia banner"
+            alt="Palmieri Uniformes banner"
             layout="responsive"
           />
         </div>
@@ -122,7 +122,7 @@ export default function Ciclismo() {
                 src={"/img/ciclismo/sim-one.png"}
                 width={492}
                 height={889}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>
@@ -131,7 +131,7 @@ export default function Ciclismo() {
                 src={"/img/ciclismo/sim-two.png"}
                 width={492}
                 height={889}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>
@@ -140,7 +140,7 @@ export default function Ciclismo() {
                 src={"/img/ciclismo/sim-three.png"}
                 width={492}
                 height={889}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>

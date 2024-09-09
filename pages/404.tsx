@@ -15,7 +15,7 @@ export default function NotFound() {
             src="/img/logo.svg"
             width={115}
             height={50}
-            alt="Braz Multimídia"
+            alt="Palmieri Uniformes"
             layout="responsive"
           />
         </div>

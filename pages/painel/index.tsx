@@ -373,7 +373,9 @@ export default function Orders() {
       />
       <HeadApp
         title={
-          !user.length ? "Login | Braz Multimidia" : "Pedidos | Braz Multimidia"
+          !user.length
+            ? "Login | Palmieri Uniformes"
+            : "Pedidos | Palmieri Uniformes"
         }
       />
       {!user.length ? (
@@ -726,7 +728,7 @@ export default function Orders() {
                               width={600}
                               height={600}
                               layout="responsive"
-                              alt="Braz Multimidia"
+                              alt="Palmieri Uniformes"
                             />
                           </div>
                           <div className="flex justify-between items-start">

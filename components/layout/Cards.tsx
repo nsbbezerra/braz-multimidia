@@ -25,7 +25,7 @@ export default function Cards({ categories }: Props) {
                   width={600}
                   height={600}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="p-2 md:p-4">
@@ -46,7 +46,7 @@ export default function Cards({ categories }: Props) {
                   width={600}
                   height={600}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="p-2 md:p-4">
@@ -67,7 +67,7 @@ export default function Cards({ categories }: Props) {
                   width={600}
                   height={600}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="p-2 md:p-4">
@@ -88,7 +88,7 @@ export default function Cards({ categories }: Props) {
                   width={600}
                   height={600}
                   layout="responsive"
-                  alt="Braz Multimidia"
+                  alt="Palmieri Uniformes"
                 />
               </div>
               <div className="p-2 md:p-4">
@@ -110,7 +110,7 @@ export default function Cards({ categories }: Props) {
                     width={600}
                     height={600}
                     layout="responsive"
-                    alt="Braz Multimidia"
+                    alt="Palmieri Uniformes"
                   />
                 </div>
                 <div className="p-2 md:p-4">

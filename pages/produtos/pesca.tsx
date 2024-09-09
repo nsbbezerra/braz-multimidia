@@ -22,7 +22,7 @@ export default function Pesca() {
           src={"/img/pesca/banner.jpg"}
           width={1731}
           height={634}
-          alt="Braz Multimidia banner"
+          alt="Palmieri Uniformes banner"
           layout="responsive"
         />
       </div>
@@ -37,7 +37,7 @@ export default function Pesca() {
             src={"/img/pesca/uniforme.png"}
             width={600}
             height={377}
-            alt="Braz Multimidia banner"
+            alt="Palmieri Uniformes banner"
             layout="responsive"
           />
         </div>
@@ -72,7 +72,7 @@ export default function Pesca() {
                 src={"/img/pesca/sim-one.png"}
                 width={600}
                 height={600}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>
@@ -81,7 +81,7 @@ export default function Pesca() {
                 src={"/img/pesca/sim-two.png"}
                 width={600}
                 height={600}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>
@@ -90,7 +90,7 @@ export default function Pesca() {
                 src={"/img/pesca/sim-three.png"}
                 width={600}
                 height={600}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>

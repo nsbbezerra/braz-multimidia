@@ -27,7 +27,7 @@ const Who: NextPage = () => {
               src="/img/logo.svg"
               width={115}
               height={50}
-              alt="Braz Multimídia"
+              alt="Palmieri Uniformes"
               layout="responsive"
             />
           </div>
@@ -37,13 +37,13 @@ const Who: NextPage = () => {
           Quem somos?
         </strong>
         <p className="text-lg text-justify leading-loose indent-5">
-          A Braz Multimídia é uma empresa especializada na fabricação e
+          A Palmieri Uniformes é uma empresa especializada na fabricação e
           comercialização de uniformes.
         </p>
         <p className="text-lg text-justify leading-loose indent-5">
-          Com fábricas situadas na região de Brasília - DF, a Braz Multimídia
-          atua em todo o território brasileiro e veste diversas empresas,
-          eventos, times, alunos e etc, no país.
+          Com fábricas situadas na região de Pedro Afonso - TO, a Palmieri
+          Uniformes atua em todo o território brasileiro e veste diversas
+          empresas, eventos, times, alunos e etc, no país.
         </p>
         <p className="text-lg text-justify leading-loose indent-5">
           A qualidade estampada em nossos produtos é resultado de um constante
@@ -56,12 +56,12 @@ const Who: NextPage = () => {
           Nossa estrutura
         </strong>
         <p className="text-lg text-justify leading-loose indent-5">
-          A Braz Multimídia orgulha-se de empregar em seus processos produtivos
-          e administrativos, tecnologias e equipamentos de ponta no mercado, a
-          fim de tornar sua operação mais rápida, ágil e principalmente
-          eficiente. Desde o primeiro contato, os dados do cliente e de seu
-          pedido são inseridos em um sistema de gestão online que é acessado
-          pela equipe interna em todos os setores.
+          A Palmieri Uniformes orgulha-se de empregar em seus processos
+          produtivos e administrativos, tecnologias e equipamentos de ponta no
+          mercado, a fim de tornar sua operação mais rápida, ágil e
+          principalmente eficiente. Desde o primeiro contato, os dados do
+          cliente e de seu pedido são inseridos em um sistema de gestão online
+          que é acessado pela equipe interna em todos os setores.
         </p>
         <p className="text-lg text-justify leading-loose indent-5">
           Desta forma, são minimizados as chances de desencontro de informações

@@ -23,7 +23,7 @@ export default function Esportivos() {
           src={"/img/esportivo/banner.jpg"}
           width={1731}
           height={634}
-          alt="Braz Multimidia banner"
+          alt="Palmieri Uniformes banner"
           layout="responsive"
         />
       </div>
@@ -40,7 +40,7 @@ export default function Esportivos() {
               src={"/img/esportivo/about.png"}
               width={300}
               height={300}
-              alt="Braz Multimidia banner"
+              alt="Palmieri Uniformes banner"
               layout="responsive"
             />
           </div>
@@ -75,7 +75,7 @@ export default function Esportivos() {
             src={"/img/esportivo/uniforme.png"}
             width={1124}
             height={977}
-            alt="Braz Multimidia banner"
+            alt="Palmieri Uniformes banner"
             layout="responsive"
           />
         </div>
@@ -170,7 +170,7 @@ export default function Esportivos() {
                 src={"/img/esportivo/sim-one.png"}
                 width={492}
                 height={889}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>
@@ -179,7 +179,7 @@ export default function Esportivos() {
                 src={"/img/esportivo/sim-two.png"}
                 width={492}
                 height={889}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>
@@ -188,7 +188,7 @@ export default function Esportivos() {
                 src={"/img/esportivo/sim-three.png"}
                 width={492}
                 height={889}
-                alt="Braz Multimidia banner"
+                alt="Palmieri Uniformes banner"
                 layout="responsive"
               />
             </div>

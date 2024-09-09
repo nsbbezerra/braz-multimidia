@@ -32,7 +32,7 @@ export default function Specs({ origin }: Props) {
             src={"/img/abada/tecido.png"}
             width={200}
             height={200}
-            alt="Braz Multimidia banner"
+            alt="Palmieri Uniformes banner"
             layout="responsive"
           />
         </div>
@@ -52,7 +52,7 @@ export default function Specs({ origin }: Props) {
             src={handleOrigin().url}
             width={200}
             height={200}
-            alt="Braz Multimidia banner"
+            alt="Palmieri Uniformes banner"
             layout="responsive"
           />
         </div>
@@ -72,7 +72,7 @@ export default function Specs({ origin }: Props) {
             src={"/img/abada/uv.png"}
             width={200}
             height={200}
-            alt="Braz Multimidia banner"
+            alt="Palmieri Uniformes banner"
             layout="responsive"
           />
         </div>
