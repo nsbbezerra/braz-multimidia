@@ -55,7 +55,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3 mt-3 justify-center sm:justify-start">
                 <NextLink
-                  href={"https://www.instagram.com/braz.multimidia/"}
+                  href={"https://www.instagram.com/palmieri.uniformes/"}
                   passHref
                 >
                   <a
@@ -66,7 +66,9 @@ export default function Footer() {
                   </a>
                 </NextLink>
                 <NextLink
-                  href={"https://www.facebook.com/brazmultimidia"}
+                  href={
+                    "https://www.facebook.com/profile.php?id=61565352614489"
+                  }
                   passHref
                 >
                   <a
